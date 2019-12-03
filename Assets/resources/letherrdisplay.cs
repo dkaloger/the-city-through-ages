@@ -2,22 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class fooddipslay : MonoBehaviour
+public class letherrdisplay : MonoBehaviour
 {
-    public int food;
+    public int leather;
     private TextMeshProUGUI textMesH;
-
     // Start is called before the first frame update
     void Start()
     {
         textMesH = GetComponent<TextMeshProUGUI>();
-        food = 0;
+        leather = 0;
     }
-
+   
     // Update is called once per frame
     void Update()
     {
-        textMesH.text = food.ToString();
-
+        textMesH.text = leather.ToString();
     }
 }
