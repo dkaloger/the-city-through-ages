@@ -24,25 +24,25 @@ public class BUILDMENUCLOSE : MonoBehaviour
       
         if (delay > 200)
         {
-            if (state == false)
+            if (state == true)
             {
 
-                test = true;
+      
                 buildingwheel.Play("closebuildcircle");
 
-                state = true;
+                state = false;
                 delay = 0;
             }
         }
         if ( delay > 200)
         {
-            if (state == true)
+            if (state == false)
             {
 
-                test = true;
+              
                 buildingwheel.Play("openbuildcircle");
 
-                state = false;
+                state = true;
                 delay = 0;
             }
         }

@@ -18,7 +18,7 @@ public    Vector3 leftsidelimits;
     void Update()
     {
         speed =   GetComponent<Camera>().orthographicSize;
-        if (GetComponent<Camera>().orthographicSize > 10)
+        if (GetComponent<Camera>().orthographicSize > 3.735543)
         {
             if (Input.GetAxis("Mouse ScrollWheel") > 0)
             {

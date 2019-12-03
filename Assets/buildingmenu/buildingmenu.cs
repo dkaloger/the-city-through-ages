@@ -5,30 +5,31 @@ using UnityEngine;
 
 public class buildingmenu : MonoBehaviour
 {
+    public glowmaster Glowmaster;
     [SerializeField]
-   GameObject buildwheel;
+    private int mynumber;
     [SerializeField]
-    bool buildwheelstate;
-    [SerializeField]
-    Animation buildingwheel;
-   
+    Animation glow;
     void Update()
     {
+      if (mynumber == Glowmaster.selectedring)
+        {
+            glow.Play("select");
+        }
 
 
-      
-       
-
-     
 
 
-           
-        
-          
-      
-        
-      
-        
+
+
+
+
+
+
+
+
+
+
     }
     
 }

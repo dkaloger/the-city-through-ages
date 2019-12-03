@@ -591,6 +591,8 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Build: 1
+    Collab: 1
     UNet: 1
   luminIcon:
     m_Name: 
@@ -611,10 +613,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 588a6615-5cfa-42be-8540-5474ab8527b1
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: the city of the future
+  organizationId: dimitriskalogeropoulos3
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
