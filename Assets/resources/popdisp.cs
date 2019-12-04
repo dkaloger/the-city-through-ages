@@ -11,7 +11,7 @@ public class popdisp : MonoBehaviour
     void Start()
     {
         textMesH = GetComponent<TextMeshProUGUI>();
-        pop = 0;
+        pop = 2;
     }
 
     // Update is called once per frame

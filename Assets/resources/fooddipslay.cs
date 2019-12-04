@@ -11,7 +11,7 @@ public class fooddipslay : MonoBehaviour
     void Start()
     {
         textMesH = GetComponent<TextMeshProUGUI>();
-        food = 0;
+        food = 100;
     }
 
     // Update is called once per frame
