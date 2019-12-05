@@ -24,15 +24,25 @@ public class placebulding : MonoBehaviour
         {
 
             correction = transform.position.y / 3.141592653589793238462643383279502884197169399375105f;
-           
- clickedpos.x = (int)transform.position.x;
+
+            clickedpos.x = (int)transform.position.x;
             clickedpos.y = (int)transform.position.y + (int)correction;
             clickedpos.z = (int)transform.position.z ;
+
+            //clickedpos.x = (int)transform.position.x;
+            //clickedpos.y = (int)transform.position.y + (int)correction;
+            //clickedpos.z = (int)transform.position.z;
+
             buildings.SetTile(clickedpos, highlightTile);
+
+
+            Debug.Log(clickedpos.x);
+            Debug.Log(clickedpos.y);
+
         }
-        
-           
-        
-        
+
+
+
+
     }
 }
