@@ -288,8 +288,20 @@ MonoBehaviour:
   clickedpos: {x: 0, y: 0, z: 0}
   buildings: {fileID: 1430819421}
   highlightTile: {fileID: 11400000, guid: 9bd979485e7d79846905dfb437bda97b, type: 2}
+  Buldings:
+  - {fileID: 11400000, guid: 82fc96c7f6fd4264b951acf69c20df65, type: 2}
+  - {fileID: 11400000, guid: b5b577cf3e34f6444bdb0c3dbf7610e4, type: 2}
+  - {fileID: 11400000, guid: 9976c621c7b5dae4aa20fa1081264713, type: 2}
+  - {fileID: 11400000, guid: 9ad9facfab2a67344bf708461f260034, type: 2}
+  - {fileID: 11400000, guid: 7b5d9ae2f3533b0459a1b7dc5b46722f, type: 2}
+  - {fileID: 11400000, guid: 431eb800b4d6e994a9290749c754d5f7, type: 2}
+  - {fileID: 11400000, guid: 873f082358b1c534fb31c5cb08bf27db, type: 2}
+  - {fileID: 11400000, guid: bb980980cdafbed42956ef7cbb76ad9a, type: 2}
+  - {fileID: 11400000, guid: b1f830c7125b5d840931a08998bc371e, type: 2}
+  - {fileID: 11400000, guid: b35a6da89e6033f419e22eb13b256496, type: 2}
   test: {x: 0, y: 0, z: 0}
   correction: 0
+  buildingWheel: {fileID: 1058020896}
 --- !u!61 &1260323167
 BoxCollider2D:
   m_ObjectHideFlags: 0
