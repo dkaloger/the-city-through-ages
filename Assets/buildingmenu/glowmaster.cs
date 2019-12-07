@@ -16,11 +16,11 @@ public class glowmaster : MonoBehaviour
         {
             selectedring -= 1;
         }
-if(selectedring == 9)
+        if(selectedring == 9)
         {
             selectedring = 1;
         }
-if (selectedring == 0)
+        if (selectedring == 0)
         {
             selectedring = 8;
         }
