@@ -24,5 +24,6 @@ public class glowmaster : MonoBehaviour
         {
             selectedring = 8;
         }
+        Debug.Log(selectedring + " seleckt rings");
     }
 }

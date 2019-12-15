@@ -10,6 +10,7 @@ public class placebulding : MonoBehaviour
     public Tile highlightTile;
     public Vector3 test;
     public float correction;
+    public GameObject techTree;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,7 @@ public class placebulding : MonoBehaviour
 
             buildings.SetTile(clickedpos, highlightTile);
 
+            techTree.GetComponent<techTree>();
 
             Debug.Log(clickedpos.x);
             Debug.Log(clickedpos.y);
