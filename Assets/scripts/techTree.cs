@@ -9,14 +9,13 @@ public class techTree : MonoBehaviour
     public int [] buildings;
 
     private int tier = 0;
-    [SerializeField] GameObject buildWheel;
     [SerializeField] TMPro.TextMeshProUGUI textMeshProUGUI;
 
 
     void Update()
     {
 
-        if (buildings[0] == 2 && buildings[5] == 1 && tier == 0)
+        if (buildings[0] >= 2 && buildings[5] >= 1 && tier == 0)
         {
             tier++;
             textMeshProUGUI.text = "your tier is: " + tier;

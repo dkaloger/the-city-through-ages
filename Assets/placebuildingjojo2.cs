@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-public class placebuildingjojo : MonoBehaviour
+public class placebuildingjojo2 : MonoBehaviour
 {
     [SerializeField]
     private Vector3Int clickedpos;
@@ -12,6 +12,7 @@ public class placebuildingjojo : MonoBehaviour
     public Vector3 test;
     public float correction;
     public GameObject buildingWheel;
+    public GameObject TechTree;
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +32,9 @@ public class placebuildingjojo : MonoBehaviour
             clickedpos.y = (int)transform.position.x ;
             clickedpos.z = (int)transform.position.z;
 
-            
+            buildings.SetTile(clickedpos, Buldings[buildingWheel.GetComponent<glowmaster>().selectedring -1]);
 
-            buildings.SetTile(clickedpos, Buldings[buildingWheel.GetComponent<glowmaster>().selectedring]);
+            TechTree.GetComponent<techTree>().addBuilding(buildingWheel.GetComponent<glowmaster>().selectedring -1);
 
             Debug.Log(clickedpos.x);
             Debug.Log(clickedpos.y);
