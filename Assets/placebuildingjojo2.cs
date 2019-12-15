@@ -37,7 +37,7 @@ public class placebuildingjojo2 : MonoBehaviour
             TechTree.GetComponent<techTree>().addBuilding(buildingWheel.GetComponent<glowmaster>().selectedring );
 
             Debug.Log(clickedpos.x);
-            Debug.Log(clickedpos.y);
+            //Debug.Log(clickedpos.y);
 
         }
 
