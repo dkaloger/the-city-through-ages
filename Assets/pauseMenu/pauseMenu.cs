@@ -56,4 +56,8 @@ public class pauseMenu : MonoBehaviour
     {
         AudioListener.pause = !AudioListener.pause;
     }
+    public void GetBack()
+    {
+        SceneManager.LoadScene(1);
+    }
 }
