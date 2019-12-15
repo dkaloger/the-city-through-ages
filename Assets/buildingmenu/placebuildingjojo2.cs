@@ -5,7 +5,8 @@ using UnityEngine.Tilemaps;
 public class placebuildingjojo2 : MonoBehaviour
 {
     [SerializeField]
-    private Vector3Int clickedpos;
+     Vector3Int clickedpos;
+    private Vector3 clickedposf;
     public Tilemap buildings;
     public Tile highlightTile;
     public Tile[] Buldings;
@@ -13,7 +14,7 @@ public class placebuildingjojo2 : MonoBehaviour
     public float correction;
     public GameObject buildingWheel;
     public GameObject TechTree;
-
+public Camera maincam;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,15 +24,17 @@ public class placebuildingjojo2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && GetComponent<Camera>().orthographicSize < 3.735543)
+        if (Input.GetKeyDown(KeyCode.Space) && maincam.GetComponent<Camera>().orthographicSize < 3.735543)
         {
-correction = transform.position.x / 2.85714285714f ;
+            correction = transform.position.x / 3f;
 
 
-            clickedpos.x = (int)transform.position.y ;
-            clickedpos.y = (int)transform.position.x + (int)correction ;
-            clickedpos.z = (int)transform.position.z;
-
+            clickedposf.x = Mathf.Round(transform.position.y);
+            clickedposf.y = Mathf.Round(transform.position.x) + Mathf.Round(correction);
+            clickedposf.z = transform.position.z;
+            clickedpos.y = (int)clickedposf.y;
+            clickedpos.x = (int)clickedposf.x;
+            clickedpos.z = (int)clickedposf.z;
             buildings.SetTile(clickedpos, Buldings[buildingWheel.GetComponent<glowmaster>().selectedring ]);
 
           //  TechTree.GetComponent<techTree>().addBuilding(buildingWheel.GetComponent<glowmaster>().selectedring );

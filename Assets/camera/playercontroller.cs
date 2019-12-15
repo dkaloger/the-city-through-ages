@@ -10,6 +10,7 @@ public class playercontroller : MonoBehaviour
     private Vector2 movevelocity;
 public    Vector3 leftsidelimits;
     public Vector3 rightsidelimits;
+    Vector2 roundedpos;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -17,27 +18,46 @@ public    Vector3 leftsidelimits;
 
     void Update()
     {
-        speed =   GetComponent<Camera>().orthographicSize;
-        if (GetComponent<Camera>().orthographicSize > 3.735543)
+        if (GetComponent<Camera>().orthographicSize > 10)
+        {
+            speed = GetComponent<Camera>().orthographicSize / 20;
+        }
+
+        if (GetComponent<Camera>().orthographicSize == 10)
+        {
+            speed = GetComponent<Camera>().orthographicSize / 10;
+        }
+      
+        if (GetComponent<Camera>().orthographicSize > 10)
         {
             if (Input.GetAxis("Mouse ScrollWheel") > 0)
             {
-                GetComponent<Camera>().orthographicSize -= 5;
+                GetComponent<Camera>().orthographicSize -= 10;
             }
         }
-        if (GetComponent<Camera>().orthographicSize < 50)
+        if (GetComponent<Camera>().orthographicSize < 50 && GetComponent<Camera>().orthographicSize>2f)
         {
             if (Input.GetAxis("Mouse ScrollWheel") < 0)
             {
-                GetComponent<Camera>().orthographicSize += 5;
+                GetComponent<Camera>().orthographicSize += 10;
             }
         }
+   
+       
         Vector2 moveinput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         movevelocity = moveinput.normalized * speed;
     }
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movevelocity * Time.fixedDeltaTime);
+  
+
+      
+            roundedpos.x = (Mathf.Round(rb.position.x));
+            roundedpos.y = (Mathf.Round(rb.position.y));
+        rb.MovePosition(roundedpos + movevelocity);
+           
+        
+        
     }
 }
