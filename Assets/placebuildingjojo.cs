@@ -25,17 +25,13 @@ public class placebuildingjojo : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && GetComponent<Camera>().orthographicSize < 3.735543)
         {
 
-            correction = transform.position.y / 3.141592653589793238462643383279502884197169399375105f;
+           
 
-            clickedpos.x = (int)transform.position.x;
-            clickedpos.y = (int)transform.position.y + (int)correction;
+            clickedpos.x = (int)transform.position.y;
+            clickedpos.y = (int)transform.position.x ;
             clickedpos.z = (int)transform.position.z;
 
-            //clickedpos.x = (int)transform.position.x;
-            //clickedpos.y = (int)transform.position.y + (int)correction;
-            //clickedpos.z = (int)transform.position.z;
-
-            //buildings.SetTile(clickedpos, highlightTile);
+            
 
             buildings.SetTile(clickedpos, Buldings[buildingWheel.GetComponent<glowmaster>().selectedring]);
 
