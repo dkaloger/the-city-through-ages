@@ -32,9 +32,9 @@ public class placebuildingjojo2 : MonoBehaviour
             clickedpos.y = (int)transform.position.x ;
             clickedpos.z = (int)transform.position.z;
 
-            buildings.SetTile(clickedpos, Buldings[buildingWheel.GetComponent<glowmaster>().selectedring -1]);
+            buildings.SetTile(clickedpos, Buldings[buildingWheel.GetComponent<glowmaster>().selectedring ]);
 
-            TechTree.GetComponent<techTree>().addBuilding(buildingWheel.GetComponent<glowmaster>().selectedring -1);
+            TechTree.GetComponent<techTree>().addBuilding(buildingWheel.GetComponent<glowmaster>().selectedring );
 
             Debug.Log(clickedpos.x);
             Debug.Log(clickedpos.y);
