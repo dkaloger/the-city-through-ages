@@ -18,6 +18,10 @@ public    Vector3 leftsidelimits;
 
     void Update()
     {
+        if (GetComponent<Camera>().orthographicSize < 5.735542)
+        {
+            speed = 0.5f;
+        }
         if (GetComponent<Camera>().orthographicSize > 10)
         {
             speed = GetComponent<Camera>().orthographicSize / 20;
@@ -44,18 +48,21 @@ public    Vector3 leftsidelimits;
         }
    
        
-        Vector2 moveinput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        movevelocity = moveinput.normalized * speed;
+        
+      
+     
     }
 
     private void FixedUpdate()
     {
-  
+        Vector2 moveinput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-      
-            roundedpos.x = (Mathf.Round(rb.position.x));
-            roundedpos.y = (Mathf.Round(rb.position.y));
-        rb.MovePosition(roundedpos + movevelocity);
+
+        movevelocity = moveinput.normalized * speed;
+           
+            rb.MovePosition( rb.position + movevelocity);
+        
+ 
            
         
         
