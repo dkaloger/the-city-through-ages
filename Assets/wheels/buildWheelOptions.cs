@@ -13,6 +13,7 @@ public class buildWheelOptions : MonoBehaviour
 
     [SerializeField] GameObject[] myBuildings = new GameObject[8];
 
+    public bool orderwheelon;
     private void Start()
     {
         
@@ -36,6 +37,16 @@ public class buildWheelOptions : MonoBehaviour
                 changeImage(curTier);
             }
         }
+        if (Input.GetKeyDown(KeyCode.O))  {
+            myBuildings[0].GetComponent<SpriteRenderer>().sprite = mySprites[16];
+            myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[17];
+            myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[18];
+            myBuildings[3].GetComponent<SpriteRenderer>().sprite = mySprites[19];
+            myBuildings[4].GetComponent<SpriteRenderer>().sprite = mySprites[20];
+            myBuildings[5].GetComponent<SpriteRenderer>().sprite = mySprites[21];
+            myBuildings[6].GetComponent<SpriteRenderer>().sprite = mySprites[22];
+            myBuildings[7].GetComponent<SpriteRenderer>().sprite = mySprites[23];
+        }
     }
 
     public void changeImage(int tier)
@@ -51,8 +62,21 @@ public class buildWheelOptions : MonoBehaviour
             myBuildings[6].GetComponent<SpriteRenderer>().sprite = mySprites[6];
             myBuildings[7].GetComponent<SpriteRenderer>().sprite = mySprites[7];
         }
+        if (tier == 1)
+        {
+            myBuildings[0].GetComponent<SpriteRenderer>().sprite = mySprites[8];
+            myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[9];
+            myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[10];
+            myBuildings[3].GetComponent<SpriteRenderer>().sprite = mySprites[11];
+            myBuildings[4].GetComponent<SpriteRenderer>().sprite = mySprites[12];
+            myBuildings[5].GetComponent<SpriteRenderer>().sprite = mySprites[13];
+            myBuildings[6].GetComponent<SpriteRenderer>().sprite = mySprites[14];
+            myBuildings[7].GetComponent<SpriteRenderer>().sprite = mySprites[15];
+        }
+
     }
 
+  
     void test()
     {
         changeImage(0);

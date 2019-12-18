@@ -28,7 +28,10 @@ public class placebuilding : MonoBehaviour
     // }
     [SerializeField]
     Tilemap tilemp; 
-    void Update() { Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    void Update() {
+       
+        
+         Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
      if (Input.GetMouseButtonDown(0)) { Vector3Int selectedTile = tilemp.WorldToCell(point);
      tilemp.SetTile(selectedTile, Buldings[buildingWheel.GetComponent<glowmaster>().selectedring]); } 
      }
