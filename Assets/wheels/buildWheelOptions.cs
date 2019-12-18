@@ -6,8 +6,8 @@ using System;
 public class buildWheelOptions : MonoBehaviour
 {
 
-    private int curTier = 1;
-    int[] buildingsAllowed = new int[1];
+    private int curTier = 0;
+    int[] buildingsAllowed = new int[0];
 
     [SerializeField] Sprite[] mySprites = new Sprite[8];
 
@@ -76,10 +76,14 @@ public class buildWheelOptions : MonoBehaviour
 
     }
 
+
   
-    void test()
+    
+
+    public void addTier(int tier)
+
     {
-        changeImage(0);
+        buildingsAllowed[tier] = tier;
     }
 
 }
