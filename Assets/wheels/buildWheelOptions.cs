@@ -7,7 +7,7 @@ public class buildWheelOptions : MonoBehaviour
 {
 
     private int curTier = 0;
-    int[] buildingsAllowed = new int[0];
+    public int[] buildingsAllowed = new int[1];
 
     [SerializeField] Sprite[] mySprites = new Sprite[8];
 
@@ -16,6 +16,7 @@ public class buildWheelOptions : MonoBehaviour
     public bool orderWheelOn;
     private void Start()
     {
+
         myBuildings[0].GetComponent<SpriteRenderer>().sprite = mySprites[0];
         myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[1];
         myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[2];
@@ -29,7 +30,7 @@ public class buildWheelOptions : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(buildingsAllowed);
+        Debug.Log(curTier);
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -100,9 +101,11 @@ public class buildWheelOptions : MonoBehaviour
     
 
     public void addTier(int tier)
-
     {
-        buildingsAllowed[tier] = tier;
+
+        Debug.Log("hello");
+
+        buildingsAllowed = new int [Convert.ToInt32(buildingsAllowed.Length +1)];
     }
 
 }
