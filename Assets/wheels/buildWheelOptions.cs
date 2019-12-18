@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class buildWheelOptions : MonoBehaviour
 {
+
+    private int curTier = 1;
+    int[] buildingsAllowed = new int[1];
 
     [SerializeField] Sprite[] mySprites = new Sprite[8];
 
@@ -11,12 +15,27 @@ public class buildWheelOptions : MonoBehaviour
 
     private void Start()
     {
-        Invoke("test", 2);
+        
     }
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (Array.Exists(buildingsAllowed, element => element == curTier -1))
+            {
+                curTier = buildingsAllowed[curTier - 1];
+                changeImage(curTier);
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (Array.Exists(buildingsAllowed, element => element == curTier + 1))
+            {
+                curTier = buildingsAllowed[curTier + 1];
+                changeImage(curTier);
+            }
+        }
     }
 
     public void changeImage(int tier)
