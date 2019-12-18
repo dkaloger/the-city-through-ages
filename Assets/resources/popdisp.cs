@@ -12,12 +12,14 @@ public class popdisp : MonoBehaviour
     {
         textMesH = GetComponent<TextMeshProUGUI>();
         pop = 2;
+       
+       
     }
 
     // Update is called once per frame
     void Update()
     {
         textMesH.text = pop.ToString();
-
+        PlayerPrefs.SetInt("pop", pop);
     }
 }
