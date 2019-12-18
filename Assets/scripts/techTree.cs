@@ -17,7 +17,7 @@ public class techTree : MonoBehaviour
     void Update()
     {
 
-        if (buildings[7] >= 1)
+        if (buildings[0] >= 1)
         {
             tier++;
 

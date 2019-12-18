@@ -1360,16 +1360,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildings: {fileID: 866676197}
   Buldings:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 35881a72a8bae2a4fa28a2aea4fc487b, type: 2}
   - {fileID: 11400000, guid: 7208e7e42d815a54ababba36db560e72, type: 2}
+  - {fileID: 11400000, guid: 7877e77a6ef14c54c8820032bc5e3657, type: 2}
+  - {fileID: 11400000, guid: 9bd979485e7d79846905dfb437bda97b, type: 2}
+  - {fileID: 11400000, guid: 82fc96c7f6fd4264b951acf69c20df65, type: 2}
+  - {fileID: 11400000, guid: b5b577cf3e34f6444bdb0c3dbf7610e4, type: 2}
+  - {fileID: 11400000, guid: 9976c621c7b5dae4aa20fa1081264713, type: 2}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  buildingWheel: {fileID: 799804714}
+  techTree: {fileID: 624570465}
   myCanvas: {fileID: 459488703}
   maincam: {fileID: 313006142}
   correction: {x: 0, y: 0, z: 0}
@@ -1395,6 +1394,21 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 04c70411f2c35b242b9a184530fb254d, type: 3}
   - {fileID: 21300000, guid: da904d37953d06946a810e0558358c21, type: 3}
   - {fileID: 21300000, guid: 1c7b1acf1aa6bd94aaa438a78f639e9c, type: 3}
+  - {fileID: 21300000, guid: aa60cc6463c90f14983923a21c998133, type: 3}
+  - {fileID: 21300000, guid: da904d37953d06946a810e0558358c21, type: 3}
+  - {fileID: 21300000, guid: 1c7b1acf1aa6bd94aaa438a78f639e9c, type: 3}
+  - {fileID: 21300000, guid: c0ea6d0f2e1c0834686e9dd188d46b8e, type: 3}
+  - {fileID: 21300000, guid: 95ccfea70d6c83148a224283e77887c5, type: 3}
+  - {fileID: 21300000, guid: 11ef9630e32fcb94f9c8dedc61f5277e, type: 3}
+  - {fileID: 21300000, guid: d2c21bed61d63bd4f8eca85dab0189e3, type: 3}
+  - {fileID: 21300000, guid: a26b541ce62db5f488a728c2b6605e5a, type: 3}
+  - {fileID: 21300000, guid: 85c4c5b956e13ad459f82bc7cc42e776, type: 3}
+  - {fileID: 21300000, guid: 68c348d7e511fa547a493cba95fc93bd, type: 3}
+  - {fileID: 21300000, guid: 918d7fbe8b34340488b2bbcdd864db4b, type: 3}
+  - {fileID: 21300000, guid: efef2d060827b6347a4312de91db8069, type: 3}
+  - {fileID: 21300000, guid: d3dd1c15f66dfc4479b36576c58ef2b8, type: 3}
+  - {fileID: 21300000, guid: 0c1ba113267222a49b687d36ca1fc5c4, type: 3}
+  - {fileID: 21300000, guid: b77a328d16d90a04793c333403d4b162, type: 3}
   myBuildings:
   - {fileID: 1062990275}
   - {fileID: 2018505507}
@@ -1404,6 +1418,7 @@ MonoBehaviour:
   - {fileID: 622839175}
   - {fileID: 1460931973}
   - {fileID: 1100042022}
+  orderWheelOn: 0
 --- !u!1 &841004503
 GameObject:
   m_ObjectHideFlags: 0

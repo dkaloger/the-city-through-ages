@@ -7,7 +7,7 @@ public class placebuilding : MonoBehaviour
     public Tilemap buildings;
     Vector3Int clickedpos;
     public Tile[] Buldings;
-    public GameObject buildingWheel;
+    public GameObject techTree;
     [SerializeField]
     Canvas myCanvas;
     Vector2 pos;
@@ -29,10 +29,13 @@ public class placebuilding : MonoBehaviour
     [SerializeField]
     Tilemap tilemp; 
     void Update() {
-       
+
         
-         Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-     if (Input.GetMouseButtonDown(0)) { Vector3Int selectedTile = tilemp.WorldToCell(point);
-     tilemp.SetTile(selectedTile, Buldings[buildingWheel.GetComponent<glowmaster>().selectedring]); } 
+        Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.GetMouseButton(0)) {
+            Vector3Int selectedTile = tilemp.WorldToCell(point);
+            tilemp.SetTile(selectedTile, Buldings[GetComponent<glowmaster>().selectedring -1]);
+            techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);} 
      }
 }

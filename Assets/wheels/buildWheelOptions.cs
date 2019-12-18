@@ -13,14 +13,24 @@ public class buildWheelOptions : MonoBehaviour
 
     [SerializeField] GameObject[] myBuildings = new GameObject[8];
 
-    public bool orderwheelon;
+    public bool orderWheelOn;
     private void Start()
     {
-        
+        myBuildings[0].GetComponent<SpriteRenderer>().sprite = mySprites[0];
+        myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[1];
+        myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[2];
+        myBuildings[3].GetComponent<SpriteRenderer>().sprite = mySprites[3];
+        myBuildings[4].GetComponent<SpriteRenderer>().sprite = mySprites[4];
+        myBuildings[5].GetComponent<SpriteRenderer>().sprite = mySprites[5];
+        myBuildings[6].GetComponent<SpriteRenderer>().sprite = mySprites[6];
+        myBuildings[7].GetComponent<SpriteRenderer>().sprite = mySprites[7];
     }
 
     void Update()
     {
+
+        Debug.Log(buildingsAllowed);
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (Array.Exists(buildingsAllowed, element => element == curTier -1))
@@ -38,14 +48,23 @@ public class buildWheelOptions : MonoBehaviour
             }
         }
         if (Input.GetKeyDown(KeyCode.O))  {
-            myBuildings[0].GetComponent<SpriteRenderer>().sprite = mySprites[16];
-            myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[17];
-            myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[18];
-            myBuildings[3].GetComponent<SpriteRenderer>().sprite = mySprites[19];
-            myBuildings[4].GetComponent<SpriteRenderer>().sprite = mySprites[20];
-            myBuildings[5].GetComponent<SpriteRenderer>().sprite = mySprites[21];
-            myBuildings[6].GetComponent<SpriteRenderer>().sprite = mySprites[22];
-            myBuildings[7].GetComponent<SpriteRenderer>().sprite = mySprites[23];
+            if (orderWheelOn == true)
+            {
+                changeImage(curTier);
+                orderWheelOn = false;
+            }
+            else
+            {
+                orderWheelOn = true;
+                myBuildings[0].GetComponent<SpriteRenderer>().sprite = mySprites[16];
+                myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[17];
+                myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[18];
+                myBuildings[3].GetComponent<SpriteRenderer>().sprite = mySprites[19];
+                myBuildings[4].GetComponent<SpriteRenderer>().sprite = mySprites[20];
+                myBuildings[5].GetComponent<SpriteRenderer>().sprite = mySprites[21];
+                myBuildings[6].GetComponent<SpriteRenderer>().sprite = mySprites[22];
+                myBuildings[7].GetComponent<SpriteRenderer>().sprite = mySprites[23];
+            }
         }
     }
 
