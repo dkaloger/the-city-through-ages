@@ -7,19 +7,22 @@ using UnityEngine.UI;
 public class techTree : MonoBehaviour
 {
 
+    public buildWheelOptions BuildWheelOptions;
+
     public int [] buildings;
 
     private int tier = 0;
-    [SerializeField] TMPro.TextMeshProUGUI textMeshProUGUI;
 
 
     void Update()
     {
 
-        if (buildings[0] >= 2 && buildings[5] >= 1 && tier == 0)
+        if (buildings[7] >= 1)
         {
             tier++;
-        
+
+            BuildWheelOptions.addTier(tier);
+
             buildings[0] = 0;
             buildings[5] = 0;
         }
