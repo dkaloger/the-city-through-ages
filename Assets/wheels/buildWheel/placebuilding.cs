@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 public class placebuilding : MonoBehaviour
 {
+    public bool orderWheelOnP = false;
     private int tiers = 0;
     public Tilemap buildings;
     Vector3Int clickedpos;
@@ -34,7 +35,7 @@ public class placebuilding : MonoBehaviour
         
         Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetMouseButton(0)) {
+        if (Input.GetMouseButton(0) && orderWheelOnP == false) {
             Vector3Int selectedTile = tilemp.WorldToCell(point);
             tilemp.SetTile(selectedTile, Buldings[GetComponent<glowmaster>().selectedring -1 + tiers]);
             techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);} 

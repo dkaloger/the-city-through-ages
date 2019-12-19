@@ -50,12 +50,14 @@ public class buildWheelOptions : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O))  {
             if (orderWheelOn == true)
             {
+                PlaceBuilding.orderWheelOnP = false;
                 changeImage(curTier);
                 orderWheelOn = false;
             }
             else
             {
                 orderWheelOn = true;
+                PlaceBuilding.orderWheelOnP = true;
                 myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[16];
                 myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[17];
                 myBuildings[3].GetComponent<SpriteRenderer>().sprite = mySprites[18];
