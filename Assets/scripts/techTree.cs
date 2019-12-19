@@ -24,7 +24,6 @@ public class techTree : MonoBehaviour
             BuildWheelOptions.addTier(tier);
 
             buildings[0] = 0;
-            buildings[5] = 0;
         }
         //Debug.Log(buildings[0] + "this is building 0");
         //Debug.Log(buildings[5] + "this is building 5");
