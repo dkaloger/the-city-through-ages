@@ -7,7 +7,9 @@ public class buildWheelOptions : MonoBehaviour
 {
 
     private int curTier = 0;
-    public int[] buildingsAllowed = new int[1];
+    public int[] buildingsAllowed = new int[0];
+
+    List<int> tiersAlloed = new List<int>();
 
     [SerializeField] Sprite[] mySprites = new Sprite[8];
 
@@ -34,7 +36,7 @@ public class buildWheelOptions : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (Array.Exists(buildingsAllowed, element => element == curTier -1))
+            if (curTier != 0)
             {
                 curTier = buildingsAllowed[curTier - 1];
                 changeImage(curTier);
@@ -42,7 +44,7 @@ public class buildWheelOptions : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Array.Exists(buildingsAllowed, element => element == curTier + 1))
+            if (curTier != buildingsAllowed.Length)
             {
                 curTier = buildingsAllowed[curTier + 1];
                 changeImage(curTier);
@@ -102,9 +104,6 @@ public class buildWheelOptions : MonoBehaviour
 
     public void addTier(int tier)
     {
-
-        Debug.Log("hello");
-
         buildingsAllowed = new int [Convert.ToInt32(buildingsAllowed.Length +1)];
     }
 
