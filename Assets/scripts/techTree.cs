@@ -17,7 +17,7 @@ public class techTree : MonoBehaviour
     void Update()
     {
 
-        if (buildings[0] >= 1)
+        if (buildings[0] >= 1 && tier == 0)
         {
             tier++;
 
@@ -25,15 +25,11 @@ public class techTree : MonoBehaviour
 
             buildings[0] = 0;
         }
-        //Debug.Log(buildings[0] + "this is building 0");
-        //Debug.Log(buildings[5] + "this is building 5");
     }
 
     public void addBuilding(int buildingNum)
     {
         buildings[buildingNum]++;
-        Debug.Log(buildingNum+1 + " buildingNum");
-        
     }
 
 }

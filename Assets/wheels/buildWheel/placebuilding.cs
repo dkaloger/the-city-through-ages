@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 public class placebuilding : MonoBehaviour
 {
+    private int tiers = 0;
     public Tilemap buildings;
     Vector3Int clickedpos;
     public Tile[] Buldings;
@@ -35,7 +36,12 @@ public class placebuilding : MonoBehaviour
 
         if (Input.GetMouseButton(0)) {
             Vector3Int selectedTile = tilemp.WorldToCell(point);
-            tilemp.SetTile(selectedTile, Buldings[GetComponent<glowmaster>().selectedring -1]);
+            tilemp.SetTile(selectedTile, Buldings[GetComponent<glowmaster>().selectedring -1 + tiers]);
             techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);} 
      }
+
+    public void tierChange(int tier)
+    {
+        tiers = tier * 8;
+    }
 }

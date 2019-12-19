@@ -6,19 +6,16 @@ public class buildWheelOptions : MonoBehaviour
 {
 
     private int curTier = 0;
-
     public List<int> tiersUnlocked = new List<int>();
-
+    public placebuilding PlaceBuilding;
 
     [SerializeField] Sprite[] mySprites = new Sprite[8];
-
     [SerializeField] GameObject[] myBuildings = new GameObject[8];
 
     public bool orderWheelOn;
     private void Start()
     {
         tiersUnlocked.Add(0);
-        tiersUnlocked.Add(1);
         myBuildings[0].GetComponent<SpriteRenderer>().sprite = mySprites[0];
         myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[1];
         myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[2];
@@ -31,14 +28,12 @@ public class buildWheelOptions : MonoBehaviour
 
     void Update()
     {
-
-        Debug.Log(curTier);
-
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (curTier != 0 && orderWheelOn == false)
             {
                 curTier = tiersUnlocked[curTier - 1];
+                PlaceBuilding.tierChange(curTier);
                 changeImage(curTier);
             }
         }
@@ -47,6 +42,7 @@ public class buildWheelOptions : MonoBehaviour
             if (curTier != tiersUnlocked.Count -1 && orderWheelOn == false)
             {
                 curTier = tiersUnlocked[curTier +1];
+                PlaceBuilding.tierChange(curTier);
                 changeImage(curTier);
             }
 
@@ -96,14 +92,10 @@ public class buildWheelOptions : MonoBehaviour
         }
 
     }
-
-
-  
-    
-
+ 
     public void addTier(int tier)
     {
-        //buildingsAllowed = new int [0];
+        tiersUnlocked.Add(tier);
     }
 
 }
