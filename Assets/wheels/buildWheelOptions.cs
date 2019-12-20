@@ -5,8 +5,8 @@ using UnityEngine;
 public class buildWheelOptions : MonoBehaviour
 {
 
-    Animation changeTierAni;
-    Animation orderWheelAni;
+    public Animation changeTierAni;
+    public Animation orderWheelAni;
     private int curTier = 0;
     public List<int> tiersUnlocked = new List<int>();
     public placebuilding PlaceBuilding;
@@ -46,7 +46,6 @@ public class buildWheelOptions : MonoBehaviour
             {
                 curTier = tiersUnlocked[curTier +1];
                 PlaceBuilding.tierChange(curTier);
-                aniChange();
                 changeTierAni.Play("changeTier");
             }
 
@@ -61,14 +60,6 @@ public class buildWheelOptions : MonoBehaviour
             else
             {
                 orderWheelOn = true;
-                PlaceBuilding.orderWheelOnP = true;
-                myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[16];
-                myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[17];
-                myBuildings[3].GetComponent<SpriteRenderer>().sprite = mySprites[18];
-                myBuildings[4].GetComponent<SpriteRenderer>().sprite = mySprites[19];
-                myBuildings[5].GetComponent<SpriteRenderer>().sprite = mySprites[20];
-                myBuildings[6].GetComponent<SpriteRenderer>().sprite = mySprites[21];
-                myBuildings[7].GetComponent<SpriteRenderer>().sprite = mySprites[22];
             }
         }
     }
@@ -102,6 +93,20 @@ public class buildWheelOptions : MonoBehaviour
     public void aniChange()
     {
         changeImage(curTier);
+    }
+    public void orderChange()
+    {
+        if (orderWheelOn == false)
+        {
+            PlaceBuilding.orderWheelOnP = true;
+            myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[16];
+            myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[17];
+            myBuildings[3].GetComponent<SpriteRenderer>().sprite = mySprites[18];
+            myBuildings[4].GetComponent<SpriteRenderer>().sprite = mySprites[19];
+            myBuildings[5].GetComponent<SpriteRenderer>().sprite = mySprites[20];
+            myBuildings[6].GetComponent<SpriteRenderer>().sprite = mySprites[21];
+            myBuildings[7].GetComponent<SpriteRenderer>().sprite = mySprites[22];
+        }
     }
 
     public void addTier(int tier)
