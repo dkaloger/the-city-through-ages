@@ -5,6 +5,8 @@ using UnityEngine;
 public class buildWheelOptions : MonoBehaviour
 {
 
+    Animation changeTierAni;
+    Animation orderWheelAni;
     private int curTier = 0;
     public List<int> tiersUnlocked = new List<int>();
     public placebuilding PlaceBuilding;
@@ -16,6 +18,7 @@ public class buildWheelOptions : MonoBehaviour
     private void Start()
     {
         tiersUnlocked.Add(0);
+        tiersUnlocked.Add(1);
         myBuildings[0].GetComponent<SpriteRenderer>().sprite = mySprites[0];
         myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[1];
         myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[2];
@@ -34,7 +37,7 @@ public class buildWheelOptions : MonoBehaviour
             {
                 curTier = tiersUnlocked[curTier - 1];
                 PlaceBuilding.tierChange(curTier);
-                changeImage(curTier);
+                changeTierAni.Play("changeTier");
             }
         }
         else if (Input.GetKeyDown(KeyCode.E))
@@ -43,7 +46,8 @@ public class buildWheelOptions : MonoBehaviour
             {
                 curTier = tiersUnlocked[curTier +1];
                 PlaceBuilding.tierChange(curTier);
-                changeImage(curTier);
+                aniChange();
+                changeTierAni.Play("changeTier");
             }
 
         }
@@ -95,6 +99,11 @@ public class buildWheelOptions : MonoBehaviour
 
     }
  
+    public void aniChange()
+    {
+        changeImage(curTier);
+    }
+
     public void addTier(int tier)
     {
         tiersUnlocked.Add(tier);
