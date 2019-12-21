@@ -1291,6 +1291,8 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: 63d4dae484450854e9596d47f0a82ad1, type: 2}
   - {fileID: 7400000, guid: ab9568e601eb0db4789231e0bd9524a2, type: 2}
+  - {fileID: 7400000, guid: 106bfef2b7cb825448c7bd61a0a390aa, type: 2}
+  - {fileID: 7400000, guid: 3891e1da24dcb3746b9d1ca882607ee7, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -1358,6 +1360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0c1bbd5b8cdc2241adedce5d37a2897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orderWheelOnP: 0
   buildings: {fileID: 866676197}
   Buldings:
   - {fileID: 11400000, guid: 35881a72a8bae2a4fa28a2aea4fc487b, type: 2}
@@ -1368,6 +1371,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b5b577cf3e34f6444bdb0c3dbf7610e4, type: 2}
   - {fileID: 11400000, guid: 9976c621c7b5dae4aa20fa1081264713, type: 2}
   - {fileID: 0}
+  - {fileID: 11400000, guid: 34587713bd206e541828d423f6359cbd, type: 2}
+  - {fileID: 11400000, guid: 3a1398674b3b43645aba791a23b7b91c, type: 2}
+  - {fileID: 11400000, guid: 35881a72a8bae2a4fa28a2aea4fc487b, type: 2}
+  - {fileID: 11400000, guid: fda92909bd5e58440bec3fbd9c0c2fe9, type: 2}
+  - {fileID: 11400000, guid: be643d9880d9b604a87b27d547499c57, type: 2}
+  - {fileID: 11400000, guid: 16c91f3ee8afa1c45bc1c50bdb47999c, type: 2}
+  - {fileID: 11400000, guid: ed5ffd4ecfb5abf4182bce05ff13b1c8, type: 2}
   techTree: {fileID: 624570465}
   myCanvas: {fileID: 459488703}
   maincam: {fileID: 313006142}
@@ -1385,7 +1395,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5593a7c6f9b4d964d958d56b465a5eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeTierAni: {fileID: 799804717}
+  orderWheelAni: {fileID: 799804717}
   tiersUnlocked: 
+  PlaceBuilding: {fileID: 799804721}
   mySprites:
   - {fileID: 21300000, guid: 8c16c7ea54e79b9498b3c335ad221175, type: 3}
   - {fileID: 21300000, guid: aa60cc6463c90f14983923a21c998133, type: 3}

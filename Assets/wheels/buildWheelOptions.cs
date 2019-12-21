@@ -5,8 +5,7 @@ using UnityEngine;
 public class buildWheelOptions : MonoBehaviour
 {
 
-    public Animation changeTierAni;
-    public Animation orderWheelAni;
+    public Animation animations;
     private int curTier = 0;
     public List<int> tiersUnlocked = new List<int>();
     public placebuilding PlaceBuilding;
@@ -37,7 +36,7 @@ public class buildWheelOptions : MonoBehaviour
             {
                 curTier = tiersUnlocked[curTier - 1];
                 PlaceBuilding.tierChange(curTier);
-                changeTierAni.Play("changeTier");
+                animations.Play("changeTier");
             }
         }
         else if (Input.GetKeyDown(KeyCode.E))
@@ -46,21 +45,12 @@ public class buildWheelOptions : MonoBehaviour
             {
                 curTier = tiersUnlocked[curTier +1];
                 PlaceBuilding.tierChange(curTier);
-                changeTierAni.Play("changeTier");
+                animations.Play("changeTier");
             }
 
         }
         if (Input.GetKeyDown(KeyCode.O))  {
-            if (orderWheelOn == true)
-            {
-                PlaceBuilding.orderWheelOnP = false;
-                changeImage(curTier);
-                orderWheelOn = false;
-            }
-            else
-            {
-                orderWheelOn = true;
-            }
+            animations.Play("orderWheel");
         }
     }
 
@@ -96,9 +86,16 @@ public class buildWheelOptions : MonoBehaviour
     }
     public void orderChange()
     {
-        if (orderWheelOn == false)
+        if (orderWheelOn == true)
+        {
+            PlaceBuilding.orderWheelOnP = false;
+            changeImage(curTier);
+            orderWheelOn = false;
+        }
+        else if (orderWheelOn == false)
         {
             PlaceBuilding.orderWheelOnP = true;
+            orderWheelOn = true;
             myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[16];
             myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[17];
             myBuildings[3].GetComponent<SpriteRenderer>().sprite = mySprites[18];
