@@ -41,24 +41,54 @@ public class placebuilding : MonoBehaviour
         point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //point = (int)Input.mousePosition.y;
 
-        if (Input.GetMouseButton(0) && orderWheelOnP == false) {
+        if (Input.GetMouseButton(0) && orderWheelOnP == false)
+        {
 
-            if ((int)point.y % 1 == 0.5 && (int)point.x == 0.25)
+            //if ((int)point.y % 1 == 0.5F && (int)point.x % 1 == 0.25F || (int)point.x % 1 == 0.75F)
+            var myBuilding = Instantiate(testBuilding, new Vector3((int)point.x, (int)point.y, 1), Quaternion.identity);
+            myBuilding.transform.parent = gridObj.transform;
+            techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);
+            if ((int)((myBuilding.transform.position.y - (int)myBuilding.transform.position.y) * 100) == 50)
             {
-                var myBuilding = Instantiate(testBuilding, new Vector3(0.01F+ (int)point.x, (int)point.y, 1), Quaternion.identity);
-                myBuilding.transform.parent = gridObj.transform;
-                techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);
-            }
-        }
+                myBuilding.SetActive(false);
+                if ((int)((myBuilding.transform.position.x - (int)myBuilding.transform.position.x) * 100) == 75)
+                {
 
-            //Vector3Int selectedTile = tilemp.WorldToCell(point);
-            //tilemp.SetTile(selectedTile, Buldings[GetComponent<glowmaster>().selectedring -1 + tiers]);
-            //var myBuilding = Instantiate(testBuilding, new Vector3(0.01F+ (int)point.x, (int)point.y, 1), Quaternion.identity);
-            //myBuilding.transform.parent = gridObj.transform;
-            //float decimalPart = 2.55F % 1;
-            //Debug.Log(decimalPart);
-            //techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);
-     }
+                }else if ((int)((myBuilding.transform.position.x - (int)myBuilding.transform.position.x) * 100) == 25)
+                {
+
+                }
+            }//y case 1
+            else if ((int)((myBuilding.transform.position.y - (int)myBuilding.transform.position.y) * 100) == 0)
+            {
+                if ((int)((myBuilding.transform.position.x - (int)myBuilding.transform.position.x) * 100) == 0)
+                {
+                    myBuilding.transform.position = myBuilding.transform.position;
+                }
+                else if ((int)((myBuilding.transform.position.x - (int)myBuilding.transform.position.x) * 100) == 50)
+                {
+                    myBuilding.transform.position = myBuilding.transform.position;
+                }
+                else
+                {
+                    myBuilding.SetActive(false);
+                }
+            }//y case 2
+        }
+    }
+
+        //Vector3Int selectedTile = tilemp.WorldToCell(point);
+        ////tilemp.SetTile(selectedTile, Buldings[GetComponent<glowmaster>().selectedring -1 + tiers]);
+        //var myBuilding = Instantiate(testBuilding, new Vector3((int)point.x, (int)point.y, 1), Quaternion.identity);
+        //myBuilding.transform.parent = gridObj.transform;
+        //float decimalPart = 99.55F % 1F;
+        //Debug.Log(decimalPart +"this is the line i found on internet");
+        // float double_value = 0.5F;
+        //Debug.Log((int)((double_value - (int)double_value) * 100));
+        //Debug.Log((int)point.x + "x" + (int)point.y + "y" + (int)point.z + "z");
+        //Debug.Log(System.Math.Ceiling(System.Math.Log10(22.55F)) + "this should show 2");
+        //Debug.Log(decimalPart.ToString("F0" + "this should show 22"));
+        //techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);
 
     public void tierChange(int tier)
     {
