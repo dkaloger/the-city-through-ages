@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 public class placebuilding : MonoBehaviour
 {
+    public GameObject gridObj;
     public Transform tileMapPos;
     List<Vector3Int> objPos = new List<Vector3Int>();
     Vector3 point;
@@ -43,7 +44,10 @@ public class placebuilding : MonoBehaviour
         if (Input.GetMouseButton(0) && orderWheelOnP == false) {
             Vector3Int selectedTile = tilemp.WorldToCell(point);
             //tilemp.SetTile(selectedTile, Buldings[GetComponent<glowmaster>().selectedring -1 + tiers]);
-            Instantiate(testBuilding, new Vector3(0.01F+ (int)point.x, (int)point.y, 1), Quaternion.identity);
+            var myBuilding = Instantiate(testBuilding, new Vector3(0.01F+ (int)point.x, (int)point.y, 1), Quaternion.identity);
+            myBuilding.transform.parent = gridObj.transform;
+            float decimalPart = 2.55F % 1;
+            Debug.Log(decimalPart);
             techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);} 
      }
 
