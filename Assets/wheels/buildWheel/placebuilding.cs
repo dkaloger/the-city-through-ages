@@ -42,13 +42,22 @@ public class placebuilding : MonoBehaviour
         //point = (int)Input.mousePosition.y;
 
         if (Input.GetMouseButton(0) && orderWheelOnP == false) {
-            Vector3Int selectedTile = tilemp.WorldToCell(point);
+
+            if ((int)point.y % 1 == 0.5 && (int)point.x == 0.25)
+            {
+                var myBuilding = Instantiate(testBuilding, new Vector3(0.01F+ (int)point.x, (int)point.y, 1), Quaternion.identity);
+                myBuilding.transform.parent = gridObj.transform;
+                techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);
+            }
+        }
+
+            //Vector3Int selectedTile = tilemp.WorldToCell(point);
             //tilemp.SetTile(selectedTile, Buldings[GetComponent<glowmaster>().selectedring -1 + tiers]);
-            var myBuilding = Instantiate(testBuilding, new Vector3(0.01F+ (int)point.x, (int)point.y, 1), Quaternion.identity);
-            myBuilding.transform.parent = gridObj.transform;
-            float decimalPart = 2.55F % 1;
-            Debug.Log(decimalPart);
-            techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);} 
+            //var myBuilding = Instantiate(testBuilding, new Vector3(0.01F+ (int)point.x, (int)point.y, 1), Quaternion.identity);
+            //myBuilding.transform.parent = gridObj.transform;
+            //float decimalPart = 2.55F % 1;
+            //Debug.Log(decimalPart);
+            //techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);
      }
 
     public void tierChange(int tier)
