@@ -48,17 +48,19 @@ public class placebuilding : MonoBehaviour
 
         if (Input.GetMouseButton(0) && orderWheelOnP == false)
         {
+            
             //if ((int)point.y % 1 == 0.5F && (int)point.x % 1 == 0.25F || (int)point.x % 1 == 0.75F)
             var myBuilding = Instantiate(testBuilding, new Vector3(point.x, point.y, 1), Quaternion.identity);
             myBuilding.transform.parent = gridObj.transform;
+            float myCheckPosY = myBuilding.transform.position.y - myBuilding.transform.position.y / 1000;
             techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);
             if (myBuilding.transform.position.y - myBuilding.transform.position.y * 1000 == 50)
             {
 
             }
-            else if (((myBuilding.transform.position.y - myBuilding.transform.position.y) * 100) > 50)
+            else if (myCheckPosY > 50)
             {
-                //Debug.Log("your made it yeah!");
+                Debug.Log("your made it to y1");
                 if (((myBuilding.transform.position.x - myBuilding.transform.position.x) * 100) >= 50)
                 {
                     Debug.Log("y1 x1");
@@ -78,11 +80,12 @@ public class placebuilding : MonoBehaviour
                     //myBuilding.transform.position = MyBuildPos;
                 }
             }//y case 1
-            else if (((myBuilding.transform.position.y - myBuilding.transform.position.y) * 100) < 50)
+            else if (myCheckPosY < 50)
             {
+                Debug.Log("you made it to y2");
                 if ((int)((myBuilding.transform.position.x - (int)myBuilding.transform.position.x) * 100) < 50)
                 {
-                    Debug.Log("y2 x1");
+                    //Debug.Log("y2 x1");
                     //Vector3 MyBuildPos;
                     //MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x);
                     //MyBuildPos.y = Mathf.Round(myBuilding.transform.position.y);
@@ -91,7 +94,7 @@ public class placebuilding : MonoBehaviour
                 }
                 else if ((int)((myBuilding.transform.position.x - (int)myBuilding.transform.position.x) * 100) >= 50)
                 {
-                    Debug.Log("y2 x2");
+                    //Debug.Log("y2 x2");
                     //Vector3 MyBuildPos;
                     //MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x - 0.5F);
                     //MyBuildPos.y = Mathf.Round(myBuilding.transform.position.y);
@@ -99,7 +102,8 @@ public class placebuilding : MonoBehaviour
                     //myBuilding.transform.position = MyBuildPos;
                 }
             }//y case 2
-            Debug.Log((myBuilding.transform.position.y - myBuilding.transform.position.y) * 100);
+            //float test = myBuilding.transform.position.y - myBuilding.transform.position.y * 100;
+            Debug.Log(myCheckPosY + " this should remove the hole numbers");
             //if (myBuilding.transform.position.y - myBuilding.transform.position.y * 1000 == 50)
         }
     }
