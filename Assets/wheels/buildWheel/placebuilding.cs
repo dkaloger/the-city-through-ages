@@ -45,27 +45,27 @@ public class placebuilding : MonoBehaviour
         {
 
             //if ((int)point.y % 1 == 0.5F && (int)point.x % 1 == 0.25F || (int)point.x % 1 == 0.75F)
-            var myBuilding = Instantiate(testBuilding, new Vector3((int)point.x, (int)point.y, 1), Quaternion.identity);
+            var myBuilding = Instantiate(testBuilding, new Vector3(point.x, point.y, 1), Quaternion.identity);
             myBuilding.transform.parent = gridObj.transform;
             techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);
-            if ((int)((myBuilding.transform.position.y - (int)myBuilding.transform.position.y) * 100) == 50)
+            if (((myBuilding.transform.position.y - myBuilding.transform.position.y) * 100) == 50)
             {
-                myBuilding.SetActive(false);
-                if ((int)((myBuilding.transform.position.x - (int)myBuilding.transform.position.x) * 100) == 75)
+                Debug.Log("your made it yeah!");
+                if (((myBuilding.transform.position.x - myBuilding.transform.position.x) * 100) >= 50)
                 {
 
-                }else if ((int)((myBuilding.transform.position.x - (int)myBuilding.transform.position.x) * 100) == 25)
+                }else if (((myBuilding.transform.position.x - myBuilding.transform.position.x) * 100) < 50)
                 {
 
                 }
             }//y case 1
-            else if ((int)((myBuilding.transform.position.y - (int)myBuilding.transform.position.y) * 100) == 0)
+            else if (((myBuilding.transform.position.y - myBuilding.transform.position.y) * 100) == 0)
             {
-                if ((int)((myBuilding.transform.position.x - (int)myBuilding.transform.position.x) * 100) == 0)
+                if ((int)((myBuilding.transform.position.x - (int)myBuilding.transform.position.x) * 100) < 50)
                 {
                     myBuilding.transform.position = myBuilding.transform.position;
                 }
-                else if ((int)((myBuilding.transform.position.x - (int)myBuilding.transform.position.x) * 100) == 50)
+                else if ((int)((myBuilding.transform.position.x - (int)myBuilding.transform.position.x) * 100) >= 50)
                 {
                     myBuilding.transform.position = myBuilding.transform.position;
                 }
