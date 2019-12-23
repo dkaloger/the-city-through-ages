@@ -35,45 +35,72 @@ public class placebuilding : MonoBehaviour
     // }
     [SerializeField]
     Tilemap tilemp; 
-    void Update() {
-
+    void Update()
+    {
+        float double_value = -30.555F;
+        Debug.Log((int)((double_value - (int)double_value) * 100) + "this is a test");
+        float decimalPart = 22.45F;
+        decimalPart.ToString("F0" + "this should show 22");
+        Debug.Log(Mathf.Round(decimalPart));
         //point.x = (int)Camera.main.ScreenToWorldPoint(Input.mousePosition.x);
         point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //point = (int)Input.mousePosition.y;
 
         if (Input.GetMouseButton(0) && orderWheelOnP == false)
         {
-
             //if ((int)point.y % 1 == 0.5F && (int)point.x % 1 == 0.25F || (int)point.x % 1 == 0.75F)
             var myBuilding = Instantiate(testBuilding, new Vector3(point.x, point.y, 1), Quaternion.identity);
             myBuilding.transform.parent = gridObj.transform;
             techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);
-            if (((myBuilding.transform.position.y - myBuilding.transform.position.y) * 100) == 50)
+            if (myBuilding.transform.position.y - myBuilding.transform.position.y * 1000 == 50)
             {
-                Debug.Log("your made it yeah!");
+
+            }
+            else if (((myBuilding.transform.position.y - myBuilding.transform.position.y) * 100) > 50)
+            {
+                //Debug.Log("your made it yeah!");
                 if (((myBuilding.transform.position.x - myBuilding.transform.position.x) * 100) >= 50)
                 {
-
-                }else if (((myBuilding.transform.position.x - myBuilding.transform.position.x) * 100) < 50)
+                    Debug.Log("y1 x1");
+                    //Vector3 MyBuildPos;
+                    //MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x - 25);
+                    //MyBuildPos.y = Mathf.Round(myBuilding.transform.position.y - 50);
+                    //MyBuildPos.z = Mathf.Round(myBuilding.transform.position.z);
+                    // myBuilding.transform.position = MyBuildPos;
+                }
+                else if (((myBuilding.transform.position.x - myBuilding.transform.position.x) * 100) < 50)
                 {
-
+                    Debug.Log("y1 x2");
+                    //Vector3 MyBuildPos;
+                    //MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x + 25);
+                    //MyBuildPos.y = Mathf.Round(myBuilding.transform.position.y - 50);
+                    //MyBuildPos.z = Mathf.Round(myBuilding.transform.position.z);
+                    //myBuilding.transform.position = MyBuildPos;
                 }
             }//y case 1
-            else if (((myBuilding.transform.position.y - myBuilding.transform.position.y) * 100) == 0)
+            else if (((myBuilding.transform.position.y - myBuilding.transform.position.y) * 100) < 50)
             {
                 if ((int)((myBuilding.transform.position.x - (int)myBuilding.transform.position.x) * 100) < 50)
                 {
-                    myBuilding.transform.position = myBuilding.transform.position;
+                    Debug.Log("y2 x1");
+                    //Vector3 MyBuildPos;
+                    //MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x);
+                    //MyBuildPos.y = Mathf.Round(myBuilding.transform.position.y);
+                    //MyBuildPos.z = Mathf.Round(myBuilding.transform.position.z);
+                    //myBuilding.transform.position = MyBuildPos;
                 }
                 else if ((int)((myBuilding.transform.position.x - (int)myBuilding.transform.position.x) * 100) >= 50)
                 {
-                    myBuilding.transform.position = myBuilding.transform.position;
-                }
-                else
-                {
-                    myBuilding.SetActive(false);
+                    Debug.Log("y2 x2");
+                    //Vector3 MyBuildPos;
+                    //MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x - 0.5F);
+                    //MyBuildPos.y = Mathf.Round(myBuilding.transform.position.y);
+                    //MyBuildPos.z = Mathf.Round(myBuilding.transform.position.z);
+                    //myBuilding.transform.position = MyBuildPos;
                 }
             }//y case 2
+            Debug.Log((myBuilding.transform.position.y - myBuilding.transform.position.y) * 100);
+            //if (myBuilding.transform.position.y - myBuilding.transform.position.y * 1000 == 50)
         }
     }
 
