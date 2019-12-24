@@ -15,13 +15,13 @@ public class movetomouse : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (pause == false)
         {
             Vector2 pos;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(myCanvas.transform as RectTransform, Input.mousePosition, myCanvas.worldCamera, out pos);
-            transform.position = myCanvas.transform.TransformPoint(pos);
+            rb.MovePosition(myCanvas.transform.TransformPoint(pos));
         }
 
     }

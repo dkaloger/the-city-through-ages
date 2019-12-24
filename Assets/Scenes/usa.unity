@@ -507,6 +507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodD: {fileID: 11903541}
   popdispv: {fileID: 101157610}
+  popdelay: 0
   standartgrowthspeed: 360000
   popfoodcostonce: 10
 --- !u!1 &144517407
@@ -655,6 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ecd95812dd0da74d9edbc29f17e07fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canScroll: 1
   speed: 1
   leftsidelimits: {x: 18, y: -32, z: 0}
   rightsidelimits: {x: 142, y: -100, z: 0}
@@ -729,8 +731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c066968df32914aa3ee3e455603494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameIsPaused: 0
-  PauseMenu: {fileID: 429064154}
 --- !u!1 &429064154 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4073296110980115697, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
@@ -1141,6 +1141,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4073296111455359478, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073296111455359478, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 753535134}
@@ -1148,6 +1153,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073296111455359478, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073296111455359478, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073296111455359478, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 313006144}
+    - target: {fileID: 4073296111455359478, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CantScroll
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073296111455359478, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4073296110302358387, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
         type: 3}
@@ -1161,6 +1191,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4073296111408104878, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073296111408104878, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 753535134}
@@ -1168,6 +1203,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073296111408104878, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073296111408104878, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073296111408104878, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 313006144}
+    - target: {fileID: 4073296111408104878, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CanScroll
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073296111408104878, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4073296111534725262, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
         type: 3}
@@ -1325,6 +1385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveToMouseScript: {fileID: 799804714}
+  PlayerControllerScript: {fileID: 313006140}
   GameIsPaused: 0
   PauseMenu: {fileID: 429064154}
 --- !u!1 &799804714

@@ -8,6 +8,8 @@ public class pauseMenu : MonoBehaviour
 
     public GameObject MoveToMouseScript;
 
+    public GameObject PlayerControllerScript;
+
     public  bool GameIsPaused = false;
 
     public GameObject PauseMenu;
@@ -15,6 +17,7 @@ public class pauseMenu : MonoBehaviour
     private void Start()
     {
         MoveToMouseScript.GetComponent<movetomouse>();
+        PlayerControllerScript.GetComponent<playercontroller>();
     }
 
     void Update()
@@ -33,6 +36,7 @@ public class pauseMenu : MonoBehaviour
     }
     void resume()
     {
+        PlayerControllerScript.GetComponent<playercontroller>().CanScroll();
         MoveToMouseScript.GetComponent<movetomouse>().unpauseGame();
         PauseMenu.SetActive(false);
         GameIsPaused = false;
@@ -41,6 +45,7 @@ public class pauseMenu : MonoBehaviour
     public void pause()
     {
         MoveToMouseScript.GetComponent<movetomouse>().pauseGame();
+        PlayerControllerScript.GetComponent<playercontroller>().CantScroll();
         PauseMenu.SetActive(true);
         GameIsPaused = true;
         Time.timeScale = 0f;
