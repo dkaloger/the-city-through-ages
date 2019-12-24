@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/usa.unity
     guid: 5db527762703524488a5f86ad9af5231
+  - enabled: 1
+    path: Assets/Scenes/jojo test cam place.unity
+    guid: f39c8b7610f0af44ebf1814450ecc853
+  - enabled: 1
+    path: Assets/bronsonplace the tilemap here.unity
+    guid: c1928eb9783de194781d7287293a4783
   m_configObjects: {}
