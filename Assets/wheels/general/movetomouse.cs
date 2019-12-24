@@ -5,7 +5,8 @@ using UnityEngine;
 public class movetomouse : MonoBehaviour
 {
     public Canvas myCanvas;
-    // Start is called before the first frame update
+
+    public bool pause;
 
 
     private Rigidbody2D rb;
@@ -13,14 +14,25 @@ public class movetomouse : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
-    
 
-    // Update is called once per frame
     void Update()
     {
-        Vector2 pos;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(myCanvas.transform as RectTransform, Input.mousePosition, myCanvas.worldCamera, out pos);
-        transform.position = myCanvas.transform.TransformPoint(pos);
+        if (pause == false)
+        {
+            Vector2 pos;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(myCanvas.transform as RectTransform, Input.mousePosition, myCanvas.worldCamera, out pos);
+            transform.position = myCanvas.transform.TransformPoint(pos);
+        }
 
+    }
+
+    public void pauseGame()
+    {
+        pause = true;
+    }
+
+    public void unpauseGame()
+    {
+        pause = false;
     }
 }

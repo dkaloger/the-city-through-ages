@@ -1124,7 +1124,73 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4073296111423313432, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073296111423313432, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073296111423313432, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073296111455359478, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 753535134}
+    - target: {fileID: 4073296111455359478, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073296110302358387, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 753535134}
+    - target: {fileID: 4073296110302358387, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Mute
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073296111408104878, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 753535134}
+    - target: {fileID: 4073296111408104878, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073296111534725262, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 753535134}
+    - target: {fileID: 4073296111534725262, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LawScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073296111668074440, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 753535134}
+    - target: {fileID: 4073296111668074440, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4073296111423313433, guid: 4e4fc522765bd5e4ca091d5c4911ffe3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4e4fc522765bd5e4ca091d5c4911ffe3, type: 3}
 --- !u!1 &615408653
 GameObject:
@@ -1240,6 +1306,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &753535133 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4073296111423313436, guid: 4e4fc522765bd5e4ca091d5c4911ffe3,
+    type: 3}
+  m_PrefabInstance: {fileID: 548403650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &753535134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753535133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96229ea50f7ae7d489c54abdaf54821d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveToMouseScript: {fileID: 799804714}
+  GameIsPaused: 0
+  PauseMenu: {fileID: 429064154}
 --- !u!1 &799804714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,10 +1423,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 799804714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef135e1a77842e24ebaf2239e570c84c, type: 3}
+  m_Script: {fileID: 11500000, guid: 901c585661cdd5f49b5e377bb1d71db9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myCanvas: {fileID: 459488703}
+  pause: 0
 --- !u!50 &799804720
 Rigidbody2D:
   serializedVersion: 4

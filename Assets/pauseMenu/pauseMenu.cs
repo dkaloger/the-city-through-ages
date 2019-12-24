@@ -6,35 +6,44 @@ using UnityEngine.SceneManagement;
 public class pauseMenu : MonoBehaviour
 {
 
+    public GameObject MoveToMouseScript;
+
     public  bool GameIsPaused = false;
 
     public GameObject PauseMenu;
+
+    private void Start()
+    {
+        MoveToMouseScript.GetComponent<movetomouse>();
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameIsPaused)
+            if (GameIsPaused == false)
             {
-                resume();
+                pause();
             }
             else
             {
-                pause();
+                resume();
             }
         }
     }
     void resume()
     {
+        MoveToMouseScript.GetComponent<movetomouse>().unpauseGame();
         PauseMenu.SetActive(false);
-        Time.timeScale = 1f;
         GameIsPaused = false;
+        Time.timeScale = 1f;
     }
     public void pause()
     {
+        MoveToMouseScript.GetComponent<movetomouse>().pauseGame();
         PauseMenu.SetActive(true);
-        Time.timeScale = 0f;
         GameIsPaused = true;
+        Time.timeScale = 0f;
     }
     //buttons
     public void Quit()
@@ -47,6 +56,7 @@ public class pauseMenu : MonoBehaviour
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        MoveToMouseScript.GetComponent<movetomouse>().unpauseGame();
     }
     public void LawScene()
     {
