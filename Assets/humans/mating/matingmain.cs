@@ -8,7 +8,7 @@ public class matingmain : MonoBehaviour
     fooddipslay foodD;
     [SerializeField]
     popdisp popdispv;
-    int popdelay;
+  public  int popdelay;
 
     [SerializeField]
     public  int standartgrowthspeed;
