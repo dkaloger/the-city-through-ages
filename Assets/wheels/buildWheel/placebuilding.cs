@@ -37,11 +37,13 @@ public class placebuilding : MonoBehaviour
     Tilemap tilemp; 
     void Update()
     {
-        float double_value = -30.555F;
-        Debug.Log((int)((double_value - (int)double_value) * 100) + "this is a test");
-        float decimalPart = 22.45F;
-        decimalPart.ToString("F0" + "this should show 22");
-        Debug.Log(Mathf.Round(decimalPart));
+        //float test = 51f;
+        //Debug.Log(test % 2);
+        //float double_value = -30.555F;
+        //Debug.Log((int)((double_value - (int)double_value) * 100) + "this is a test");
+        //float decimalPart = 22.45F;
+        //decimalPart.ToString("F0" + "this should show 22");
+        //Debug.Log(Mathf.Round(decimalPart));
         //point.x = (int)Camera.main.ScreenToWorldPoint(Input.mousePosition.x);
         point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //point = (int)Input.mousePosition.y;
@@ -51,59 +53,68 @@ public class placebuilding : MonoBehaviour
             
             //if ((int)point.y % 1 == 0.5F && (int)point.x % 1 == 0.25F || (int)point.x % 1 == 0.75F)
             var myBuilding = Instantiate(testBuilding, new Vector3(point.x, point.y, 1), Quaternion.identity);
-            myBuilding.transform.parent = gridObj.transform;
-            float myCheckPosY = myBuilding.transform.position.y - myBuilding.transform.position.y / 1000;
+            //myBuilding.transform.parent = gridObj.transform;
+            float myCheckPosY = myBuilding.transform.position.y;
+            float myCheckPosY2 = Mathf.Floor(myCheckPosY);
+            myCheckPosY = myCheckPosY - myCheckPosY2;
+            float myCheckPosX = myBuilding.transform.position.x;
+            float myCheckPosX2 = Mathf.Floor(myCheckPosX);
+            myCheckPosX = myCheckPosX - myCheckPosX2;
+            float xUnEven = myCheckPosX % 2;
+            float comTest1 = 22.55f;
+            float comTest2 = 22.66f;
+            Debug.Log(comTest2.CompareTo(comTest1) + " com thing");//this returns -1 or 1,  1 if is the first is greater than the other the other is the oppersit
+            //Debug.Log(myCheckPosX);
+        
             techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);
-            if (myBuilding.transform.position.y - myBuilding.transform.position.y * 1000 == 50)
+            if (myCheckPosY >= 0.5)
             {
-
-            }
-            else if (myCheckPosY > 50)
-            {
-                Debug.Log("your made it to y1");
-                if (((myBuilding.transform.position.x - myBuilding.transform.position.x) * 100) >= 50)
+                //Debug.Log("you made it to y1");
+                if (myCheckPosX >= 0.5 && xUnEven != 0)
                 {
-                    Debug.Log("y1 x1");
-                    //Vector3 MyBuildPos;
-                    //MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x - 25);
-                    //MyBuildPos.y = Mathf.Round(myBuilding.transform.position.y - 50);
-                    //MyBuildPos.z = Mathf.Round(myBuilding.transform.position.z);
-                    // myBuilding.transform.position = MyBuildPos;
+                    Debug.Log("you made it to y1 x1");
+                    Vector3 MyBuildPos;
+                    MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 1.75f;
+                    MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
+                    MyBuildPos.z = 1;
+                    myBuilding.transform.position = MyBuildPos;
                 }
-                else if (((myBuilding.transform.position.x - myBuilding.transform.position.x) * 100) < 50)
+                else if (myCheckPosX < 0.5)
                 {
-                    Debug.Log("y1 x2");
-                    //Vector3 MyBuildPos;
-                    //MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x + 25);
-                    //MyBuildPos.y = Mathf.Round(myBuilding.transform.position.y - 50);
-                    //MyBuildPos.z = Mathf.Round(myBuilding.transform.position.z);
-                    //myBuilding.transform.position = MyBuildPos;
+                    Debug.Log("you made it to y1 x2");
+                    Vector3 MyBuildPos;
+                    MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 0.25f;
+                    MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
+                    MyBuildPos.z = 1;
+                    myBuilding.transform.position = MyBuildPos;
                 }
             }//y case 1
-            else if (myCheckPosY < 50)
+            else if (myCheckPosY < 0.5)
             {
-                Debug.Log("you made it to y2");
-                if ((int)((myBuilding.transform.position.x - (int)myBuilding.transform.position.x) * 100) < 50)
+                myBuilding.SetActive(false);
+                //Debug.Log("you made it to y2");
+                if (myCheckPosX < 0.5)
                 {
-                    //Debug.Log("y2 x1");
-                    //Vector3 MyBuildPos;
-                    //MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x);
-                    //MyBuildPos.y = Mathf.Round(myBuilding.transform.position.y);
-                    //MyBuildPos.z = Mathf.Round(myBuilding.transform.position.z);
-                    //myBuilding.transform.position = MyBuildPos;
+                    Debug.Log("you made it to y2 x1");
+                    Vector3 MyBuildPos;
+                    MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x);
+                    MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y);
+                    MyBuildPos.z = Mathf.Round(myBuilding.transform.position.z);
+                    myBuilding.transform.position = MyBuildPos;
                 }
-                else if ((int)((myBuilding.transform.position.x - (int)myBuilding.transform.position.x) * 100) >= 50)
+                else if (myCheckPosX >= 0.5)
                 {
-                    //Debug.Log("y2 x2");
-                    //Vector3 MyBuildPos;
-                    //MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x - 0.5F);
-                    //MyBuildPos.y = Mathf.Round(myBuilding.transform.position.y);
-                    //MyBuildPos.z = Mathf.Round(myBuilding.transform.position.z);
-                    //myBuilding.transform.position = MyBuildPos;
+                    Debug.Log("you made it to y2 x2");
+                    Vector3 MyBuildPos;
+                    MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 50;
+                    MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y);
+                    MyBuildPos.z = 1;
+                    myBuilding.transform.position = MyBuildPos;
                 }
             }//y case 2
-            //float test = myBuilding.transform.position.y - myBuilding.transform.position.y * 100;
-            Debug.Log(myCheckPosY + " this should remove the hole numbers");
+            //float test = myBuilding.trsform.position.y - myBuilding.transform.position.y * 100;
+            //Debug.Log(myCheckPosY + " this should remove the hole numbers");
+            //Debug.Log(System.Math.Truncate(22.99999999m));
             //if (myBuilding.transform.position.y - myBuilding.transform.position.y * 1000 == 50)
         }
     }
