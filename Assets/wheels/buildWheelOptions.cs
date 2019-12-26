@@ -8,7 +8,7 @@ public class buildWheelOptions : MonoBehaviour
     public Animation animations;
     private int curTier = 0;
     public List<int> tiersUnlocked = new List<int>();
-    public placebuilding PlaceBuilding;
+    public placeBuildingObj PlaceBuildingObj;
 
     [SerializeField] Sprite[] mySprites = new Sprite[8];
     [SerializeField] GameObject[] myBuildings = new GameObject[8];
@@ -35,7 +35,7 @@ public class buildWheelOptions : MonoBehaviour
             if (curTier != 0 && orderWheelOn == false)
             {
                 curTier = tiersUnlocked[curTier - 1];
-                PlaceBuilding.tierChange(curTier);
+                PlaceBuildingObj.tierChange(curTier);
                 animations.Play("changeTier");
             }
         }
@@ -44,7 +44,7 @@ public class buildWheelOptions : MonoBehaviour
             if (curTier != tiersUnlocked.Count -1 && orderWheelOn == false)
             {
                 curTier = tiersUnlocked[curTier +1];
-                PlaceBuilding.tierChange(curTier);
+                PlaceBuildingObj.tierChange(curTier);
                 animations.Play("changeTier");
             }
 
@@ -88,13 +88,13 @@ public class buildWheelOptions : MonoBehaviour
     {
         if (orderWheelOn == true)
         {
-            PlaceBuilding.orderWheelOnP = false;
+            PlaceBuildingObj.orderWheelOnP = false;
             changeImage(curTier);
             orderWheelOn = false;
         }
         else if (orderWheelOn == false)
         {
-            PlaceBuilding.orderWheelOnP = true;
+            PlaceBuildingObj.orderWheelOnP = true;
             orderWheelOn = true;
             myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[16];
             myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[17];

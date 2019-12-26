@@ -6,7 +6,8 @@ using UnityEngine.Tilemaps;
 public class placebuilding : MonoBehaviour
 {
 
-    public float gridSize = 0.75f;
+    public float gridSizeY = 1f;
+    public float gridSizeX = 0.75f;
     private Vector3 snapPos;
     Vector3 MyBuildPos;
     bool isInList2 = false;
@@ -77,7 +78,7 @@ public class placebuilding : MonoBehaviour
         point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //point = (int)Input.mousePosition.y;
 
-        if (Input.GetMouseButton(0) && orderWheelOnP == false)
+        if (Input.GetMouseButtonDown(0) && orderWheelOnP == false)
         {
                 //if ((int)point.y % 1 == 0.5F && (int)point.x % 1 == 0.25F || (int)point.x % 1 == 0.75F)
                 var myBuilding = Instantiate(testBuilding, new Vector3(point.x, point.y, 1), Quaternion.identity);
@@ -97,7 +98,8 @@ public class placebuilding : MonoBehaviour
                 //Debug.Log(myCheckPosX);
         
                 techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);
-                float nowGrid = 1f / gridSize;
+                float nowGrid = 1f / gridSizeX;
+                float nowGridY = 1f / gridSizeY;
                 if (myCheckPosY >= 0.5)
                 {
 
@@ -105,18 +107,38 @@ public class placebuilding : MonoBehaviour
                     if (myCheckPosX >= 0.5)
                     {
                         Vector3 MyBuildPos;
-                        MyBuildPos.x = Mathf.Round(transform.position.x * nowGrid) / nowGrid;
-                        MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
+                        MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x * nowGrid) / nowGrid;
+                        MyBuildPos.y = Mathf.Round(myBuilding.transform.position.y * nowGridY) / nowGridY;
                         MyBuildPos.z = 1;
                         myBuilding.transform.position = MyBuildPos;
+                        myCheckPosX2 = Mathf.Floor(myCheckPosX);
+                        myCheckPosX = myCheckPosX - myCheckPosX2;
+                        if (myCheckPosX == 0.5)
+                        {
+                            myBuilding.SetActive(false);
+                        }
+                       else if (myCheckPosX == 0)
+                        {
+                            myBuilding.SetActive(false);
+                        }
                     }
                     else if (myCheckPosX < 0.5)
                     {
                         Vector3 MyBuildPos;
-                        MyBuildPos.x = Mathf.Round(transform.position.x * nowGrid) / nowGrid;
-                        MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
+                        MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x * nowGrid) / nowGrid;
+                        MyBuildPos.y = Mathf.Round(myBuilding.transform.position.y * nowGridY) / nowGridY;
                         MyBuildPos.z = 1;
                         myBuilding.transform.position = MyBuildPos;
+                        myCheckPosX2 = Mathf.Floor(myCheckPosX);
+                        myCheckPosX = myCheckPosX - myCheckPosX2;
+                        if (myCheckPosX == 0.5)
+                        {
+                            myBuilding.SetActive(false);
+                        }
+                        else if (myCheckPosX == 0)
+                        {
+                            myBuilding.SetActive(false);
+                        }
                     }
                 }//y case 1
                 else if (myCheckPosY < 0.5)
@@ -125,21 +147,42 @@ public class placebuilding : MonoBehaviour
                     if (myCheckPosX < 0.5)
                     {
                         //Debug.Log("you made it to y2 x1");
-                        MyBuildPos.x = Mathf.Round(transform.position.x * nowGrid) / nowGrid; ;
-                        MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y);
+                        MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x * nowGrid) / nowGrid;
+                        MyBuildPos.y = Mathf.Round(myBuilding.transform.position.y * nowGridY) / nowGridY;
                         MyBuildPos.z = 1;
                         myBuilding.transform.position = MyBuildPos;
+                        myCheckPosX = myBuilding.transform.position.x;
+                        myCheckPosX2 = Mathf.Floor(myCheckPosX);
+                        myCheckPosX = myCheckPosX - myCheckPosX2;
+                        if (myCheckPosX == 0.25)
+                        {
+                            myBuilding.SetActive(false);
+                        }
+                        else if (myCheckPosX == 0.75)
+                        {
+                            myBuilding.SetActive(false);
+                        }
                     }
                     else if (myCheckPosX >= 0.5)
                     {
                         //Debug.Log("you made it to y2 x2");
                         Vector3 MyBuildPos;
-                        MyBuildPos.x = Mathf.Round(transform.position.x * nowGrid) / nowGrid;
-                        MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y);
+                        MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x * nowGrid) / nowGrid;
+                        MyBuildPos.y = Mathf.Round(myBuilding.transform.position.y * nowGridY) / nowGridY;
                         MyBuildPos.z = 1;
                         myBuilding.transform.position = MyBuildPos;
+                        myCheckPosX2 = Mathf.Floor(myCheckPosX);
+                        myCheckPosX = myCheckPosX - myCheckPosX2;
+                        if (myCheckPosX == 0.25)
+                        {
+                            myBuilding.SetActive(false);
+                        }
+                        else if (myCheckPosX == 0.75)
+                        {
+                            myBuilding.SetActive(false);
+                        }
 
-                    }
+                }
                 }//y case 2
 
                 //float test = myBuilding.trsform.position.y - myBuilding.transform.position.y * 100;
