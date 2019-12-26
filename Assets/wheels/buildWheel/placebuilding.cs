@@ -6,6 +6,8 @@ using UnityEngine.Tilemaps;
 public class placebuilding : MonoBehaviour
 {
 
+    public float gridSize = 0.75f;
+    private Vector3 snapPos;
     Vector3 MyBuildPos;
     bool isInList2 = false;
     float var = 1.25f;
@@ -95,95 +97,44 @@ public class placebuilding : MonoBehaviour
                 //Debug.Log(myCheckPosX);
         
                 techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);
+                float nowGrid = 1f / gridSize;
                 if (myCheckPosY >= 0.5)
                 {
 
                     //Debug.Log("you made it to y1");
                     if (myCheckPosX >= 0.5)
                     {
-                        float check1 = Mathf.Floor(myBuilding.transform.position.x) + 0.25f;
-                        float check2 = Mathf.Floor(myBuilding.transform.position.x) + 1.25f;
-                        float check3 = Mathf.Floor(myBuilding.transform.position.x) + 0.75f;
-                        float check4 = Mathf.Floor(myBuilding.transform.position.x) + 1.75f;
-                        //Debug.Log("you made it to y1 x1");
-                        //MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 1.75f;
-                        //MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
-                        //MyBuildPos.z = 1;
-
-//                        if (isInList2 = buildingPosXTest.IndexOf(check1) != -1)
-//                        {
-//                            MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 0.25f;
-//                            MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
-//                            MyBuildPos.z = 1;
-//                        }
-//                        else if (isInList2 = buildingPosXTest.IndexOf(check2) != -1)
-//                        {
-//                            MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 1.25f;
-//                            MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
-//                            MyBuildPos.z = 1;
-//                        }
-                        if (isInList2 = buildingPosXTest.IndexOf(check3) != -1)
-                        {
-                            MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 0.75f;
-                            MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
-                            MyBuildPos.z = 1;
-                        }
-                        else if (isInList2 = buildingPosXTest.IndexOf(check4) != -1)
-                        {
-                            MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 1.75f;
-                            MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
-                            MyBuildPos.z = 1;
-                        }
+                        Vector3 MyBuildPos;
+                        MyBuildPos.x = Mathf.Round(transform.position.x * nowGrid) / nowGrid;
+                        MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
+                        MyBuildPos.z = 1;
                         myBuilding.transform.position = MyBuildPos;
-                }
+                    }
                     else if (myCheckPosX < 0.5)
                     {
-
-                            float check1 = Mathf.Floor(myBuilding.transform.position.x) + 0.25f;
-                            float check2 = Mathf.Floor(myBuilding.transform.position.x) + 1.25f;
-                            float check3 = Mathf.Floor(myBuilding.transform.position.x) + 0.75f;
-                            float check4 = Mathf.Floor(myBuilding.transform.position.x) + 1.75f;
-
-//                            Debug.Log("you made it to y1 x2");
-//                            Vector3 MyBuildPos;
-//                            MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 0.25f;
-//                            MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
-//                            MyBuildPos.z = 1;
-//                            myBuilding.transform.position = MyBuildPos;
-
-                           if (isInList2 = buildingPosXTest.IndexOf(check1) != -1)
-                           {
-                                MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 0.25f;
-                                MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
-                                MyBuildPos.z = 1;
-                           }
-                           else if (isInList2 = buildingPosXTest.IndexOf(check2) != -1)
-                           {
-                                MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 1.25f;
-                                MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
-                                MyBuildPos.z = 1;
-                           }
-
-                }
+                        Vector3 MyBuildPos;
+                        MyBuildPos.x = Mathf.Round(transform.position.x * nowGrid) / nowGrid;
+                        MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
+                        MyBuildPos.z = 1;
+                        myBuilding.transform.position = MyBuildPos;
+                    }
                 }//y case 1
                 else if (myCheckPosY < 0.5)
                 {
-                    myBuilding.SetActive(false);
                     //Debug.Log("you made it to y2");
                     if (myCheckPosX < 0.5)
                     {
-                        Debug.Log("you made it to y2 x1");
-                        Vector3 MyBuildPos;
-                        MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x);
+                        //Debug.Log("you made it to y2 x1");
+                        MyBuildPos.x = Mathf.Round(transform.position.x * nowGrid) / nowGrid; ;
                         MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y);
-                        MyBuildPos.z = Mathf.Round(myBuilding.transform.position.z);
+                        MyBuildPos.z = 1;
                         myBuilding.transform.position = MyBuildPos;
                     }
                     else if (myCheckPosX >= 0.5)
                     {
-                        Debug.Log("you made it to y2 x2");
+                        //Debug.Log("you made it to y2 x2");
                         Vector3 MyBuildPos;
-                        MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 50;
+                        MyBuildPos.x = Mathf.Round(transform.position.x * nowGrid) / nowGrid;
                         MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y);
                         MyBuildPos.z = 1;
                         myBuilding.transform.position = MyBuildPos;
