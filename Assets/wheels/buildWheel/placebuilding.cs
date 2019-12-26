@@ -6,6 +6,8 @@ using UnityEngine.Tilemaps;
 public class placebuilding : MonoBehaviour
 {
 
+    Vector3 MyBuildPos;
+    bool isInList2 = false;
     float var = 1.25f;
     List<float> buildingPosXTest = new List<float>();
     bool Bool = false;
@@ -48,9 +50,12 @@ public class placebuilding : MonoBehaviour
 
         if (testInt < 200)
         {
-
+            point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             buildingPosXTest.Add(testInt * 1.5f + 0.25f);
             testInt++;
+
+            var myBuilding = Instantiate(testBuilding, new Vector3(testInt * 1.5f + 100.25f, point.y, 1), Quaternion.identity);
+
         }//basicly a for loop the for loop just hated me
 
         bool isInList = buildingPosXTest.IndexOf(0.25f) != -1;//checks if the num exits;
@@ -71,7 +76,7 @@ public class placebuilding : MonoBehaviour
         //point = (int)Input.mousePosition.y;
 
         if (Input.GetMouseButton(0) && orderWheelOnP == false)
-            {
+        {
                 //if ((int)point.y % 1 == 0.5F && (int)point.x % 1 == 0.25F || (int)point.x % 1 == 0.75F)
                 var myBuilding = Instantiate(testBuilding, new Vector3(point.x, point.y, 1), Quaternion.identity);
                 //myBuilding.transform.parent = gridObj.transform;
@@ -94,32 +99,30 @@ public class placebuilding : MonoBehaviour
                 {
 
                     //Debug.Log("you made it to y1");
-//                    if (myCheckPosX >= 0.5)
-//                    {
-                        bool isInList2 = false;
+                    if (myCheckPosX >= 0.5)
+                    {
                         float check1 = Mathf.Floor(myBuilding.transform.position.x) + 0.25f;
                         float check2 = Mathf.Floor(myBuilding.transform.position.x) + 1.25f;
                         float check3 = Mathf.Floor(myBuilding.transform.position.x) + 0.75f;
                         float check4 = Mathf.Floor(myBuilding.transform.position.x) + 1.75f;
                         //Debug.Log("you made it to y1 x1");
-                        Vector3 MyBuildPos;
                         //MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 1.75f;
                         //MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
                         //MyBuildPos.z = 1;
-                        //myBuilding.transform.position = MyBuildPos;
-                        if (isInList2 = buildingPosXTest.IndexOf(check1) != -1)
-                        {
-                            MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 0.25f;
-                            MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
-                            MyBuildPos.z = 1;
-                        }
-                        else if (isInList2 = buildingPosXTest.IndexOf(check2) != -1)
-                        {
-                            MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 1.25f;
-                            MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
-                            MyBuildPos.z = 1;
-                        }
-                        else if (isInList2 = buildingPosXTest.IndexOf(check3) != -1)
+
+//                        if (isInList2 = buildingPosXTest.IndexOf(check1) != -1)
+//                        {
+//                            MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 0.25f;
+//                            MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
+//                            MyBuildPos.z = 1;
+//                        }
+//                        else if (isInList2 = buildingPosXTest.IndexOf(check2) != -1)
+//                        {
+//                            MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 1.25f;
+//                            MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
+//                            MyBuildPos.z = 1;
+//                        }
+                        if (isInList2 = buildingPosXTest.IndexOf(check3) != -1)
                         {
                             MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 0.75f;
                             MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
@@ -131,16 +134,37 @@ public class placebuilding : MonoBehaviour
                             MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
                             MyBuildPos.z = 1;
                         }
-//               }
-//                    else if (myCheckPosX < 0.5)
-//                    {
-//                        Debug.Log("you made it to y1 x2");
-//                        Vector3 MyBuildPos;
-//                        MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 0.25f;
-//                        MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
-//                        MyBuildPos.z = 1;
-//                        myBuilding.transform.position = MyBuildPos;
-//                    }
+                        myBuilding.transform.position = MyBuildPos;
+                }
+                    else if (myCheckPosX < 0.5)
+                    {
+
+                            float check1 = Mathf.Floor(myBuilding.transform.position.x) + 0.25f;
+                            float check2 = Mathf.Floor(myBuilding.transform.position.x) + 1.25f;
+                            float check3 = Mathf.Floor(myBuilding.transform.position.x) + 0.75f;
+                            float check4 = Mathf.Floor(myBuilding.transform.position.x) + 1.75f;
+
+//                            Debug.Log("you made it to y1 x2");
+//                            Vector3 MyBuildPos;
+//                            MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 0.25f;
+//                            MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
+//                            MyBuildPos.z = 1;
+//                            myBuilding.transform.position = MyBuildPos;
+
+                           if (isInList2 = buildingPosXTest.IndexOf(check1) != -1)
+                           {
+                                MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 0.25f;
+                                MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
+                                MyBuildPos.z = 1;
+                           }
+                           else if (isInList2 = buildingPosXTest.IndexOf(check2) != -1)
+                           {
+                                MyBuildPos.x = Mathf.Floor(myBuilding.transform.position.x) + 1.25f;
+                                MyBuildPos.y = Mathf.Floor(myBuilding.transform.position.y) + 0.5f;
+                                MyBuildPos.z = 1;
+                           }
+
+                }
                 }//y case 1
                 else if (myCheckPosY < 0.5)
                 {
@@ -167,38 +191,11 @@ public class placebuilding : MonoBehaviour
                     }
                 }//y case 2
 
-                for (int i = 50; i > 200; i++)
-                {
-                    Debug.Log("for");
-                    test2 = i * 1.5f + 0.25f;
-
-                    test = test2.CompareTo(myBuilding.transform.position.x);
-
-                    switch (test)
-                    {
-                        case 1:
-                            if (myBuilding.transform.position.x < (i - 1) * 1.5f)
-                            {
-                                Debug.Log("bigger than i");
-                            }
-                            else
-                            {
-                                Debug.Log("less than i");
-                            }
-                            i = 200;
-                            break;
-                        default:
-                            i = i;
-                            break;
-                    }
-                }
-
-
                 //float test = myBuilding.trsform.position.y - myBuilding.transform.position.y * 100;
                 //Debug.Log(myCheckPosY + " this should remove the hole numbers");
                 //Debug.Log(System.Math.Truncate(22.99999999m));
                 //if (myBuilding.transform.position.y - myBuilding.transform.position.y * 1000 == 50)
-            }
+         }
 
     }
 
