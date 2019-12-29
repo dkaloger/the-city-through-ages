@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class pauseMenu : MonoBehaviour
 {
-public bool muted;
+public bool muted = false;
 public Sprite mute;
 public Sprite unmute;
 public GameObject mutebuton;
@@ -14,13 +14,16 @@ public GameObject mutebuton;
     public GameObject PlayerControllerScript;
 
     public  bool GameIsPaused = false;
-
+   public Image myImageComponent;
+    public Sprite myFirstImage; 
+    public Sprite mySecondImage;
     public GameObject PauseMenu;
 
     private void Start()
     {
         MoveToMouseScript.GetComponent<movetomouse>();
         PlayerControllerScript.GetComponent<playercontroller>();
+
     }
 
     void Update()
@@ -73,15 +76,15 @@ public GameObject mutebuton;
     public void Mute()
     {
         if(muted == true){
-            mutebuton.GetComponent<SpriteRenderer>().sprite = mute;
+            myImageComponent.sprite = myFirstImage;
             muted = false;
         }
-        if (muted == false)
+        else if (muted == false)
         {
-            mutebuton.GetComponent<SpriteRenderer>().sprite = unmute;
+            myImageComponent.sprite = mySecondImage;
             muted = true;
         }
-       
+        Debug.Log("mute");
         AudioListener.pause = !AudioListener.pause;
         //very smart
     }
