@@ -2128,9 +2128,8 @@ MonoBehaviour:
   gridSizeY: 0.5
   gridSizeX: 0.75
   gridObj: {fileID: 144517407}
-  tileMapPos: {fileID: 0}
-  testBuilding: {fileID: 8696701682109835026, guid: 2b73343d2e520d949a1cae8f0f9f9e99,
-    type: 3}
+  tileMapPos: {fileID: 624570467}
+  testBuilding: {fileID: 2070785691}
   orderWheelOnP: 0
   buildings: {fileID: 866676197}
   Buldings:
@@ -6000,6 +5999,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wood: 0
+--- !u!1 &2070785691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8696701682109835026, guid: 2b73343d2e520d949a1cae8f0f9f9e99,
+    type: 3}
+  m_PrefabInstance: {fileID: 92268309}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8906616127211218566
 PrefabInstance:
   m_ObjectHideFlags: 0
