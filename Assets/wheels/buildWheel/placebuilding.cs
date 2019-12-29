@@ -5,7 +5,10 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 public class placebuilding : MonoBehaviour
 {
-
+    [SerializeField]
+    glowmaster glowmaster1;
+    [SerializeField]
+buildWheelOptions buildWheelOptions1;
     public float gridSizeY = 1f;
     public float gridSizeX = 0.75f;
     private Vector3 snapPos;
@@ -32,6 +35,7 @@ public class placebuilding : MonoBehaviour
     Vector2 pos;
     public Camera maincam;
     public Vector3 correction;
+    public GameObject[] objbuildings;
     //  void Update()
     //   {
     //     RectTransformUtility.ScreenPointToLocalPointInRectangle(myCanvas.transform as RectTransform, Input.mousePosition, myCanvas.worldCamera, out pos);
@@ -42,6 +46,7 @@ public class placebuilding : MonoBehaviour
     //    {
     //       buildings.SetTile(clickedpos, Buldings[buildingWheel.GetComponent<glowmaster>().selectedring]);
     //      Debug.Log(clickedpos);
+
     //     }
 
     // }
@@ -50,7 +55,8 @@ public class placebuilding : MonoBehaviour
 
     void Update()
     {
-
+        testBuilding = objbuildings[buildWheelOptions1.curTier * 8 + glowmaster1.selectedring];
+        Debug.Log(buildWheelOptions1.curTier * 8 + glowmaster1.selectedring);
         if (testInt < 200)
         {
             point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -59,7 +65,7 @@ public class placebuilding : MonoBehaviour
 
             var myBuilding = Instantiate(testBuilding, new Vector3(testInt * 1.5f + 100.25f, point.y, 1), Quaternion.identity);
 
-        }//basicly a for loop the for loop just hated me
+        }//basicly a for loop the for loop just hated me,dont put a loop in update unity crashes 
 
         bool isInList = buildingPosXTest.IndexOf(0.25f) != -1;//checks if the num exits;
 

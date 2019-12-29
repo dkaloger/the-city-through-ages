@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class pauseMenu : MonoBehaviour
 {
-
+public bool muted;
+public Sprite mute;
+public Sprite unmute;
+public GameObject mutebuton;
     public GameObject MoveToMouseScript;
 
     public GameObject PlayerControllerScript;
@@ -69,7 +72,18 @@ public class pauseMenu : MonoBehaviour
     }
     public void Mute()
     {
+        if(muted == true){
+            mutebuton.GetComponent<SpriteRenderer>().sprite = mute;
+            muted = false;
+        }
+        if (muted == false)
+        {
+            mutebuton.GetComponent<SpriteRenderer>().sprite = unmute;
+            muted = true;
+        }
+       
         AudioListener.pause = !AudioListener.pause;
+        //very smart
     }
     public void GetBack()
     {
