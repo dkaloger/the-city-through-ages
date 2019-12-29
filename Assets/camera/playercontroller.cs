@@ -16,37 +16,25 @@ public    Vector3 leftsidelimits;
     {
         rb = GetComponent<Rigidbody2D>();
     }
+   
 
     void Update()
     {
-        if (GetComponent<Camera>().orthographicSize < 5.735542)
-        {
-            speed = 0.5f;
-        }
-        if (GetComponent<Camera>().orthographicSize > 10)
-        {
-            speed = GetComponent<Camera>().orthographicSize / 20;
-        }
-
-        if (GetComponent<Camera>().orthographicSize == 10)
-        {
-            speed = GetComponent<Camera>().orthographicSize / 10;
-        }
-      
-        if (GetComponent<Camera>().orthographicSize > 10)
-        {
-            if (Input.GetAxis("Mouse ScrollWheel") > 0 && canScroll == true)
-            {
-                GetComponent<Camera>().orthographicSize -= 10;
-            }
-        }
-        if (GetComponent<Camera>().orthographicSize < 50 && GetComponent<Camera>().orthographicSize>2f)
+        if (GetComponent<Camera>().orthographicSize != 10 )
         {
             if (Input.GetAxis("Mouse ScrollWheel") < 0 && canScroll == true)
             {
-                GetComponent<Camera>().orthographicSize += 10;
+                GetComponent<Camera>().orthographicSize += 1;
             }
         }
+        if (GetComponent<Camera>().orthographicSize != 1)
+        {
+            if (Input.GetAxis("Mouse ScrollWheel") > 0 && canScroll == true)
+            {
+                GetComponent<Camera>().orthographicSize -= 1;
+            }
+        }
+   
    
        
         
@@ -59,7 +47,7 @@ public    Vector3 leftsidelimits;
         Vector2 moveinput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
 
-        movevelocity = moveinput.normalized * speed;
+        movevelocity = moveinput.normalized*  speed* Time.deltaTime *GetComponent<Camera>().orthographicSize;
            
             rb.MovePosition( rb.position + movevelocity);
         

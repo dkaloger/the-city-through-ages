@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/laws.unity
-    guid: 103e76e435fa72e46a5da3683ab9e9fe
-  - enabled: 1
     path: Assets/Scenes/usa.unity
     guid: 5db527762703524488a5f86ad9af5231
+  - enabled: 1
+    path: Assets/Scenes/laws.unity
+    guid: 103e76e435fa72e46a5da3683ab9e9fe
   - enabled: 1
     path: Assets/Scenes/jojo test cam place.unity
     guid: f39c8b7610f0af44ebf1814450ecc853
