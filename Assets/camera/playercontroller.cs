@@ -12,6 +12,10 @@ public class playercontroller : MonoBehaviour
 public    Vector3 leftsidelimits;
     public Vector3 rightsidelimits;
     Vector2 roundedpos;
+    [SerializeField] private GameObject lerpTarget;
+    [SerializeField] private float cam_speed = 1f;
+    
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,9 +38,12 @@ public    Vector3 leftsidelimits;
                 GetComponent<Camera>().orthographicSize -= 1;
             }
         }
-   
-   
-       
+
+
+        void LateUpdate()
+        {
+            transform.position = Vector3.Lerp(transform.position, lerpTarget.transform.position, cam_speed);
+        }
         
       
      
