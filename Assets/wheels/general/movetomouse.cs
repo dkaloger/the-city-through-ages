@@ -4,23 +4,35 @@ using UnityEngine;
 
 public class movetomouse : MonoBehaviour
 {
-    [SerializeField] private Vector3 mousePosition;
-    [SerializeField] private float moveSpeed = 0.1f;
+    public Canvas myCanvas;
+
     public bool pause;
-    void Start()
+
+
+    private Rigidbody2D rb;
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    void FixedUpdate()
+    {
+        if (pause == false)
+        {
+            Vector2 pos;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(myCanvas.transform as RectTransform, Input.mousePosition, myCanvas.worldCamera, out pos);
+            rb.MovePosition(myCanvas.transform.TransformPoint(pos));
+        }
+
+    }
+
+    public void pauseGame()
+    {
+        pause = true;
+    }
+
+    public void unpauseGame()
     {
         pause = false;
-    }
-
-    void Update()
-    {
-        moveToMouseFunc();
-    }
-
-    void moveToMouseFunc()
-    {
-        mousePosition = Input.mousePosition;
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        transform.position = mousePosition;
     }
 }
