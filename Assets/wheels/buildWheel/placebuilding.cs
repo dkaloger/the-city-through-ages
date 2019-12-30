@@ -8,7 +8,7 @@ public class placebuilding : MonoBehaviour
     [SerializeField]
     glowmaster glowmaster1;
     [SerializeField]
-buildWheelOptions buildWheelOptions1;
+    buildWheelOptions buildWheelOptions1;
     public float gridSizeY = 1f;
     public float gridSizeX = 0.75f;
     private Vector3 snapPos;
@@ -63,33 +63,33 @@ buildWheelOptions buildWheelOptions1;
             buildingPosXTest.Add(testInt * 1.5f + 0.25f);
             testInt++;
 
-        double carPosX = tileMapPos.transform.position.x;
-        double carPosX2 = (int)carPosX;
+            double carPosX = tileMapPos.transform.position.x;
+            double carPosX2 = (int)carPosX;
 
-        //float p3 = p - p2;
-        double carPosX3 = carPosX - 107f;
+            //float p3 = p - p2;
+            double carPosX3 = carPosX - 107f;
 
-        Single f = tileMapPos.transform.position.x - (int)tileMapPos.transform.position.x;
+            Single f = tileMapPos.transform.position.x - (int)tileMapPos.transform.position.x;
 
-        double d2 = Double.Parse(f.ToString());
+            double d2 = Double.Parse(f.ToString());
 
-        Debug.Log(buildingPosXTest[0]);
+            Debug.Log(buildingPosXTest[0]);
 
-        Debug.Log(isInList);
+            Debug.Log("isInList2");
 
-        //float test = 51f;
-        //Debug.Log(test % 2);
-        //float double_value = -30.555F;
-        //Debug.Log((int)((double_value - (int)double_value) * 100) + "this is a test");
-        //float decimalPart = 22.45F;
-        //decimalPart.ToString("F0" + "this should show 22");-
-        //Debug.Log(Mathf.Round(decimalPart));
-        //point.x = (int)Camera.main.ScreenToWorldPoint(Input.mousePosition.x);
-        point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //point = (int)Input.mousePosition.y;
+            //float test = 51f;
+            //Debug.Log(test % 2);
+            //float double_value = -30.555F;
+            //Debug.Log((int)((double_value - (int)double_value) * 100) + "this is a test");
+            //float decimalPart = 22.45F;
+            //decimalPart.ToString("F0" + "this should show 22");-
+            //Debug.Log(Mathf.Round(decimalPart));
+            //point.x = (int)Camera.main.ScreenToWorldPoint(Input.mousePosition.x);
+            point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //point = (int)Input.mousePosition.y;
 
-        if (Input.GetMouseButtonDown(0) && orderWheelOnP == false)
-        {
+            if (Input.GetMouseButtonDown(0) && orderWheelOnP == false)
+            {
                 //if ((int)point.y % 1 == 0.5F && (int)point.x % 1 == 0.25F || (int)point.x % 1 == 0.75F)
                 var myBuilding = Instantiate(testBuilding, new Vector3(point.x, point.y, 1), Quaternion.identity);
                 //myBuilding.transform.parent = gridObj.transform;
@@ -105,8 +105,8 @@ buildWheelOptions buildWheelOptions1;
                 float test2 = 1.5f;
                 float test = 0;
                 Debug.Log(comTest2.CompareTo(comTest1) + " com thing");//this returns -1 or 1,  1 if is the first is greater than the other the other is the oppersit
-                //Debug.Log(myCheckPosX);
-        
+                                                                       //Debug.Log(myCheckPosX);
+
                 techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);
                 float nowGrid = 1f / gridSizeX;
                 float nowGridY = 1f / gridSizeY;
@@ -127,7 +127,7 @@ buildWheelOptions buildWheelOptions1;
                         {
                             myBuilding.SetActive(false);
                         }
-                       else if (myCheckPosX == 0)
+                        else if (myCheckPosX == 0)
                         {
                             myBuilding.SetActive(false);
                         }
@@ -192,16 +192,16 @@ buildWheelOptions buildWheelOptions1;
                             myBuilding.SetActive(false);
                         }
 
-                }
+                    }
                 }//y case 2
 
                 //float test = myBuilding.trsform.position.y - myBuilding.transform.position.y * 100;
                 //Debug.Log(myCheckPosY + " this should remove the hole numbers");
                 //Debug.Log(System.Math.Truncate(22.99999999m));
                 //if (myBuilding.transform.position.y - myBuilding.transform.position.y * 1000 == 50)
-         }
+            }
 
-    }
+        }
 
         //Vector3Int selectedTile = tilemp.WorldToCell(point);
         ////tilemp.SetTile(selectedTile, Buldings[GetComponent<glowmaster>().selectedring -1 + tiers]);
@@ -216,8 +216,9 @@ buildWheelOptions buildWheelOptions1;
         //Debug.Log(decimalPart.ToString("F0" + "this should show 22"));
         //techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);
 
-    public void tierChange(int tier)
-    {
-        tiers = tier * 8;
+        void tierChange(int tier)
+        {
+            tiers = tier * 8;
+        }
     }
 }
