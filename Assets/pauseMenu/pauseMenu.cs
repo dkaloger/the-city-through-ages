@@ -11,6 +11,8 @@ public Sprite unmute;
 public GameObject mutebuton;
     public GameObject MoveToMouseScript;
 
+    public int SceneName;
+
     public GameObject PlayerControllerScript;
 
     public  bool GameIsPaused = false;
@@ -71,7 +73,7 @@ public GameObject mutebuton;
     }
     public void LawScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneName);
     }
     public void Mute()
     {

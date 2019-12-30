@@ -40,7 +40,7 @@ public class buildWheelOptions : MonoBehaviour
                 animations.Play("changeTier");
             }
         }
-        else if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (curTier != tiersUnlocked.Count -1 && orderWheelOn == false)
             {
