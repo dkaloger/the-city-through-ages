@@ -6,11 +6,8 @@ public class movetomouse : MonoBehaviour
 {
     [SerializeField] private Vector3 mousePosition;
     [SerializeField] private float moveSpeed = 0.1f;
-    public bool pause;
-    void Start()
-    {
-        pause = false;
-    }
+    [SerializeField] private GameObject wheel;
+    public pauseMenu pause;
 
     void Update()
     {
@@ -19,8 +16,16 @@ public class movetomouse : MonoBehaviour
 
     void moveToMouseFunc()
     {
-        mousePosition = Input.mousePosition;
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        transform.position = mousePosition;
+        if (pause.GameIsPaused)
+        {
+            wheel.SetActive(false);
+        }
+        else
+        {
+            wheel.SetActive(true);
+            mousePosition = Input.mousePosition;
+            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            transform.position = mousePosition;
+        }
     }
 }
