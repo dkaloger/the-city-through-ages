@@ -5,14 +5,22 @@ using UnityEngine;
 public class buildingbasescript : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private Transform parent;
+    [SerializeField]
+        private bool doneonce = false;
 
     // Update is called once per frame
+
+
     void Update()
     {
-        transform.position = new Vector3(0, 0, 1);
+        transform.SetParent(parent, false);
+if(doneonce == false ){
+           
+            transform.position = new Vector3(0, 0, 1);
+            doneonce = true;
+        }
+       
     }
 }
