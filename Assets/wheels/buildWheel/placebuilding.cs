@@ -63,11 +63,15 @@ buildWheelOptions buildWheelOptions1;
             buildingPosXTest.Add(testInt * 1.5f + 0.25f);
             testInt++;
 
-            var myBuilding = Instantiate(testBuilding, new Vector3(testInt * 1.5f + 100.25f, point.y, 1), Quaternion.identity);
+        double carPosX = tileMapPos.transform.position.x;
+        double carPosX2 = (int)carPosX;
 
-        }//basicly a for loop the for loop just hated me,dont put a loop in update unity crashes 
+        //float p3 = p - p2;
+        double carPosX3 = carPosX - 107f;
 
-        bool isInList = buildingPosXTest.IndexOf(0.25f) != -1;//checks if the num exits;
+        Single f = tileMapPos.transform.position.x - (int)tileMapPos.transform.position.x;
+
+        double d2 = Double.Parse(f.ToString());
 
         Debug.Log(buildingPosXTest[0]);
 
@@ -78,7 +82,7 @@ buildWheelOptions buildWheelOptions1;
         //float double_value = -30.555F;
         //Debug.Log((int)((double_value - (int)double_value) * 100) + "this is a test");
         //float decimalPart = 22.45F;
-        //decimalPart.ToString("F0" + "this should show 22");
+        //decimalPart.ToString("F0" + "this should show 22");-
         //Debug.Log(Mathf.Round(decimalPart));
         //point.x = (int)Camera.main.ScreenToWorldPoint(Input.mousePosition.x);
         point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
