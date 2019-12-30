@@ -7,7 +7,6 @@ public class buildingbasescript : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]
     Transform parent;
-    bool 
 
     // Update is called once per frame
  
