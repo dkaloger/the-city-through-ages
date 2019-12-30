@@ -33,6 +33,7 @@ public class placebuilding : MonoBehaviour
     [SerializeField]
     Canvas myCanvas;
     Vector2 pos;
+    public Transform tra;
     public Camera maincam;
     public Vector3 correction;
     public GameObject[] objbuildings;
@@ -55,6 +56,7 @@ public class placebuilding : MonoBehaviour
 
     void Update()
     {
+        Instantiate(testBuilding, tra);
         testBuilding = objbuildings[buildWheelOptions1.curTier * 8 + glowmaster1.selectedring];
         Debug.Log(buildWheelOptions1.curTier * 8 + glowmaster1.selectedring);
         if (testInt < 200)
