@@ -19,6 +19,7 @@ public class buildWheelOptions : MonoBehaviour
     {
         tiersUnlocked.Add(0);
         tiersUnlocked.Add(1);
+        tiersUnlocked.Add(2);
         myBuildings[0].GetComponent<SpriteRenderer>().sprite = mySprites[0];
         myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[1];
         myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[2];
@@ -40,7 +41,7 @@ public class buildWheelOptions : MonoBehaviour
                 animations.Play("changeTier");
             }
         }
-        else if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (curTier != tiersUnlocked.Count -1 && orderWheelOn == false)
             {
@@ -77,6 +78,16 @@ public class buildWheelOptions : MonoBehaviour
             myBuildings[5].GetComponent<SpriteRenderer>().sprite = mySprites[13];
             myBuildings[6].GetComponent<SpriteRenderer>().sprite = mySprites[14];
             myBuildings[7].GetComponent<SpriteRenderer>().sprite = mySprites[15];
+        }
+        if (tier == 2)
+        {
+            myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[16];
+            myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[17];
+            myBuildings[3].GetComponent<SpriteRenderer>().sprite = mySprites[18];
+            myBuildings[4].GetComponent<SpriteRenderer>().sprite = mySprites[19];
+            myBuildings[5].GetComponent<SpriteRenderer>().sprite = mySprites[20];
+            myBuildings[6].GetComponent<SpriteRenderer>().sprite = mySprites[21];
+            myBuildings[7].GetComponent<SpriteRenderer>().sprite = mySprites[22];
         }
 
     }
