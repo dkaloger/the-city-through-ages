@@ -54,15 +54,13 @@ public class placebuilding : MonoBehaviour
     void Update()
     {
 
-        double carPosX = tileMapPos.transform.position.x;
-        double carPosX2 = (int)carPosX;
+        float p = 7.4788f;
+        float p2 = (int)p;
 
         //float p3 = p - p2;
-        double carPosX3 = carPosX - 107f;
+        float p3 = 7.4788f - 7;
 
-        Single f = tileMapPos.transform.position.x - (int)tileMapPos.transform.position.x;
-
-        double d2 = Double.Parse(f.ToString());
+        Debug.Log(p3);
 
         testBuilding = objbuildings[buildWheelOptions1.curTier * 8 + glowmaster1.selectedring];
         //Debug.Log(buildWheelOptions1.curTier * 8 + glowmaster1.selectedring);
@@ -72,7 +70,7 @@ public class placebuilding : MonoBehaviour
         //float double_value = -30.555F;
         //Debug.Log((int)((double_value - (int)double_value) * 100) + "this is a test");
         //float decimalPart = 22.45F;
-        //decimalPart.ToString("F0" + "this should show 22");-
+        //decimalPart.ToString("F0" + "this should show 22");
         //Debug.Log(Mathf.Round(decimalPart));
         //point.x = (int)Camera.main.ScreenToWorldPoint(Input.mousePosition.x);
         point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
