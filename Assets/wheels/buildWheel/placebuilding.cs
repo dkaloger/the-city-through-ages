@@ -8,12 +8,14 @@ public class placebuilding : MonoBehaviour
     [SerializeField]
     glowmaster glowmaster1;
     [SerializeField]
-    buildWheelOptions buildWheelOptions1;
+buildWheelOptions buildWheelOptions1;
     public float gridSizeY = 1f;
     public float gridSizeX = 0.75f;
     private Vector3 snapPos;
     Vector3 MyBuildPos;
+    bool isInList2 = false;
     float var = 1.25f;
+    List<float> buildingPosXTest = new List<float>();
     bool Bool = false;
     int testInt = 0;
 
@@ -53,7 +55,15 @@ public class placebuilding : MonoBehaviour
 
     void Update()
     {
+        testBuilding = objbuildings[buildWheelOptions1.curTier * 8 + glowmaster1.selectedring];
+        Debug.Log(buildWheelOptions1.curTier * 8 + glowmaster1.selectedring);
+        if (testInt < 200)
+        {
+            point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            buildingPosXTest.Add(testInt * 1.5f + 0.25f);
+            testInt++;
 
+<<<<<<< HEAD
         double carPosX = tileMapPos.transform.position.x;
         double carPosX2 = (int)carPosX;
 
@@ -63,9 +73,17 @@ public class placebuilding : MonoBehaviour
         Single f = tileMapPos.transform.position.x - (int)tileMapPos.transform.position.x;
 
         double d2 = Double.Parse(f.ToString());
+=======
+            var myBuilding = Instantiate(testBuilding, new Vector3(testInt * 1.5f + 100.25f, point.y, 1), Quaternion.identity);
 
-        testBuilding = objbuildings[buildWheelOptions1.curTier * 8 + glowmaster1.selectedring];
-        //Debug.Log(buildWheelOptions1.curTier * 8 + glowmaster1.selectedring);
+        }//basicly a for loop the for loop just hated me,dont put a loop in update unity crashes 
+
+        bool isInList = buildingPosXTest.IndexOf(0.25f) != -1;//checks if the num exits;
+>>>>>>> parent of ffd2be6... find a wierd bug
+
+        Debug.Log(buildingPosXTest[0]);
+
+        Debug.Log(isInList);
 
         //float test = 51f;
         //Debug.Log(test % 2);
@@ -89,10 +107,16 @@ public class placebuilding : MonoBehaviour
                 float myCheckPosX = myBuilding.transform.position.x;
                 float myCheckPosX2 = Mathf.Floor(myCheckPosX);
                 myCheckPosX = myCheckPosX - myCheckPosX2;
+                float xUnEven = myCheckPosX % 2;
+                float comTest1 = 22.55f;
+                float comTest2 = 22.66f;
+                float test2 = 1.5f;
+                float test = 0;
+                Debug.Log(comTest2.CompareTo(comTest1) + " com thing");//this returns -1 or 1,  1 if is the first is greater than the other the other is the oppersit
                 //Debug.Log(myCheckPosX);
         
                 techTree.GetComponent<techTree>().addBuilding(GetComponent<glowmaster>().selectedring - 1);
-                float nowGridX = 1f / gridSizeX;
+                float nowGrid = 1f / gridSizeX;
                 float nowGridY = 1f / gridSizeY;
                 if (myCheckPosY >= 0.5)
                 {
@@ -101,7 +125,7 @@ public class placebuilding : MonoBehaviour
                     if (myCheckPosX >= 0.5)
                     {
                         Vector3 MyBuildPos;
-                        MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x * nowGridX) / nowGridX;
+                        MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x * nowGrid) / nowGrid;
                         MyBuildPos.y = Mathf.Round(myBuilding.transform.position.y * nowGridY) / nowGridY;
                         MyBuildPos.z = 1;
                         myBuilding.transform.position = MyBuildPos;
@@ -119,7 +143,7 @@ public class placebuilding : MonoBehaviour
                     else if (myCheckPosX < 0.5)
                     {
                         Vector3 MyBuildPos;
-                        MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x * nowGridX) / nowGridX;
+                        MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x * nowGrid) / nowGrid;
                         MyBuildPos.y = Mathf.Round(myBuilding.transform.position.y * nowGridY) / nowGridY;
                         MyBuildPos.z = 1;
                         myBuilding.transform.position = MyBuildPos;
@@ -141,19 +165,18 @@ public class placebuilding : MonoBehaviour
                     if (myCheckPosX < 0.5)
                     {
                         //Debug.Log("you made it to y2 x1");
-                        MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x * nowGridX) / nowGridX;
+                        MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x * nowGrid) / nowGrid;
                         MyBuildPos.y = Mathf.Round(myBuilding.transform.position.y * nowGridY) / nowGridY;
                         MyBuildPos.z = 1;
                         myBuilding.transform.position = MyBuildPos;
-
                         myCheckPosX = myBuilding.transform.position.x;
                         myCheckPosX2 = Mathf.Floor(myCheckPosX);
-                        myCheckPosX = myCheckPosX - myCheckPosX2;// this makes the number to the same num but only the nums after the dot
-                        if (myCheckPosX < 0.50)
+                        myCheckPosX = myCheckPosX - myCheckPosX2;
+                        if (myCheckPosX == 0.25)
                         {
                             myBuilding.SetActive(false);
                         }
-                        else if (myCheckPosX >= 0.50)
+                        else if (myCheckPosX == 0.75)
                         {
                             myBuilding.SetActive(false);
                         }
@@ -162,17 +185,17 @@ public class placebuilding : MonoBehaviour
                     {
                         //Debug.Log("you made it to y2 x2");
                         Vector3 MyBuildPos;
-                        MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x * nowGridX) / nowGridX;
+                        MyBuildPos.x = Mathf.Round(myBuilding.transform.position.x * nowGrid) / nowGrid;
                         MyBuildPos.y = Mathf.Round(myBuilding.transform.position.y * nowGridY) / nowGridY;
                         MyBuildPos.z = 1;
                         myBuilding.transform.position = MyBuildPos;
                         myCheckPosX2 = Mathf.Floor(myCheckPosX);
                         myCheckPosX = myCheckPosX - myCheckPosX2;
-                        if (myCheckPosX < 0.5)
+                        if (myCheckPosX == 0.25)
                         {
                             myBuilding.SetActive(false);
                         }
-                        else if (myCheckPosX >= 0.5)
+                        else if (myCheckPosX == 0.75)
                         {
                             myBuilding.SetActive(false);
                         }
