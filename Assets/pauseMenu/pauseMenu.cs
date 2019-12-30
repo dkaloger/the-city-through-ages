@@ -35,6 +35,7 @@ public GameObject mutebuton;
             if (GameIsPaused == false)
             {
                 pause();
+                Debug.Log("Paused");
             }
             else
             {
