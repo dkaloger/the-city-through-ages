@@ -11,6 +11,8 @@ public Sprite unmute;
 public GameObject mutebuton;
     public GameObject MoveToMouseScript;
 
+    public int SceneName;
+
     public GameObject PlayerControllerScript;
 
     public  bool GameIsPaused = false;
@@ -33,6 +35,7 @@ public GameObject mutebuton;
             if (GameIsPaused == false)
             {
                 pause();
+                Debug.Log("Paused");
             }
             else
             {
@@ -43,15 +46,12 @@ public GameObject mutebuton;
     void resume()
     {
         PlayerControllerScript.GetComponent<playercontroller>().CanScroll();
-        MoveToMouseScript.GetComponent<movetomouse>().unpauseGame();
         PauseMenu.SetActive(false);
         GameIsPaused = false;
         Time.timeScale = 1f;
     }
     public void pause()
     {
-        MoveToMouseScript.GetComponent<movetomouse>().pauseGame();
-        PlayerControllerScript.GetComponent<playercontroller>().CantScroll();
         PauseMenu.SetActive(true);
         GameIsPaused = true;
         Time.timeScale = 0f;
@@ -67,11 +67,10 @@ public GameObject mutebuton;
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
-        MoveToMouseScript.GetComponent<movetomouse>().unpauseGame();
     }
     public void LawScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneName);
     }
     public void Mute()
     {
