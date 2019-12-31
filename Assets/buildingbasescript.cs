@@ -7,6 +7,14 @@ public class buildingbasescript : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]
     Transform parent;
+    [SerializeField]
+    Vector3 temp;
+    [SerializeField]
+    Vector3 test;
+    [SerializeField]
+        bool doneonce;
+    [SerializeField]
+ Transform mm;
     void Start()
     {
         
@@ -15,6 +23,8 @@ public class buildingbasescript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(0, 0, 1);
+       
+
+
     }
 }
