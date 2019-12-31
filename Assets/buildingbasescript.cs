@@ -5,6 +5,8 @@ using UnityEngine;
 public class buildingbasescript : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField]
+    Transform parent;
     void Start()
     {
         
