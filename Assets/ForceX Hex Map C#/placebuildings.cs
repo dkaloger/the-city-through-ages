@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 public class placebuildings : MonoBehaviour
 {
     [SerializeField]
@@ -20,6 +20,10 @@ Transform mapt;
 Vector3 maposset;
 [SerializeField]
 FX_MapGen mpp;
+[SerializeField]
+Vector3[] tpos;
+[SerializeField]
+int curentcell;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,14 +35,15 @@ FX_MapGen mpp;
     // Update is called once per frame
     void Update()
     {
-      
-        if(Input.GetKeyDown(KeyCode.Mouse0)){
+        pos = new Vector3(gf.TargetHex.position.x, gf.TargetHex.position.y, gf.TargetHex.position.z - 2f);
+        if(Input.GetKeyDown(KeyCode.Mouse0)&& !tpos.Contains(pos) ){
            
-            pos = new Vector3(gf.TargetHex.position.x, gf.TargetHex.position.y , gf.TargetHex.position.z- 2f);
-        
-       
-          
+           
+
+
+            tpos[curentcell] = pos;
             Instantiate(testbuilding,pos,idk );
+            curentcell++;
         }
     }
 }

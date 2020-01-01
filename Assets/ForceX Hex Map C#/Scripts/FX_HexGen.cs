@@ -11,8 +11,8 @@ using System.Collections;
 
 public class FX_HexGen : MonoBehaviour {
 	public Material material;
-
-	public GameObject MakeHex (int offset, float scale) {
+public GameObject tile;
+    public GameObject MakeHex (int offset, float scale ) {
 
 		Mesh mesh = new Mesh();
 
@@ -95,7 +95,7 @@ public class FX_HexGen : MonoBehaviour {
 
 		o.AddComponent<FX_HexInfo>();
 
-		return o;
+        return o;
 	}
 
 	Vector3 GetVertexPos(float angle){

@@ -19,6 +19,7 @@ public class FX_MapGen : MonoBehaviour {
 
 	public bool RotateHex;
    public Transform Map;
+   public float sizzer;
 
     void Start () {
 
@@ -35,9 +36,9 @@ public class FX_MapGen : MonoBehaviour {
 		GameObject Temp;
 
 		if(!RotateHex){
-			Temp = GetComponent<FX_HexGen>().MakeHex(30, 0.5f);
+			Temp = GetComponent<FX_HexGen>().MakeHex(30, sizzer);
 		}else{
-			Temp = GetComponent<FX_HexGen>().MakeHex(0, 0.5f);
+			Temp = GetComponent<FX_HexGen>().MakeHex(0, sizzer);
 		}
 
 		Bounds bounds = Temp.GetComponent<Renderer>().bounds;
@@ -58,7 +59,7 @@ public class FX_MapGen : MonoBehaviour {
 		for(int x = 0; x < MapWidth; x++){
 			for(int y = 0; y < MapHeight; y++){
 				
-				Transform h = GetComponent<FX_HexGen>().MakeHex(30,0.5f).transform;
+				Transform h = GetComponent<FX_HexGen>().MakeHex(30,sizzer).transform;
 				
 				SetHexInfo(x,y,h);
 				
@@ -86,7 +87,7 @@ public class FX_MapGen : MonoBehaviour {
 		for(int x = 0; x < MapWidth; x++){
 			for(int y = 0; y < MapHeight; y++){
 
-				Transform h = GetComponent<FX_HexGen>().MakeHex(0,0.5f).transform;
+				Transform h = GetComponent<FX_HexGen>().MakeHex(0,sizzer).transform;
 
 				SetHexInfo(y,x,h);
 
@@ -110,7 +111,7 @@ public class FX_MapGen : MonoBehaviour {
 		int newZ = -(x+y);
 		
 		if(y > 1){
-			newX = Mathf.CeilToInt(x - (y * 0.5f));
+			newX = Mathf.CeilToInt(x - (y * sizzer));
 			newZ = -(newX+y);
 		}
 
