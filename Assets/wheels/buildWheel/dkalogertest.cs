@@ -8,7 +8,7 @@ public class dkalogertest : MonoBehaviour
     GameObject testBuilding;
     int Delay;
     Quaternion tge;
-    public Vector3 point;
+    public Vector3 pointr;
 
     [SerializeField]
     float Mycolumn;
@@ -17,12 +17,14 @@ bool trigeredl;
     [SerializeField]
 bool curentlyplacingregular;
 [SerializeField]
- 
+   
+   public Vector3 correction;
+   public 
     void Update() {
 
        
-        Mycolumn = Mathf.Floor(point.x) ;
-if(point.x - (Mathf.Floor(point.x))>0.4f&&point.x - (Mathf.Floor(point.x)) > 0.4f)
+        Mycolumn = Mathf.Floor(pointr.x) ;
+if(pointr.x - (Mathf.Floor(pointr.x))>0.4f&&pointr.x - (Mathf.Floor(pointr.x)) > 0.4f)
         Delay++;
         if (Mycolumn % 2 == 1)
         {
@@ -34,22 +36,30 @@ if(point.x - (Mathf.Floor(point.x))>0.4f&&point.x - (Mathf.Floor(point.x)) > 0.4
             curentlyplacingregular = false;
             trigeredl = true;
         }
+        
 
-        point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        pointr = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if(Input.GetMouseButtonDown(0)){
 
-        
-            
+
+            if (curentlyplacingregular == true && trigeredl == true && pointr.x - (Mathf.Floor(pointr.x)) > 0.35f )
+            {
+                pointr += correction;
+
+
+            }
               
 
 
-            if (curentlyplacingregular == true && trigeredl == true)
+          if (curentlyplacingregular == true && trigeredl == true)
             {
-                
-                point.x = (Mathf.Floor(point.x));
-                point.y = (Mathf.Floor(point.y));
-                point.z = -10;
-                Instantiate(testBuilding, point, tge);
+
+            pointr.x = (Mathf.Floor(pointr.x));
+              pointr.y = (Mathf.Floor(pointr.y));
+               pointr.z = -10;
+              
+          
+                Instantiate(testBuilding, pointr, tge);
                 trigeredl = false;
 
             }
@@ -57,22 +67,22 @@ if(point.x - (Mathf.Floor(point.x))>0.4f&&point.x - (Mathf.Floor(point.x)) > 0.4
             if (curentlyplacingregular == false && trigeredl == true)
             {
 
-                point.x = (Mathf.Floor(point.x));
-                point.y = (Mathf.Floor(point.y))+0.5f;
-                point.z = -10;
-
-                Instantiate(testBuilding, point, tge);
+                pointr.x = (Mathf.Floor(pointr.x));
+                pointr.y = (Mathf.Floor(pointr.y))+0.5f;
+                pointr.z = -10;
+               
+                Instantiate(testBuilding, pointr, tge);
                 trigeredl = false;
-                point.y -= 0.5f;
+                pointr.y -= 0.5f;
 
             }
 
-
+           
             Delay = 0;
             
         }
 
-}
+    }
  
 } 
                

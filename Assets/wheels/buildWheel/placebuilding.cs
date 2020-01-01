@@ -22,7 +22,7 @@ public class placebuilding : MonoBehaviour
     public GameObject gridObj;
     public Transform tileMapPos;
     List<Vector3Int> objPos = new List<Vector3Int>();
-    Vector3 point;
+    public Vector3 pointr;
     public GameObject testBuilding;
     public bool orderWheelOnP = false;
     private int tiers = 0;
@@ -57,10 +57,10 @@ public class placebuilding : MonoBehaviour
     void Update()
     {
         
-        testBuilding = objbuildings[buildWheelOptions1.curTier * 8 + glowmaster1.selectedring];
+        testBuilding =null;
         //Debug.Log(buildWheelOptions1.curTier * 8 + glowmaster1.selectedring);
 
-        point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        pointr = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         double carPosX = tileMapPos.transform.position.x;
         double carPosX2 = (int)carPosX;
@@ -99,13 +99,13 @@ public class placebuilding : MonoBehaviour
         //decimalPart.ToString("F0" + "this should show 22");-
         //Debug.Log(Mathf.Round(decimalPart));
         //point.x = (int)Camera.main.ScreenToWorldPoint(Input.mousePosition.x);
-        point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        pointr = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //point = (int)Input.mousePosition.y;
 
         if (Input.GetMouseButtonDown(0) && orderWheelOnP == false)
         {
             //if ((int)point.y % 1 == 0.5F && (int)point.x % 1 == 0.25F || (int)point.x % 1 == 0.75F)
-            var myBuilding = Instantiate(testBuilding, new Vector3(point.x, point.y, 1), Quaternion.identity);
+            var myBuilding = Instantiate(testBuilding, new Vector3(pointr.x, pointr.y, 1), Quaternion.identity);
             //myBuilding.transform.parent = gridObj.transform;
             float myCheckPosY = myBuilding.transform.position.y;
             float myCheckPosY2 = Mathf.Floor(myCheckPosY);
