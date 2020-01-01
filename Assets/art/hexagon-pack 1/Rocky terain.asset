@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: Rocky terain
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 5e1479f0275b5bf48b16614e404e7673, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a778171813a07fb429a829891819e4d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
