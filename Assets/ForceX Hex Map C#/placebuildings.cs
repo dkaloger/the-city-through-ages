@@ -50,6 +50,7 @@ Sprite choptree;
     buildWheelOptions ti;
    
     public Sprite forest;
+    public Sprite rockeyterrain;
 
 
     // Start is called before the first frame update
@@ -87,21 +88,31 @@ Sprite choptree;
 
             //Display the sprite value of the tile in log *SUCCESS*
 
-       if (Input.GetKeyDown(KeyCode.Mouse0) && !tpos.Contains(pos) && forest == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 18)
+      
+      if (Input.GetKeyDown(KeyCode.Mouse0) && !tpos.Contains(pos) && water != myTileMap.GetSprite(coordinate))
         {
-            tpos[curentcell] = pos;
-            Instantiate(testbuilding, pos, idk);
-            curentcell++;
-        }
-       else if (Input.GetKeyDown(KeyCode.Mouse0) && !tpos.Contains(pos) && water != myTileMap.GetSprite(coordinate) && 16 + ri.selectedring != 18)
-        {
+           //placechoptree
+            if ( forest == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 18 && ti.orderWheelOn == true)
+            {
+                tpos[curentcell] = pos;
+                Instantiate(testbuilding, pos, idk);
+                curentcell++;
+            }
+            if (rockeyterrain == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 17 && ti.orderWheelOn == true)
+            {
+                tpos[curentcell] = pos;
+                Instantiate(testbuilding, pos, idk);
+                curentcell++;
+            }
 
+//general
+            if (  ti.orderWheelOn == false)
+            {
 
-
-
-            tpos[curentcell] = pos;
-            Instantiate(testbuilding, pos, idk);
-            curentcell++;
+                tpos[curentcell] = pos;
+                Instantiate(testbuilding, pos, idk);
+                curentcell++;
+            }
         }
    
     }
