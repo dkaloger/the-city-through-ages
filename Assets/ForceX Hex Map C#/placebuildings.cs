@@ -37,6 +37,15 @@ Sprite water;
     public Grid grid;
     [SerializeField]
     Tilemap myTileMap;
+    [SerializeField]
+
+    GameObject[] buildings;
+    [SerializeField]
+
+    glowmaster ri;
+    [SerializeField]
+
+    buildWheelOptions ti;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +57,7 @@ Sprite water;
     // Update is called once per frame
     void Update()
     {
+        testbuilding = buildings[ti.curTier * 8 + ri.selectedring];
         pos = new Vector3(gf.TargetHex.position.x, gf.TargetHex.position.y, gf.TargetHex.position.z - 2f);
         posi.x = (int)pos.x;
         posi.y = (int)pos.y;
@@ -58,9 +68,9 @@ Sprite water;
         //Convert position of the mouseclick to the position of the tile located at the mouseclick
         Vector3Int coordinate = grid.WorldToCell(mouseWorldPos);
         //Display tile position in log
-        Debug.Log(coordinate);
+
         //Display the sprite value of the tile in log *SUCCESS*
-        
+        Debug.Log(ti.curTier * 8 + ri.selectedring);
         if(Input.GetKeyDown(KeyCode.Mouse0)&& !tpos.Contains(pos) &&water != myTileMap.GetSprite(coordinate)){
            
            
