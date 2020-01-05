@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class collectr : MonoBehaviour
 {
-  public  Vector3[] tilepos = new Vector3[1000];
+    int myjob;
+    float speed;
+    GameObject target;
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+if (myjob ==1 ){
+            target = GameObject.FindGameObjectWithTag("chop");
+            transform.position = Vector3.MoveTowards(transform.position, target.transform.position,speed);
+}
+   
     }
 }
