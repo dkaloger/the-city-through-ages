@@ -10,21 +10,22 @@ public class jobsystem : MonoBehaviour
     Image wedg1;
     [SerializeField]
     Image wedg2;
-    [SerializeField]
-    Slider s1;
-    [SerializeField]
-    Slider s2;
+   
+   
+    public Slider s12;
+
+    public Slider s22;
     void Update() {
-        
-        wedg1.fillAmount = s1.value;
-        wedg2.fillAmount = s2.value;
+    
+        wedg1.fillAmount = s12.value;
+        wedg2.fillAmount = s22.value;
     }
 
      public void s1changed(){
-        s2.value = 1 - s1.value;
+        s22.value = 1 - s12.value;
     }
     public void s2changed()
     {
-        s1.value = 1 - s2.value;
+        s12.value = 1 - s22.value;
     }
 }
