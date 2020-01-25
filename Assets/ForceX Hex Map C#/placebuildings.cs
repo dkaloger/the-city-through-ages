@@ -110,7 +110,11 @@ Sprite choptree;
             {
 
                 tpos[curentcell] = pos;
-                Instantiate(testbuilding, pos, idk);
+                GameObject MyBuilding = Instantiate(testbuilding, pos, idk);
+                //MyBuilding.transform.position = new Vector3(110, -69.62065f, 0);
+
+                MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
+
                 curentcell++;
             }
         }
