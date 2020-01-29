@@ -19,7 +19,7 @@ public class FX_Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		DistanceText = GameObject.Find ("Distance Text").GetComponent<Text>();
+	    DistanceText = GameObject.Find ("Distance Text").GetComponent<Text>();
 		PlayerCameraT = PlayerCameraC.transform;
 	}
 	
