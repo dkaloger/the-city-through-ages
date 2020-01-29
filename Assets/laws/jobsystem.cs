@@ -12,20 +12,26 @@ public class jobsystem : MonoBehaviour
     Image wedg2;
    
    
-    public Slider s12;
+    public Slider choptrees;
 
-    public Slider s22;
-    void Update() {
+    public Slider mines;
+    public int minei;
+    public int choptreei;
     
-        wedg1.fillAmount = s12.value;
-        wedg2.fillAmount = s22.value;
+    void Update() {
+    minei = Mathf.RoundToInt(mines.value);
+        wedg1.fillAmount = choptrees.value;
+        wedg2.fillAmount = mines.value;
+        PlayerPrefs.SetInt("mine",minei);
+           PlayerPrefs.SetInt("chop",choptreei);
+           
     }
 
      public void s1changed(){
-        s22.value = 1 - s12.value;
+        mines.value = 100 - choptrees.value;
     }
     public void s2changed()
     {
-        s12.value = 1 - s22.value;
+        choptrees.value = 100 - mines.value;
     }
 }

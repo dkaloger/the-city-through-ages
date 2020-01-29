@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -963,8 +963,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wedg1: {fileID: 1266277851}
   wedg2: {fileID: 1585507882}
-  s12: {fileID: 559479952}
-  s22: {fileID: 2019967437}
+  choptrees: {fileID: 559479952}
+  mines: {fileID: 2019967437}
+  minei: 0
+  choptreei: 0
 --- !u!1 &1035826732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1990,7 +1992,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
