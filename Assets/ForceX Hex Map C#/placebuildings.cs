@@ -5,6 +5,13 @@ using System.Linq;
 using  UnityEngine.Tilemaps;
 public class placebuildings : MonoBehaviour
 {
+
+
+    public Transform[] childTrans;
+    public GameObject parrentObj;
+    public List<float> buildingsPosX = new List<float>();
+    public List<float> buildingsPosY = new List<float>();
+    public List<string> Names = new List<string>();
     [SerializeField]
 GameObject testbuilding;
 [SerializeField]
@@ -64,6 +71,10 @@ Sprite choptree;
     // Update is called once per frame
     void Update()
     {
+        
+        //child trans takes  the transforms of the buildings every frame
+        childTrans = parrentObj.GetComponentsInChildren<Transform>();
+
         if (ti.orderWheelOn == false)
         {
             testbuilding = buildings[ti.curTier * 8 + ri.selectedring];
@@ -111,14 +122,43 @@ Sprite choptree;
 
                 tpos[curentcell] = pos;
                 GameObject MyBuilding = Instantiate(testbuilding, pos, idk);
-                //MyBuilding.transform.position = new Vector3(110, -69.62065f, 0);
 
+                //this creates the building and set it to an object so it is a child
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
+                MyBuilding.transform.parent = parrentObj.transform;
 
                 curentcell++;
             }
         }
    
+    }
+
+    //changes the list for 1 sec
+    public void takeOutThePos()
+    {
+        for (int i = 0;i < childTrans.Length - 1; i++)
+        {
+            buildingsPosX.Add(childTrans[i + 1].position.x);
+            buildingsPosY.Add(childTrans[i + 1].position.y);
+            Names.Add("fire");
+            Debug.Log("this is i :" + i + " of buildingsPosX " + buildingsPosX.Count);
+        }
+
+        Invoke("resetTheList", 1f);
+
+    }
+    //resets the list
+    void resetTheList()
+    {
+        buildingsPosX = new List<float>();
+        buildingsPosY = new List<float>();
+        Names = new List<string>();
+    }
+    //this create the buildings after loading note that you should have the fire bar selected in the game
+    public void makeBuilding(float posX,float posY, string name)
+    {
+        GameObject MyBuilding = Instantiate(testbuilding, new Vector3(posX,posY, -0.9500039f), idk);
+        MyBuilding.transform.parent = parrentObj.transform;
     }
 }
     

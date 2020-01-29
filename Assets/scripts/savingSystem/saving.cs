@@ -41,6 +41,7 @@ public static class saving
     public static savingBuildPos loadPosOfBuilding()
     {
         string path = Application.persistentDataPath + "/buildingPos.save";
+        Debug.Log(Application.persistentDataPath + "/buildingPos.save");
 
         if (File.Exists(path))
         {
