@@ -455,7 +455,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1103406749}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
@@ -965,8 +965,8 @@ MonoBehaviour:
   wedg2: {fileID: 1585507882}
   choptrees: {fileID: 559479952}
   mines: {fileID: 2019967437}
-  minei: 0
   choptreei: 0
+  minei: 0
 --- !u!1 &1035826732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1991,7 +1991,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1568371900}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
