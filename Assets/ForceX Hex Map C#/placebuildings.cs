@@ -106,24 +106,26 @@ Sprite choptree;
             if ( forest == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 18 && ti.orderWheelOn == true)
             {
                 tpos[curentcell] = pos;
-                Instantiate(testbuilding, pos, idk);
+                GameObject MyBuilding =  Instantiate(testbuilding, pos, idk);
+                MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
+                MyBuilding.transform.parent = parrentObj.transform;
                 curentcell++;
             }
-            if (rockeyterrain == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 17 && ti.orderWheelOn == true)
+            else if (rockeyterrain == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 17 && ti.orderWheelOn == true)
             {
                 tpos[curentcell] = pos;
-                Instantiate(testbuilding, pos, idk);
+                GameObject MyBuilding =  Instantiate(testbuilding, pos, idk);
+                MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
+                MyBuilding.transform.parent = parrentObj.transform;
                 curentcell++;
             }
-
-            //general
-            Instantiate(testbuilding, pos, idk);
-            if (  ti.orderWheelOn == false)
+//general
+            else if (  ti.orderWheelOn == false)
             {
 
                 tpos[curentcell] = pos;
                 GameObject MyBuilding = Instantiate(testbuilding, pos, idk);
-                Instantiate(testbuilding, pos, idk);
+
                 //this creates the building and set it to an object so it is a child
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
                 MyBuilding.transform.parent = parrentObj.transform;
@@ -131,8 +133,7 @@ Sprite choptree;
                 curentcell++;
             }
         }
-    //child trans takes  the transforms of the buildings every frame
-        childTrans = parrentObj.GetComponentsInChildren<Transform>();
+   
     }
 
     //changes the list for 1 sec
