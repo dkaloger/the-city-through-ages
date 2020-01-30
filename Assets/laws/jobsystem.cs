@@ -17,8 +17,13 @@ public class jobsystem : MonoBehaviour
     public Slider mines;
     public int choptreei;
     public int minei;
-    
+    private void Start()
+    {
+        mines.value = PlayerPrefs.GetInt("mine");
+        choptrees.value = PlayerPrefs.GetInt("chop");
+    }
     void Update() {
+
     minei = Mathf.RoundToInt(mines.value);
         choptreei = Mathf.RoundToInt(choptrees.value);
         PlayerPrefs.SetInt("mine",minei);
