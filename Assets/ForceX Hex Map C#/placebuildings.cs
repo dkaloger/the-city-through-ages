@@ -6,8 +6,9 @@ using  UnityEngine.Tilemaps;
 public class placebuildings : MonoBehaviour
 {
 
-
+    public GameObject destroyBuildingPos;
     public Transform[] childTrans;
+    public destroy[] childScripts;
     public GameObject parrentObj;
     public List<float> buildingsPosX = new List<float>();
     public List<float> buildingsPosY = new List<float>();
@@ -75,7 +76,7 @@ Sprite choptree;
         justplaced = false;
         //child trans takes  the transforms of the buildings every frame
         childTrans = parrentObj.GetComponentsInChildren<Transform>();
-
+        childScripts = parrentObj.GetComponentsInChildren<destroy>();
         if (ti.orderWheelOn == false)
         {
             testbuilding = buildings[ti.curTier * 8 + ri.selectedring];
@@ -100,7 +101,8 @@ Sprite choptree;
 
         //Display the sprite value of the tile in log *SUCCESS*
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !tpos.Contains(pos) && water != myTileMap.GetSprite(coordinate) && placecost.canafford == true)
+        //if (Input.GetKeyDown(KeyCode.Mouse0) && !tpos.Contains(pos) && water != myTileMap.GetSprite(coordinate) && placecost.canafford == true)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !tpos.Contains(pos) && water != myTileMap.GetSprite(coordinate) && placecost.canafford == false)
         {
            //placechoptree
             if ( forest == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 18 && ti.orderWheelOn == true)
@@ -134,9 +136,32 @@ Sprite choptree;
             }
             justplaced = true;
         }
+        else if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            takeOutThePos();
+
+            destroyBuilding();
+        }
    
     }
 
+    void destroyBuilding()
+    {
+        GameObject destroy = Instantiate(destroyBuildingPos, pos, idk);
+        destroy.transform.position = new Vector3(destroy.transform.position.x, destroy.transform.position.y - 0.10567f, destroy.transform.position.z);
+        destroy.transform.parent = parrentObj.transform;
+        for (int i = 0; i < childScripts.Length; i++)
+        {
+            Debug.Log(i + " this was i");
+            if (destroy.transform.position.x == buildingsPosX[i] && destroy.transform.position.y == buildingsPosY[i])
+            {
+                childScripts[i].destroyObjetct();
+            }
+        }
+        Debug.Log("this is building pos : " + buildingsPosX[0]);
+        Debug.Log("this is destroy pos : " + destroy.transform.position.x);
+        Destroy(destroy, 0);
+    }
     //changes the list for 1 sec
     public void takeOutThePos()
     {
