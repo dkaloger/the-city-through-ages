@@ -97,10 +97,9 @@ Sprite choptree;
         Vector3Int coordinate = grid.WorldToCell(mouseWorldPos);
         //Display tile position in log
 
-            //Display the sprite value of the tile in log *SUCCESS*
+        //Display the sprite value of the tile in log *SUCCESS*
 
-      
-      if (Input.GetKeyDown(KeyCode.Mouse0) && !tpos.Contains(pos) && water != myTileMap.GetSprite(coordinate))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !tpos.Contains(pos) && water != myTileMap.GetSprite(coordinate))
         {
            //placechoptree
             if ( forest == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 18 && ti.orderWheelOn == true)
@@ -124,8 +123,8 @@ Sprite choptree;
             {
 
                 tpos[curentcell] = pos;
+                
                 GameObject MyBuilding = Instantiate(testbuilding, pos, idk);
-
                 //this creates the building and set it to an object so it is a child
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
                 MyBuilding.transform.parent = parrentObj.transform;
