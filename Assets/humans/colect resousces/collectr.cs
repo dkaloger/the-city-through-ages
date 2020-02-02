@@ -8,21 +8,50 @@ public class collectr : MonoBehaviour
     int myjob;
     // 1 lumber
     // 2 mining
-
+    [SerializeField]
     float speed;
+    [SerializeField]
     GameObject target;
 [SerializeField]
     jobassign jobassin;
-
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    wooddisplay woody;
+    [SerializeField]
+    stonedisplay stony;
+    [SerializeField]
+    int t;
+    void OnTriggerStay(Collider other)
     {
-     
-        
+        if (myjob == 1)
+        {
 
-     
-      
+            t++;
+
+            if (t > 500)
+            {
+                woody.wood++;
+                t = 0;
+
+            }
+        }
+
+        if (myjob == 2)
+        {
+
+            t++;
+
+            if (t > 500)
+            {
+                stony.stone++;
+                t = 0;
+
+            }
+        }
     }
+   
+     
+
+    
 
     // Update is called once per frame
     void Update()
@@ -46,8 +75,15 @@ public class collectr : MonoBehaviour
 
 
         }
+        if (myjob == 2)
+        {
+            target = GameObject.FindGameObjectWithTag("diggy");
+            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);
 
-}
-   
+
+        }
+
     }
+   
+}
 

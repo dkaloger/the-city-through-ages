@@ -13,7 +13,7 @@ public class placebuildings : MonoBehaviour
     public List<float> buildingsPosY = new List<float>();
     public List<string> Names = new List<string>();
     [SerializeField]
-GameObject testbuilding;
+public GameObject testbuilding;
 [SerializeField]
 FX_Player gf;
 [SerializeField]
@@ -58,8 +58,9 @@ Sprite choptree;
    
     public Sprite forest;
     public Sprite rockeyterrain;
-
-
+    [SerializeField]
+    cost placecost;
+ public   bool justplaced;
     // Start is called before the first frame update
     void Start()
     {
@@ -71,7 +72,7 @@ Sprite choptree;
     // Update is called once per frame
     void Update()
     {
-        
+        justplaced = false;
         //child trans takes  the transforms of the buildings every frame
         childTrans = parrentObj.GetComponentsInChildren<Transform>();
 
@@ -99,7 +100,7 @@ Sprite choptree;
 
         //Display the sprite value of the tile in log *SUCCESS*
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !tpos.Contains(pos) && water != myTileMap.GetSprite(coordinate))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !tpos.Contains(pos) && water != myTileMap.GetSprite(coordinate) && placecost.canafford == true)
         {
            //placechoptree
             if ( forest == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 18 && ti.orderWheelOn == true)
@@ -131,6 +132,7 @@ Sprite choptree;
 
                 curentcell++;
             }
+            justplaced = true;
         }
    
     }

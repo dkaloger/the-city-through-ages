@@ -7,8 +7,7 @@ using UnityEngine.Tilemaps;
 public class placeBuldingTest : MonoBehaviour
 {
 
-    [SerializeField]
-    GameObject testBuilding;
+  public  GameObject testBuilding;
     int Delay;
     Quaternion tge;
     public Vector3 point;
