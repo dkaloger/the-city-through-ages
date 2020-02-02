@@ -45,11 +45,15 @@ public class cost : MonoBehaviour
             slot1int = 1;
             slot2im = wood;
             slot2int = 10;
-            if(stony.stone >= slot1int&& woody.wood >= slot2int)
+            if(stony.stone > slot1int&& woody.wood > slot2int)
             {
                 canafford = true;
             }
-            if(placeb.justplaced == true)
+            if (stony.stone < slot1int || woody.wood < slot2int)
+            {
+                canafford = false;
+            }
+            if (placeb.justplaced == true)
             {
                 stony.stone -= slot1int;
                 woody.wood -= slot2int;
