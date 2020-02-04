@@ -1,11 +1,12 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using  UnityEngine.Tilemaps;
 public class placebuildings : MonoBehaviour
 {
-
+    bool destroyingBuildings = false;
     public GameObject destroyBuildingPos;
     public Transform[] childTrans;
     public destroy[] childScripts;
@@ -101,11 +102,12 @@ Sprite choptree;
 
         //Display the sprite value of the tile in log *SUCCESS*
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !tpos.Contains(pos) && water != myTileMap.GetSprite(coordinate) && placecost.canafford == true)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !tpos.Contains(pos) && water != myTileMap.GetSprite(coordinate) && placecost.canafford == false)
         {
            //placechoptree
             if ( forest == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 18 && ti.orderWheelOn == true)
             {
+                Debug.Log("1 place");
                 tpos[curentcell] = pos;
                 GameObject MyBuilding =  Instantiate(testbuilding, pos, idk);
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
@@ -114,6 +116,7 @@ Sprite choptree;
             }
             else if (rockeyterrain == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 17 && ti.orderWheelOn == true)
             {
+                Debug.Log("2 place");
                 tpos[curentcell] = pos;
                 GameObject MyBuilding =  Instantiate(testbuilding, pos, idk);
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
@@ -123,7 +126,7 @@ Sprite choptree;
 //general
             else if (  ti.orderWheelOn == false)
             {
-
+                Debug.Log("3 place");
                 tpos[curentcell] = pos;
                 
                 GameObject MyBuilding = Instantiate(testbuilding, pos, idk);
@@ -144,6 +147,25 @@ Sprite choptree;
    
     }
 
+    void destroyAllBuildings()
+    {
+        curentcell = 0;
+        for (int i = 0; i < tpos.Length; i++)
+        {
+            tpos[i] = new Vector3();
+        }
+        for (int i = 0; i < childScripts.Length; i++)
+        {
+            childScripts[i].destroyObjetct();
+            if (i == childScripts.Length - 1)
+            {
+                destroyingBuildings = false;
+                return;
+            }
+        }
+
+    }
+
     void destroyBuilding()
     {
         GameObject destroy = Instantiate(destroyBuildingPos, pos, idk);
@@ -151,14 +173,19 @@ Sprite choptree;
         destroy.transform.parent = parrentObj.transform;
         for (int i = 0; i < childScripts.Length; i++)
         {
-            Debug.Log(i + " this was i");
             if (destroy.transform.position.x == buildingsPosX[i] && destroy.transform.position.y == buildingsPosY[i])
             {
                 childScripts[i].destroyObjetct();
+
             }
         }
-        Debug.Log("this is building pos : " + buildingsPosX[0]);
-        Debug.Log("this is destroy pos : " + destroy.transform.position.x);
+        for (int i = 0; i < tpos.Length; i++)
+        {
+            if (tpos[i].x == pos.x && tpos[i].y == pos.y)
+            {
+                tpos[i] = new Vector3();
+            }
+        }
         Destroy(destroy, 0);
     }
     //changes the list for 1 sec
@@ -171,9 +198,7 @@ Sprite choptree;
             Names.Add("fire");
             Debug.Log("this is i :" + i + " of buildingsPosX " + buildingsPosX.Count);
         }
-
-        Invoke("resetTheList", 1f);
-
+        Invoke("resetTheList", 0.1f);
     }
     //resets the list
     void resetTheList()
@@ -185,9 +210,14 @@ Sprite choptree;
     //this create the buildings after loading note that you should have the fire bar selected in the game
     public void makeBuilding(float posX,float posY, string name)
     {
+        if (destroyingBuildings == false)
+        {
+            destroyingBuildings = true;
+            destroyAllBuildings();
+        }
         GameObject MyBuilding = Instantiate(testbuilding, new Vector3(posX,posY, -0.9500039f), idk);
         MyBuilding.transform.parent = parrentObj.transform;
+        curentcell++;
+        tpos[childTrans.Length - 1] = new Vector3(posX, posY, -0.9500039f);
     }
 }
-    
-
