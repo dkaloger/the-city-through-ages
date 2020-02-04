@@ -102,7 +102,7 @@ Sprite choptree;
 
         //Display the sprite value of the tile in log *SUCCESS*
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !tpos.Contains(pos) && water != myTileMap.GetSprite(coordinate) && placecost.canafford == false)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !tpos.Contains(pos) && water != myTileMap.GetSprite(coordinate) && placecost.canafford == true)
         {
            //placechoptree
             if ( forest == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 18 && ti.orderWheelOn == true)
