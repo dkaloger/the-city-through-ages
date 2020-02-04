@@ -7,6 +7,8 @@ public class movetomouse : MonoBehaviour
     [SerializeField] private Vector3 mousePosition;
     [SerializeField] private float moveSpeed = 0.1f;
     public bool pause;
+    public bool tgest;
+    public int i;
     void Start()
     {
         pause = false;
@@ -21,6 +23,8 @@ public class movetomouse : MonoBehaviour
     {
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+      
+       
         transform.position = mousePosition;
     }
 }
