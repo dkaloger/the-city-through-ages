@@ -74,6 +74,7 @@ Sprite choptree;
     // Update is called once per frame
     void Update()
     {
+      
         justplaced = false;
         //child trans takes  the transforms of the buildings every frame
         childTrans = parrentObj.GetComponentsInChildren<Transform>();
@@ -88,22 +89,24 @@ Sprite choptree;
             testbuilding = buildings[16 + ri.selectedring];
             Debug.Log(16 + ri.selectedring);
         }
-
+      
         pos = new Vector3(gf.TargetHex.position.x, gf.TargetHex.position.y, gf.TargetHex.position.z - 2f);
         posi.x = (int)pos.x;
         posi.y = (int)pos.y;
         posi.z = 45;
-
+        //theproblemishere l98-101
         //Get position of the mouseclick
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //Convert position of the mouseclick to the position of the tile located at the mouseclick
+        Debug.Log("s");
         Vector3Int coordinate = grid.WorldToCell(mouseWorldPos);
         //Display tile position in log
 
         //Display the sprite value of the tile in log *SUCCESS*
-
+        Debug.Log("l04");
         if (Input.GetKeyDown(KeyCode.Mouse0) && !tpos.Contains(pos) && water != myTileMap.GetSprite(coordinate) && placecost.canafford == true)
         {
+            Debug.Log("l07");
            //placechoptree
             if ( forest == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 18 && ti.orderWheelOn == true)
             {
