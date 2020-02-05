@@ -23,9 +23,9 @@ FX_Player gf;
 Vector3 pos;
 [SerializeField] Quaternion idk;
 [SerializeField]
+    Vector3 mi ;
 
-
-Transform mapt;
+    Transform mapt;
 [SerializeField]
 Vector3 maposset;
 [SerializeField]
@@ -96,6 +96,8 @@ Sprite choptree;
         posi.z = 45;
         //theproblemishere l98-101
         //Get position of the mouseclick
+        mi = Input.mousePosition;
+        mi.z = -73;
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //Convert position of the mouseclick to the position of the tile located at the mouseclick
         Debug.Log("s");
@@ -104,7 +106,7 @@ Sprite choptree;
 
         //Display the sprite value of the tile in log *SUCCESS*
         Debug.Log("l04");
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !tpos.Contains(pos) && water != myTileMap.GetSprite(coordinate) && placecost.canafford == true)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && tpos.Contains(pos) == false && water != myTileMap.GetSprite(coordinate) && placecost.canafford == true)
         {
             Debug.Log("l07");
            //placechoptree
