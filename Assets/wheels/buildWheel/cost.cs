@@ -7,6 +7,8 @@ public class cost : MonoBehaviour
     [SerializeField]
     placebuildings placeb;
     [SerializeField]
+    buildWheelOptions bwo;
+    [SerializeField]
     GameObject slot1im;
     [SerializeField]
     GameObject slot2im;
@@ -30,6 +32,8 @@ public class cost : MonoBehaviour
     stonedisplay stony;
     [SerializeField]
     wooddisplay woody;
+    [SerializeField]
+    GameObject costg;
 
     // Start is called before the first frame update
 
@@ -39,8 +43,19 @@ public class cost : MonoBehaviour
     {
         slot1t.text = slot1int.ToString();
         slot2t.text = slot2int.ToString();
+        if( bwo.orderWheelOn == true) {
+            canafford = true;
+            costg.SetActive(false);
+        }
+        if (bwo.orderWheelOn != true)
+        {  
+
+            costg.SetActive(true);
+        }
+
         if (placeb.testbuilding == fire )
         {
+       
             slot1im = stone;
             slot1int = 1;
             slot2im = wood;
