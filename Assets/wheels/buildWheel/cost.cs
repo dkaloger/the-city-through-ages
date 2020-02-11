@@ -9,9 +9,9 @@ public class cost : MonoBehaviour
     [SerializeField]
     buildWheelOptions bwo;
     [SerializeField]
-    GameObject slot1im;
+    SpriteRenderer slot1im;
     [SerializeField]
-    GameObject slot2im;
+    SpriteRenderer slot2im;
     [SerializeField]
     int slot1int;
     [SerializeField]
@@ -23,17 +23,24 @@ public class cost : MonoBehaviour
     [SerializeField]
     GameObject fire;
     [SerializeField]
-    GameObject stone;
+    GameObject tent;
     [SerializeField]
-    GameObject wood;
+    SpriteRenderer stone;
+    [SerializeField]
+    SpriteRenderer wood;
 
     public bool canafford;
     [SerializeField]
     stonedisplay stony;
     [SerializeField]
+    SpriteRenderer food;
+    [SerializeField]
     wooddisplay woody;
     [SerializeField]
     GameObject costg;
+    [SerializeField]
+    fooddipslay foody;
+    
 
     // Start is called before the first frame update
 
@@ -43,24 +50,27 @@ public class cost : MonoBehaviour
     {
         slot1t.text = slot1int.ToString();
         slot2t.text = slot2int.ToString();
-        if( bwo.orderWheelOn == true) {
+        if (bwo.orderWheelOn == true)
+        {
             canafford = true;
             costg.SetActive(false);
         }
         if (bwo.orderWheelOn != true)
-        {  
+        {
 
             costg.SetActive(true);
         }
 
-        if (placeb.testbuilding == fire )
+        if (placeb.testbuilding == fire)
         {
-       
-            slot1im = stone;
+
+            slot1im.sprite = stone.sprite;
             slot1int = 1;
-            slot2im = wood;
+            slot2im.sprite = wood.sprite;
             slot2int = 10;
-            if(stony.stone > slot1int&& woody.wood > slot2int)
+            slot1t.text = slot1int.ToString();
+            slot2t.text = slot2int.ToString();
+            if (stony.stone > slot1int && woody.wood > slot2int)
             {
                 canafford = true;
             }
@@ -73,7 +83,33 @@ public class cost : MonoBehaviour
                 stony.stone -= slot1int;
                 woody.wood -= slot2int;
             }
-          
         }
+            Debug.Log("82");
+            if (placeb.testbuilding == tent)
+            {
+            Debug.Log("90");
+            slot1im.sprite = food.sprite;
+            slot2im.sprite = null;
+            slot1int = 20;
+                slot2im = null;
+                slot2int = 0;
+            slot1t.text = slot1int.ToString();
+            slot2t.text = slot2int.ToString();
+            if (foody.food > slot1int)
+                {
+                    canafford = true;
+                }
+                if (foody.food < slot1int)
+                {
+                    canafford = false;
+                }
+                if (placeb.justplaced == true)
+                {
+                    foody.food -= slot1int;
+
+                }
+
+            }
+        
     }
 }
