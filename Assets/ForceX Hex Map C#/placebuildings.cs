@@ -111,7 +111,6 @@ Sprite choptree;
            //placechoptree
             if ( forest == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 18 && ti.orderWheelOn == true)
             {
-                Debug.Log("1 place");
                 tpos[curentcell] = pos;
                 GameObject MyBuilding =  Instantiate(testbuilding, pos, idk);
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
@@ -120,7 +119,6 @@ Sprite choptree;
             }
             else if (rockeyterrain == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 17 && ti.orderWheelOn == true)
             {
-                Debug.Log("2 place");
                 tpos[curentcell] = pos;
                 GameObject MyBuilding =  Instantiate(testbuilding, pos, idk);
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
@@ -130,9 +128,8 @@ Sprite choptree;
 //general
             else if (  ti.orderWheelOn == false)
             {
-                Debug.Log("3 place");
-                tpos[curentcell] = pos;
-                
+                ti.placedABuilding(testbuilding.name);
+                tpos[curentcell] = pos;        
                 GameObject MyBuilding = Instantiate(testbuilding, pos, idk);
                 //this creates the building and set it to an object so it is a child
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
