@@ -15,15 +15,13 @@ public class testSaving : MonoBehaviour
 
         //in game content
         if (Input.GetKeyDown(KeyCode.L))
-        {
+        {            
             savingBuildPos buildingData = saving.loadPosOfBuilding();
-
-            Debug.Log(buildingData.posOfBuildingX.Length);
-
+            placeBuildings.destroyAllBuildings();
+            placeBuildings.tpos = new Vector3[1000];
             //put the text file into the game
             for (int i = 0; i < buildingData.buildingsNames.Length; i++)
             {
-                Debug.Log(buildingsPosX.Count);
                 buildingsPosX.Add(buildingData.posOfBuildingX[i]);
                 buildingsPosY.Add(buildingData.posOfBuildingY[i]);
                 buildingsName.Add(buildingData.buildingsNames[i]);
