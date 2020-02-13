@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class playercontroller : MonoBehaviour
 {
-
+    [Range(7,30)] public float scrollSpeed = 5f;
     public bool canScroll = true;
     public float speed;
     private Rigidbody2D rb;
     private Vector2 movevelocity;
-public    Vector3 leftsidelimits;
+    public  Vector3 leftsidelimits;
     public Vector3 rightsidelimits;
     Vector2 roundedpos;
     [SerializeField] private GameObject lerpTarget;
@@ -24,29 +24,32 @@ public    Vector3 leftsidelimits;
 
     void Update()
     {
-        if (GetComponent<Camera>().orthographicSize != 10 )
+        if (GetComponent<Camera>().orthographicSize <= 10 )
         {
             if (Input.GetAxis("Mouse ScrollWheel") < 0 && canScroll == true)
             {
-                GetComponent<Camera>().orthographicSize += 1;
+                GetComponent<Camera>().orthographicSize += scrollSpeed * Time.deltaTime;
             }
         }
-        if (GetComponent<Camera>().orthographicSize != 1)
+        if (GetComponent<Camera>().orthographicSize >= 1)
         {
             if (Input.GetAxis("Mouse ScrollWheel") > 0 && canScroll == true)
             {
-                GetComponent<Camera>().orthographicSize -= 1;
+                GetComponent<Camera>().orthographicSize -= scrollSpeed * Time.deltaTime;
             }
         }
-
-
-        void LateUpdate()
+        if (GetComponent<Camera>().orthographicSize < 1)
         {
-            transform.position = Vector3.Lerp(transform.position, lerpTarget.transform.position, cam_speed);
+            GetComponent<Camera>().orthographicSize = 1;
         }
-        
-      
-     
+        else if (GetComponent<Camera>().orthographicSize > 10)
+        {
+            GetComponent<Camera>().orthographicSize = 10;
+        }
+    }
+    void LateUpdate()
+    {
+        transform.position = Vector3.Lerp(transform.position, lerpTarget.transform.position, cam_speed);
     }
 
     private void FixedUpdate()

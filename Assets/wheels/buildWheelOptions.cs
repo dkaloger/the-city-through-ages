@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class buildWheelOptions : MonoBehaviour
 {
-
+    public GameObject resoueceSystem;
     public Animation animations;
     public int curTier = 0;
     public List<int> tiersUnlocked = new List<int>();
@@ -110,6 +110,23 @@ public class buildWheelOptions : MonoBehaviour
     public void addTier(int tier)
     {
         tiersUnlocked.Add(tier);
+    }
+    public void placedABuilding(string name)
+    {
+        if (name == "tent")
+        {
+            popdisp[] PopDisp = resoueceSystem.GetComponentsInChildren<popdisp>();
+            PopDisp[0].pop += 3;
+        }
+        else if (name == "fire")
+        {
+            fooddipslay[] FoodDisplay = resoueceSystem.GetComponentsInChildren<fooddipslay>();
+            FoodDisplay[0].food = FoodDisplay[0].food * 2;
+        }
+        else if (name == "anvil")
+        {
+
+        }
     }
 
 }

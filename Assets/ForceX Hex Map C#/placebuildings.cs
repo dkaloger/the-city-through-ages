@@ -6,7 +6,6 @@ using System.Linq;
 using  UnityEngine.Tilemaps;
 public class placebuildings : MonoBehaviour
 {
-    bool destroyingBuildings = false;
     public GameObject destroyBuildingPos;
     public Transform[] childTrans;
     public destroy[] childScripts;
@@ -30,8 +29,8 @@ Vector3 pos;
 Vector3 maposset;
 [SerializeField]
 FX_MapGen mpp;
-[SerializeField]
-Vector3[] tpos;
+
+public Vector3[] tpos;
 [SerializeField]
 int curentcell;
 [SerializeField]
@@ -112,7 +111,6 @@ Sprite choptree;
            //placechoptree
             if ( forest == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 18 && ti.orderWheelOn == true)
             {
-                Debug.Log("1 place");
                 tpos[curentcell] = pos;
                 GameObject MyBuilding =  Instantiate(testbuilding, pos, idk);
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
@@ -121,7 +119,6 @@ Sprite choptree;
             }
             else if (rockeyterrain == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 17 && ti.orderWheelOn == true)
             {
-                Debug.Log("2 place");
                 tpos[curentcell] = pos;
                 GameObject MyBuilding =  Instantiate(testbuilding, pos, idk);
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
@@ -131,9 +128,8 @@ Sprite choptree;
 //general
             else if (  ti.orderWheelOn == false)
             {
-                Debug.Log("3 place");
-                tpos[curentcell] = pos;
-                
+                ti.placedABuilding(testbuilding.name);
+                tpos[curentcell] = pos;        
                 GameObject MyBuilding = Instantiate(testbuilding, pos, idk);
                 //this creates the building and set it to an object so it is a child
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
@@ -152,7 +148,7 @@ Sprite choptree;
    
     }
 
-    void destroyAllBuildings()
+    public void destroyAllBuildings()
     {
         curentcell = 0;
         for (int i = 0; i < tpos.Length; i++)
@@ -164,7 +160,6 @@ Sprite choptree;
             childScripts[i].destroyObjetct();
             if (i == childScripts.Length - 1)
             {
-                destroyingBuildings = false;
                 return;
             }
         }
@@ -215,11 +210,7 @@ Sprite choptree;
     //this create the buildings after loading note that you should have the fire bar selected in the game
     public void makeBuilding(float posX,float posY, string name)
     {
-        if (destroyingBuildings == false)
-        {
-            destroyingBuildings = true;
-            destroyAllBuildings();
-        }
+
         GameObject MyBuilding = Instantiate(testbuilding, new Vector3(posX,posY, -0.9500039f), idk);
         MyBuilding.transform.parent = parrentObj.transform;
         curentcell++;
