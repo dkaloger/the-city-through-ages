@@ -13,6 +13,7 @@ public class jobsystem : MonoBehaviour
    
    
     public Slider choptrees;
+
     //for a weird   reason they are inverted it doesnt cause problems but be careful
     public Slider mines;
     public int choptreei;
@@ -28,12 +29,24 @@ public class jobsystem : MonoBehaviour
         choptreei = Mathf.RoundToInt(choptrees.value);
         PlayerPrefs.SetInt("mine",minei);
            PlayerPrefs.SetInt("chop",choptreei);
+       
+  
         wedg1.fillAmount = choptrees.value / 100f;
         wedg2.fillAmount = mines.value / 100f;
-        choptrees.value = 100 - mines.value;
-        mines.value = 100 - choptrees.value;
+   
        
+        //  mines.value = 100 - choptrees.value;
+         if (Input.mousePosition.y >267 && Input.mousePosition.y <299 )
+            {
+
+          
+            mines.value = 100 - choptrees.value;
+            }
+         else
+        {
+            choptrees.value = 100 - mines.value;
+        }
     }
 
-   
+
 }

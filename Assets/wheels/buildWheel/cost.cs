@@ -89,25 +89,25 @@ public class cost : MonoBehaviour
             {
             Debug.Log("90");
             slot1im.sprite = food.sprite;
-            slot2im.sprite = null;
+            slot2im.sprite = wood.sprite;
             slot1int = 20;
-                slot2im = null;
-                slot2int = 0;
+              
+                slot2int = 3;
             slot1t.text = slot1int.ToString();
             slot2t.text = slot2int.ToString();
-            if (foody.food > slot1int)
+            if (foody.food > slot1int && woody.wood > slot2int)
                 {
                     canafford = true;
                 }
-                if (foody.food < slot1int)
+                if (foody.food < slot1int || woody.wood < slot2int)
                 {
                     canafford = false;
                 }
                 if (placeb.justplaced == true)
                 {
                     foody.food -= slot1int;
-
-                }
+                woody.wood -= slot2int;
+            }
 
             }
         

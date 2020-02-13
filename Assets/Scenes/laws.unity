@@ -462,7 +462,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 994915859}
-        m_MethodName: s1changed
+        m_MethodName: minechang
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -621,6 +621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ecd95812dd0da74d9edbc29f17e07fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollSpeed: 5
   canScroll: 1
   speed: 0
   leftsidelimits: {x: 0, y: 0, z: 0}
@@ -1998,7 +1999,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 994915859}
-        m_MethodName: s2changed
+        m_MethodName: chopchang
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
