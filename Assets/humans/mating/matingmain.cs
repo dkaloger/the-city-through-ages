@@ -15,19 +15,17 @@ public class matingmain : MonoBehaviour
     [SerializeField]
     public  int popfoodcostonce;
     // Start is called before the first frame update
-    void Start()
+   
+    void FixedUpdate()
     {
-        
-    }
-    void fixedupdate()
-    {
+        Debug.Log("l21");
         popdelay += PlayerPrefs.GetInt("matingspeed");
     }
     // Update is called once per frame
     void Update()
     {
-        
-        
+
+        Debug.Log("l28");
        
         if (popdelay>standartgrowthspeed )
         {
