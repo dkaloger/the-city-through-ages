@@ -125,7 +125,7 @@ public class buildWheelOptions : MonoBehaviour
             fooddipslay[] FoodDisplay = resoueceSystem.GetComponentsInChildren<fooddipslay>();
             cooked = (unCooked * 2) + cooked;
             unCooked = 0;
-            FoodDisplay[0].food = FoodDisplay[0].food * 2;
+            FoodDisplay[0].food = FoodDisplay[0].food;
         }
         else if (name == "anvil")
         {
