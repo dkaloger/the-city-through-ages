@@ -18,14 +18,14 @@ public class matingmain : MonoBehaviour
    
     void FixedUpdate()
     {
-        Debug.Log("l21");
+        Debug.Log("l21m");
         popdelay += PlayerPrefs.GetInt("matingspeed");
     }
     // Update is called once per frame
     void Update()
     {
 
-        Debug.Log("l28");
+        Debug.Log("l28m");
        
         if (popdelay>standartgrowthspeed )
         {

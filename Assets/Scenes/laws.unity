@@ -278,15 +278,15 @@ MonoBehaviour:
   m_HandleRect: {fileID: 244130937}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_MaxValue: 100
+  m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2139365265}
-        m_MethodName: matingspeed
-        m_Mode: 0
+        m_MethodName: df
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2060,6 +2060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cbf1c32d0116a8499b2c1dbfbd9a6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m: {fileID: 26678312}
   matingspeedint: 0
 --- !u!1001 &948395669891269461
 PrefabInstance:
