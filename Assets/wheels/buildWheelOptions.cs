@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class buildWheelOptions : MonoBehaviour
 {
+    int unCooked = 100;
+    int cooked = 0;
     public GameObject resoueceSystem;
     public Animation animations;
     public int curTier = 0;
@@ -121,6 +123,8 @@ public class buildWheelOptions : MonoBehaviour
         else if (name == "fire")
         {
             fooddipslay[] FoodDisplay = resoueceSystem.GetComponentsInChildren<fooddipslay>();
+            cooked = (unCooked * 2) + cooked;
+            unCooked = 0;
             FoodDisplay[0].food = FoodDisplay[0].food * 2;
         }
         else if (name == "anvil")
