@@ -105,7 +105,7 @@ Sprite choptree;
 
         //Display the sprite value of the tile in log *SUCCESS*
         Debug.Log("l04");
-        if (Input.GetKeyDown(KeyCode.Mouse0) && tpos.Contains(pos) == false && water != myTileMap.GetSprite(coordinate) && placecost.canafford == true)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && tpos.Contains(pos) == false && water != myTileMap.GetSprite(coordinate) && placecost.canafford == false)
         {
             Debug.Log("l07");
            //placechoptree
@@ -198,7 +198,7 @@ Sprite choptree;
             Names.Add("fire");
             Debug.Log("this is i :" + i + " of buildingsPosX " + buildingsPosX.Count);
         }
-        Invoke("resetTheList", 0.1f);
+        Invoke("resetTheList", 0.3f);
     }
     //resets the list
     void resetTheList()
