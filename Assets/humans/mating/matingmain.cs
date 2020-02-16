@@ -25,7 +25,7 @@ public class matingmain : MonoBehaviour
     void FixedUpdate()
     {
         Debug.Log("l21m");
-        popdelay += PlayerPrefs.GetInt("matingspeed") * pod.pop;
+        popdelay += PlayerPrefs.GetInt("matingspeed") * pod.pop / 10;
     }
     // Update is called once per frame
     void Update()
