@@ -135,7 +135,7 @@ Sprite choptree;
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
                 MyBuilding.transform.parent = parrentObj.transform;
                 curentcell++;
-                if (testbuilding.name == "anvil") MyBuilding.transform.localScale = new Vector3(2, 2, 1);
+                if (testbuilding.name == "anvil") MyBuilding.transform.localScale = new Vector3(2, 2, 1); Debug.Log("anvil");
             }
             justplaced = true;
         }
