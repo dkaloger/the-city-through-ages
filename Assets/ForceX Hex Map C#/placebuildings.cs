@@ -105,7 +105,7 @@ Sprite choptree;
 
         //Display the sprite value of the tile in log *SUCCESS*
         Debug.Log("l04");
-        if (Input.GetKeyDown(KeyCode.Mouse0) && tpos.Contains(pos) == false && water != myTileMap.GetSprite(coordinate) && placecost.canafford == false)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && tpos.Contains(pos) == false && water != myTileMap.GetSprite(coordinate) && placecost.canafford == true)
         {
             Debug.Log("l07");
            //placechoptree

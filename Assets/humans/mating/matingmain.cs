@@ -14,12 +14,18 @@ public class matingmain : MonoBehaviour
     public  int standartgrowthspeed;
     [SerializeField]
     public  int popfoodcostonce;
+    [SerializeField]
+    GameObject human;
+    [SerializeField]
+    Transform human1;
+    [SerializeField]
+    popdisp pod;
     // Start is called before the first frame update
    
     void FixedUpdate()
     {
         Debug.Log("l21m");
-        popdelay += PlayerPrefs.GetInt("matingspeed");
+        popdelay += PlayerPrefs.GetInt("matingspeed") * pod.pop / 10;
     }
     // Update is called once per frame
     void Update()
@@ -32,6 +38,7 @@ public class matingmain : MonoBehaviour
             popdelay = 0;
             popdispv.pop++;
             foodD.food -= popfoodcostonce;
+            Instantiate(human,  human1);
         }
     }
 }
