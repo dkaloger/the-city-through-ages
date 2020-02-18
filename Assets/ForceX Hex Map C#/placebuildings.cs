@@ -73,7 +73,7 @@ Sprite choptree;
     // Update is called once per frame
     void Update()
     {
-      
+        Debug.Log(ti.curTier * 8 + ri.selectedring + "this is select ring number");
         justplaced = false;
         //child trans takes  the transforms of the buildings every frame
         childTrans = parrentObj.GetComponentsInChildren<Transform>();
@@ -83,9 +83,9 @@ Sprite choptree;
             testbuilding = buildings[ti.curTier * 8 + ri.selectedring];
             Debug.Log(ti.curTier * 8 + ri.selectedring);
         }
-        if (ti.orderWheelOn == true)
+        else if (ti.orderWheelOn == true)
         {
-            testbuilding = buildings[16 + ri.selectedring];
+            testbuilding = buildings[24 + ri.selectedring];
             Debug.Log(16 + ri.selectedring);
         }
       
@@ -134,8 +134,8 @@ Sprite choptree;
                 //this creates the building and set it to an object so it is a child
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
                 MyBuilding.transform.parent = parrentObj.transform;
-
                 curentcell++;
+                if (testbuilding.name == "anvil") MyBuilding.transform.localScale = new Vector3(2, 2, 1);
             }
             justplaced = true;
         }
