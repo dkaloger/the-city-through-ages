@@ -20,7 +20,6 @@ public class buildWheelOptions : MonoBehaviour
     private void Start()
     {
         tiersUnlocked.Add(0);
-        tiersUnlocked.Add(1);
         myBuildings[0].GetComponent<SpriteRenderer>().sprite = mySprites[0];
         myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[1];
         myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[2];
@@ -70,7 +69,7 @@ public class buildWheelOptions : MonoBehaviour
             myBuildings[6].GetComponent<SpriteRenderer>().sprite = mySprites[6];
             myBuildings[7].GetComponent<SpriteRenderer>().sprite = mySprites[7];
         }
-        if (tier == 1)
+        else if (tier == 1)
         {
             myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[9];
             myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[10];
@@ -79,6 +78,17 @@ public class buildWheelOptions : MonoBehaviour
             myBuildings[5].GetComponent<SpriteRenderer>().sprite = mySprites[13];
             myBuildings[6].GetComponent<SpriteRenderer>().sprite = mySprites[14];
             myBuildings[7].GetComponent<SpriteRenderer>().sprite = mySprites[15];
+        }
+        else if (tier == 2)
+        {
+            myBuildings[0].GetComponent<SpriteRenderer>().sprite = mySprites[0];
+            myBuildings[3].GetComponent<SpriteRenderer>().sprite = mySprites[16];
+            myBuildings[7].GetComponent<SpriteRenderer>().sprite = mySprites[17];
+            myBuildings[6].GetComponent<SpriteRenderer>().sprite = mySprites[18];
+            myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[3];
+            myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[3];
+            myBuildings[4].GetComponent<SpriteRenderer>().sprite = mySprites[3];
+            myBuildings[5].GetComponent<SpriteRenderer>().sprite = mySprites[3];
         }
 
     }
@@ -99,9 +109,9 @@ public class buildWheelOptions : MonoBehaviour
         {
         //    PlaceBuildingObj.orderWheelOnP = true;
             orderWheelOn = true;
-            myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[16];
-            myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[17];
-            myBuildings[3].GetComponent<SpriteRenderer>().sprite = mySprites[18];
+            myBuildings[1].GetComponent<SpriteRenderer>().sprite = mySprites[19];
+            myBuildings[2].GetComponent<SpriteRenderer>().sprite = mySprites[19];
+            myBuildings[3].GetComponent<SpriteRenderer>().sprite = mySprites[19];
             myBuildings[4].GetComponent<SpriteRenderer>().sprite = mySprites[19];
             myBuildings[5].GetComponent<SpriteRenderer>().sprite = mySprites[20];
             myBuildings[6].GetComponent<SpriteRenderer>().sprite = mySprites[21];
@@ -127,9 +137,9 @@ public class buildWheelOptions : MonoBehaviour
             unCooked = 0;
             FoodDisplay[0].food = FoodDisplay[0].food;
         }
-        else if (name == "anvil")
+        else if (name == "anvil" && tiersUnlocked.Count == 1 || tiersUnlocked.Count == 2)
         {
-
+            tiersUnlocked.Add(tiersUnlocked.Count);
         }
     }
 
