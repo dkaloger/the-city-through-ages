@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class paasivefoodcost : MonoBehaviour
 {
-    private int t;
+    [SerializeField]
+     int t;
   
     public int popcost;
   
@@ -21,7 +22,7 @@ public class paasivefoodcost : MonoBehaviour
     t ++ ;
     if (t > 1000){
 
-            PlayerPrefs.SetInt("food",popcost* PlayerPrefs.GetInt("pop")  );
+            PlayerPrefs.SetInt("food", PlayerPrefs.GetInt("food") - popcost * PlayerPrefs.GetInt("pop")  );
             t = 0;
         }
        
