@@ -20,8 +20,11 @@ public class matingmain : MonoBehaviour
     Transform human1;
     [SerializeField]
     popdisp pod;
+    [SerializeField]
+    Vector3 v;
+    Quaternion r;
     // Start is called before the first frame update
-   
+
     void FixedUpdate()
     {
         Debug.Log("l21m");
@@ -38,7 +41,7 @@ public class matingmain : MonoBehaviour
             popdelay = 0;
             popdispv.pop++;
             foodD.food -= popfoodcostonce;
-            Instantiate(human,  human1);
+            Instantiate(human,human1);
         }
     }
 }
