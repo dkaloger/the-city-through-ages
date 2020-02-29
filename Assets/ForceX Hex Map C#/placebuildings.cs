@@ -63,6 +63,7 @@ Sprite choptree;
     [SerializeField]
     cost placecost;
  public   bool justplaced;
+  public  GameObject congratsforanvil;
     // Start is called before the first frame update
     void Start()
     {
@@ -138,7 +139,13 @@ Sprite choptree;
                 curentcell++;
                 if (testbuilding.name == "anvil") MyBuilding.transform.localScale = new Vector3(2, 2, 1);
             }
+            //check for anvil
+            if (testbuilding.name == "anvil")
+            {
+                congratsforanvil.SetActive(true);
+            }
             justplaced = true;
+         
         }
         else if (Input.GetKeyDown(KeyCode.Mouse1))
         {
