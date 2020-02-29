@@ -136,7 +136,7 @@ Sprite choptree;
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
                 MyBuilding.transform.parent = parrentObj.transform;
                 curentcell++;
-                if (testbuilding.name == "anvil") MyBuilding.transform.localScale = new Vector3(2, 2, 1); Debug.Log("anvil");
+                if (testbuilding.name == "anvil") MyBuilding.transform.localScale = new Vector3(2, 2, 1);
             }
             justplaced = true;
         }
@@ -216,14 +216,14 @@ Sprite choptree;
             GameObject MyBuilding = Instantiate(buildings[1], new Vector3(posX,posY, -0.9500039f), idk);
             MyBuilding.transform.parent = parrentObj.transform;
             curentcell++;
-            tpos[childTrans.Length - 1] = new Vector3(posX, posY, -0.9500039f);
+            tpos[childTrans.Length] = new Vector3(posX, posY, -0.9500039f);
         }
         else if (name == "tent(Clone)")
         {
             GameObject MyBuilding = Instantiate(buildings[2], new Vector3(posX, posY, -0.9500039f), idk);
             MyBuilding.transform.parent = parrentObj.transform;
             curentcell++;
-            tpos[childTrans.Length - 1] = new Vector3(posX, posY, -0.9500039f);
+            tpos[childTrans.Length] = new Vector3(posX, posY, -0.9500039f);
         }
         else if (name == "anvil(Clone)")
         {
@@ -231,7 +231,7 @@ Sprite choptree;
             MyBuilding.transform.parent = parrentObj.transform;
             MyBuilding.transform.position = new Vector3(2, 2, 1);
             curentcell++;
-            tpos[childTrans.Length - 1] = new Vector3(posX, posY, -0.9500039f);
+            tpos[childTrans.Length] = new Vector3(posX, posY, -0.9500039f);
         }
     }
 }
