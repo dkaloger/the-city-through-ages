@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class pauseMenu : MonoBehaviour
 {
-public bool muted = false;
-public Sprite mute;
-public Sprite unmute;
-public GameObject mutebuton;
+    public placebuildings placeBuildings;
+    public bool muted = false;
+    public Sprite mute;
+    public Sprite unmute;
+    public GameObject mutebuton;
     public GameObject MoveToMouseScript;
 
     public int SceneName;
@@ -30,6 +31,14 @@ public GameObject mutebuton;
 
     void Update()
     {
+        if (GameIsPaused == true)
+        {
+            placeBuildings.pauseMenuOn = true;
+        }
+        else
+        {
+            placeBuildings.pauseMenuOn = false;
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused == false)
