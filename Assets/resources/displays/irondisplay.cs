@@ -12,7 +12,7 @@ public class irondisplay : MonoBehaviour
     void Start()
     {
         textMesH = GetComponent<TextMeshProUGUI>();
-        iron = 0;
+        iron = 1000;
     }
 
     // Update is called once per frame

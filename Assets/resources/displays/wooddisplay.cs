@@ -11,13 +11,12 @@ public class wooddisplay : MonoBehaviour
     void Start()
     {
         textMesH = GetComponent<TextMeshProUGUI>();
-        wood = 0;
+        wood = 1000;
     }
 
     // Update is called once per frame
     void Update()
     {
-        textMesH.text = wood.ToString();
-       
+        textMesH.text = wood.ToString();      
     }
 }

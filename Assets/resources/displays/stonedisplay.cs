@@ -12,7 +12,7 @@ public class stonedisplay : MonoBehaviour
     void Start()
     {
         textMesH = GetComponent<TextMeshProUGUI>();
-        stone = 0;
+        stone = 1000;
     }
 
     // Update is called once per frame

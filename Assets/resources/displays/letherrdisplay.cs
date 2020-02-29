@@ -10,7 +10,7 @@ public class letherrdisplay : MonoBehaviour
     void Start()
     {
         textMesH = GetComponent<TextMeshProUGUI>();
-        leather = 0;
+        leather = 1000;
     }
    
     // Update is called once per frame

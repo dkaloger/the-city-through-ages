@@ -11,7 +11,7 @@ public class popdisp : MonoBehaviour
     void Start()
     {
         textMesH = GetComponent<TextMeshProUGUI>();
-        pop = 2;
+        pop = 1000;
        
        
     }
