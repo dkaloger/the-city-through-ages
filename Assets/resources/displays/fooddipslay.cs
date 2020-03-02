@@ -19,6 +19,7 @@ public class fooddipslay : MonoBehaviour
     void Update()
     {
         textMesH.text = food.ToString();
-        food = PlayerPrefs.GetInt("food");
+     
+        PlayerPrefs.SetInt("food",food);
     }
 }
