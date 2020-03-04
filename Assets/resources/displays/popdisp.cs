@@ -5,7 +5,7 @@ using TMPro;
 public class popdisp : MonoBehaviour
 {
     public int pop;
-    int maxpop = 10;
+   public int maxpop = 10;
     private TextMeshProUGUI textMesH;
     public TextMeshProUGUI textMesH1;
     public GameObject spop;
