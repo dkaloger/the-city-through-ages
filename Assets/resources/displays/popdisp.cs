@@ -6,15 +6,15 @@ public class popdisp : MonoBehaviour
 {
     public int pop;
    public int maxpop = 10;
-    private TextMeshProUGUI textMesH;
+    public TextMeshProUGUI textMesH;
     public TextMeshProUGUI textMesH1;
     public GameObject spop;
     // Start is called before the first frame update
     void Start()
     {
-        textMesH = GetComponent<TextMeshProUGUI>();
+      
         pop = 2;
-        textMesH1.text = maxpop.ToString();
+     
 
     }
 
@@ -22,7 +22,7 @@ public class popdisp : MonoBehaviour
     void Update()
     {
         textMesH.text = pop.ToString();
-        PlayerPrefs.SetInt("pop", pop);
+        textMesH1.text = maxpop.ToString();
     }
     void OnMouseOver()
     {

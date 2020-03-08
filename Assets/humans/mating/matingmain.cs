@@ -36,7 +36,7 @@ public class matingmain : MonoBehaviour
 
         Debug.Log("l28m");
        
-        if (popdelay>standartgrowthspeed && pod.maxpop < pod.pop )
+        if (popdelay>standartgrowthspeed && pod.maxpop > pod.pop )
         {
             popdelay = 0;
             popdispv.pop++;

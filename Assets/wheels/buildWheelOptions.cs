@@ -128,7 +128,7 @@ public class buildWheelOptions : MonoBehaviour
         if (name == "tent")
         {
             popdisp[] PopDisp = resoueceSystem.GetComponentsInChildren<popdisp>();
-            PopDisp[0].pop += 3;
+            PopDisp[0].maxpop += 3;
         }
         else if (name == "fire")
         {

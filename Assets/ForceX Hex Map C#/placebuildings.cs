@@ -71,6 +71,7 @@ Sprite choptree;
     cost placecost;
  public   bool justplaced;
   public  GameObject congratsforanvil;
+    popdisp pod;
     // Start is called before the first frame update
     void Start()
     {
@@ -153,10 +154,16 @@ Sprite choptree;
                 curentcell++;
                 tpos[curentcell] = pos;
             }
-            //check for anvil
+            //building properties
             if (testbuilding.name == "anvil")
             {
                 congratsforanvil.SetActive(true);
+            }
+            if (testbuilding.name == "tent")
+            {
+                pod.maxpop += 3;
+                pod.pop -= 3;
+                PlayerPrefs.SetInt("pop", PlayerPrefs.GetInt("pop") -10  ); 
             }
             justplaced = true;
          
