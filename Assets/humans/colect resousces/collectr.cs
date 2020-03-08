@@ -19,7 +19,10 @@ public class collectr : MonoBehaviour
     [SerializeField]
     stonedisplay stony;
     [SerializeField]
+    irondisplay irony;
+    [SerializeField]
     int t;
+    int ironluck;
     void OnTriggerStay(Collider other)
     {
         if (myjob == 1)
@@ -44,7 +47,12 @@ public class collectr : MonoBehaviour
             {
                 stony.stone++;
                 t = 0;
-
+                ironluck++;
+                if (ironluck > 9)
+                {
+                    irony.unrefinediron++;
+                    ironluck= 0;
+                }
             }
         }
     }
