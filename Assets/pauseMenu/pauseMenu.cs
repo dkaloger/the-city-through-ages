@@ -31,14 +31,7 @@ public class pauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (GameIsPaused == true)
-        {
-            placeBuildings.pauseMenuOn = true;
-        }
-        else
-        {
-            placeBuildings.pauseMenuOn = false;
-        }
+   
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused == false)
@@ -50,6 +43,14 @@ public class pauseMenu : MonoBehaviour
             {
                 resume();
             }
+        }
+        if (GameIsPaused == true)
+        {
+            placeBuildings.pauseMenuOn = true;
+        }
+        else
+        {
+            placeBuildings.pauseMenuOn = false;
         }
     }
     void resume()
