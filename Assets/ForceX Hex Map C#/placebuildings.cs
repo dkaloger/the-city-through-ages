@@ -6,18 +6,14 @@ using System.Linq;
 using  UnityEngine.Tilemaps;
 public class placebuildings : MonoBehaviour
 {
-    public GameObject iron;
-    public GameObject stone;
-    public GameObject leather;
-    public GameObject pop;
-    public GameObject wood;
-    public GameObject food;
     bool canPlace = true;
     public bool pauseMenuOn = true;
     public GameObject destroyBuildingPos;
     public Transform[] childTrans;
+    public Transform[] childTransOrders;
     public destroy[] childScripts;
-    public GameObject parrentObj;
+    public GameObject parrentForBuildings;
+    public GameObject parrentForOrders;
     public List<float> buildingsPosX = new List<float>();
     public List<float> buildingsPosY = new List<float>();
     public List<string> Names = new List<string>();
@@ -86,8 +82,9 @@ Sprite choptree;
         Debug.Log(ti.curTier * 8 + ri.selectedring + "this is select ring number");
         justplaced = false;
         //child trans takes  the transforms of the buildings every frame
-        childTrans = parrentObj.GetComponentsInChildren<Transform>();
-        childScripts = parrentObj.GetComponentsInChildren<destroy>();
+        childTrans = parrentForBuildings.GetComponentsInChildren<Transform>();
+        childTransOrders = parrentForOrders.GetComponentsInChildren<Transform>();
+        childScripts = parrentForBuildings.GetComponentsInChildren<destroy>();
         if (ti.orderWheelOn == false)
         {
             testbuilding = buildings[ti.curTier * 8 + ri.selectedring];
@@ -121,18 +118,31 @@ Sprite choptree;
            //placechoptree
             if ( forest == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 18 && ti.orderWheelOn == true)
             {
+                Debug.Log(myTileMap.GetSprite(coordinate));
+                checkForBuilding();
+                if (canPlace == false)
+                {
+                    canPlace = true;
+                    return;
+                }
                 tpos[curentcell] = pos;
                 GameObject MyBuilding =  Instantiate(testbuilding, pos, idk);
-                MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
-                MyBuilding.transform.parent = parrentObj.transform;
+                MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, -0.9500039f);
+                MyBuilding.transform.parent = parrentForOrders.transform;
                 curentcell++;
             }
             else if (rockeyterrain == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 17 && ti.orderWheelOn == true)
             {
+                checkForBuilding();
+                if (canPlace == false)
+                {
+                    canPlace = true;
+                    return;
+                }
                 tpos[curentcell] = pos;
                 GameObject MyBuilding =  Instantiate(testbuilding, pos, idk);
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
-                MyBuilding.transform.parent = parrentObj.transform;
+                MyBuilding.transform.parent = parrentForOrders.transform;
                 curentcell++;
             }
 //general
@@ -148,7 +158,7 @@ Sprite choptree;
                 GameObject MyBuilding = Instantiate(testbuilding, pos, idk);
                 //this creates the building and set it to an object so it is a child
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
-                MyBuilding.transform.parent = parrentObj.transform;
+                MyBuilding.transform.parent = parrentForBuildings.transform;
                 if (testbuilding.name == "anvil") MyBuilding.transform.localScale = new Vector3(2, 2, 1);
                 ti.placedABuilding(testbuilding.name);
                 curentcell++;
@@ -181,7 +191,7 @@ Sprite choptree;
         takeOutThePos();
         GameObject destroy = Instantiate(destroyBuildingPos, pos, idk);
         destroy.transform.position = new Vector3(destroy.transform.position.x, destroy.transform.position.y - 0.10567f, destroy.transform.position.z);
-        destroy.transform.parent = parrentObj.transform;
+        destroy.transform.parent = parrentForBuildings.transform;
         for (int i = 0; i < childScripts.Length; i++)
         {
             if (destroy.transform.position.x == buildingsPosX[i] && destroy.transform.position.y == buildingsPosY[i])
@@ -213,7 +223,7 @@ Sprite choptree;
     {
         GameObject destroy = Instantiate(destroyBuildingPos, pos, idk);
         destroy.transform.position = new Vector3(destroy.transform.position.x, destroy.transform.position.y - 0.10567f, destroy.transform.position.z);
-        destroy.transform.parent = parrentObj.transform;
+        destroy.transform.parent = parrentForBuildings.transform;
         for (int i = 0; i < childScripts.Length; i++)
         {
             if (destroy.transform.position.x == buildingsPosX[i] && destroy.transform.position.y == buildingsPosY[i])
@@ -239,7 +249,6 @@ Sprite choptree;
             buildingsPosX.Add(childTrans[i + 1].position.x);
             buildingsPosY.Add(childTrans[i + 1].position.y);
             Names.Add(childTrans[i + 1].name);
-            Debug.Log("this is i :" + i + " of buildingsPosX " + buildingsPosX.Count);
         }
         Invoke("resetTheList", 0.05f);
     }
@@ -254,25 +263,25 @@ Sprite choptree;
     public void makeBuilding(float posX,float posY, string name)
     {
         curentcell--;
-        childTrans = parrentObj.GetComponentsInChildren<Transform>();
+        childTrans = parrentForBuildings.GetComponentsInChildren<Transform>();
         if (name == "fire(Clone)")
         {
             GameObject MyBuilding = Instantiate(buildings[1], new Vector3(posX,posY , -0.9500039f), idk);
-            MyBuilding.transform.parent = parrentObj.transform;
+            MyBuilding.transform.parent = parrentForBuildings.transform;
             curentcell++;
             tpos[childTrans.Length - 1] = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y, -0.9500039f);
         }
         else if (name == "tent(Clone)")
         {
             GameObject MyBuilding = Instantiate(buildings[2], new Vector3(posX, posY , -0.9500039f), idk);
-            MyBuilding.transform.parent = parrentObj.transform;
+            MyBuilding.transform.parent = parrentForBuildings.transform;
             curentcell++;
             tpos[childTrans.Length - 1] = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y, -0.9500039f);
         }
         else if (name == "anvil(Clone)")
         {
             GameObject MyBuilding = Instantiate(buildings[0], new Vector3(posX, posY , -0.9500039f), idk);
-            MyBuilding.transform.parent = parrentObj.transform;
+            MyBuilding.transform.parent = parrentForBuildings.transform;
             MyBuilding.transform.localScale = new Vector3(2, 2, 1);
             curentcell++;
             tpos[childTrans.Length - 1] = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y, -0.9500039f);
