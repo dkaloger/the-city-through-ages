@@ -25,6 +25,8 @@ public class cost : MonoBehaviour
     [SerializeField]
     GameObject tent;
     [SerializeField]
+    GameObject farm;
+    [SerializeField]
     SpriteRenderer stone;
     [SerializeField]
     SpriteRenderer wood;
@@ -110,6 +112,31 @@ public class cost : MonoBehaviour
             }
 
             }
-        
+        if (placeb.testbuilding == farm)
+        {
+            Debug.Log("90");
+            slot1im.sprite = stone.sprite;
+            slot2im.sprite = wood.sprite;
+            slot1int = 6;
+
+            slot2int = 10;
+            slot1t.text = slot1int.ToString();
+            slot2t.text = slot2int.ToString();
+            if (foody.food > slot1int && woody.wood > slot2int)
+            {
+                canafford = true;
+            }
+            if (foody.food < slot1int || woody.wood < slot2int)
+            {
+                canafford = false;
+            }
+            if (placeb.justplaced == true)
+            {
+                stony.stone -= slot1int;
+                woody.wood -= slot2int;
+            }
+
+        }
+
     }
 }
