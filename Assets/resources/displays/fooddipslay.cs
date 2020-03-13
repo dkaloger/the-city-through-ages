@@ -15,8 +15,8 @@ public class fooddipslay : MonoBehaviour
     void Start()
     {
         textMesH = GetComponent<TextMeshProUGUI>();
-        food = 1000;
-        unfood = 1000;
+        food = 500;
+       
         PlayerPrefs.SetInt("food", food);
     }
 

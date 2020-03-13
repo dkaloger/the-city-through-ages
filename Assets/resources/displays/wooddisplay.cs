@@ -11,7 +11,7 @@ public class wooddisplay : MonoBehaviour
     void Start()
     {
         textMesH = GetComponent<TextMeshProUGUI>();
-        wood = 1000;
+       
     }
 
     // Update is called once per frame

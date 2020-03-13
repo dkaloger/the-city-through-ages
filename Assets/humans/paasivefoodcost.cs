@@ -8,7 +8,8 @@ public class paasivefoodcost : MonoBehaviour
      int t;
     public fooddipslay fd;
     public int popcost;
-  
+    [SerializeField]
+    popdisp pod;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class paasivefoodcost : MonoBehaviour
       
     t ++ ;
     if (t > 1000){
-            fd.food -= popcost * PlayerPrefs.GetInt("pop");
+            fd.food -= popcost *pod.pop;
          
             t = 0;
         }

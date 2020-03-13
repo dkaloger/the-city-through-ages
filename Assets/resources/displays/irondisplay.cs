@@ -15,7 +15,7 @@ public class irondisplay : MonoBehaviour
     void Start()
     {
         textMesH = GetComponent<TextMeshProUGUI>();
-        iron = 1000;
+      
 
     }
 
