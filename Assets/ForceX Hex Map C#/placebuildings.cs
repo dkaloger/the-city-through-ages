@@ -79,7 +79,6 @@ Sprite choptree;
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(ti.curTier * 8 + ri.selectedring + "this is select ring number");
         justplaced = false;
         //child trans takes  the transforms of the buildings every frame
         childTrans = parrentForBuildings.GetComponentsInChildren<Transform>();
@@ -88,12 +87,10 @@ Sprite choptree;
         if (ti.orderWheelOn == false)
         {
             testbuilding = buildings[ti.curTier * 8 + ri.selectedring];
-            Debug.Log(ti.curTier * 8 + ri.selectedring);
         }
         else if (ti.orderWheelOn == true)
         {
             testbuilding = buildings[24 + ri.selectedring];
-            Debug.Log(16 + ri.selectedring);
         }
       
         pos = new Vector3(gf.TargetHex.position.x, gf.TargetHex.position.y, gf.TargetHex.position.z - 2f);
@@ -106,15 +103,13 @@ Sprite choptree;
         mi.z = -73;
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //Convert position of the mouseclick to the position of the tile located at the mouseclick
-        Debug.Log("s");
         Vector3Int coordinate = grid.WorldToCell(mouseWorldPos);
         //Display tile position in log
 
         //Display the sprite value of the tile in log *SUCCESS*
-        Debug.Log("l04");
         if (Input.GetKeyDown(KeyCode.Mouse0) && tpos.Contains(pos) == false && water != myTileMap.GetSprite(coordinate) && placecost.canafford == true && pauseMenuOn == false)
         {
-            Debug.Log("l07");
+            Debug.Log(16 + ri.selectedring);
            //placechoptree
             if ( forest == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 18 && ti.orderWheelOn == true)
             {
@@ -130,9 +125,11 @@ Sprite choptree;
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, -0.9500039f);
                 MyBuilding.transform.parent = parrentForOrders.transform;
                 curentcell++;
+                if (forest != myTileMap.GetSprite(grid.WorldToCell(MyBuilding.transform.position))) Destroy(MyBuilding); Debug.Log("destroyed the order");
             }
             else if (rockeyterrain == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 17 && ti.orderWheelOn == true)
             {
+                Debug.Log(myTileMap.GetSprite(coordinate));
                 checkForBuilding();
                 if (canPlace == false)
                 {
@@ -144,6 +141,7 @@ Sprite choptree;
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
                 MyBuilding.transform.parent = parrentForOrders.transform;
                 curentcell++;
+                if (rockeyterrain != myTileMap.GetSprite(grid.WorldToCell(MyBuilding.transform.position))) Destroy(MyBuilding);Debug.Log("destroyed the order");
             }
 //general
             else if (  ti.orderWheelOn == false)
