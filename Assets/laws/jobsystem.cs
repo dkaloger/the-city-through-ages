@@ -10,7 +10,8 @@ public class jobsystem : MonoBehaviour
     Image wedg1;
     [SerializeField]
     Image wedg2;
-   
+    [SerializeField]
+    Text d;
    
     public Slider choptrees;
 
@@ -33,13 +34,13 @@ public class jobsystem : MonoBehaviour
   
         wedg1.fillAmount = choptrees.value / 100f;
         wedg2.fillAmount = mines.value / 100f;
-   
-       
-        //  mines.value = 100 - choptrees.value;
-         if (Input.mousePosition.y >267 && Input.mousePosition.y <299 )
+
+
+        d.text = Input.mousePosition.y.ToString();
+         if ( Input.mousePosition.y <935 )
             {
 
-          
+
             mines.value = 100 - choptrees.value;
             }
          else
