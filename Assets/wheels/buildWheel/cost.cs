@@ -37,12 +37,15 @@ public class cost : MonoBehaviour
     [SerializeField]
     SpriteRenderer food;
     [SerializeField]
+    SpriteRenderer refiron;
+    [SerializeField]
     wooddisplay woody;
     [SerializeField]
     GameObject costg;
     [SerializeField]
     fooddipslay foody;
-    
+    [SerializeField]
+    irondisplay irony;
 
     // Start is called before the first frame update
 
@@ -114,7 +117,7 @@ public class cost : MonoBehaviour
             }
         if (placeb.testbuilding == farm)
         {
-            Debug.Log("90");
+
             slot1im.sprite = stone.sprite;
             slot2im.sprite = wood.sprite;
             slot1int = 6;
@@ -134,6 +137,31 @@ public class cost : MonoBehaviour
             {
                 stony.stone -= slot1int;
                 woody.wood -= slot2int;
+            }
+
+        }
+        if (placeb.testbuilding.name == "anvil")
+        {
+         
+            slot1im.sprite = wood.sprite;
+            slot2im.sprite = refiron.sprite;
+            slot1int = 20;
+
+            slot2int = 50;
+            slot1t.text = slot1int.ToString();
+            slot2t.text = slot2int.ToString();
+            if (irony.iron > slot1int && woody.wood > slot2int)
+            {
+                canafford = true;
+            }
+            if (irony.iron < slot2int || woody.wood < slot1int)
+            {
+                canafford = false;
+            }
+            if (placeb.justplaced == true)
+            {
+                irony.iron -= slot2int;
+                woody.wood -= slot1int;
             }
 
         }
