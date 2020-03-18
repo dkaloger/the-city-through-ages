@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3156208750787833286}
   - component: {fileID: 3156208750787833281}
+  - component: {fileID: 8719269610528331546}
   m_Layer: 0
   m_Name: dig
   m_TagString: diggy
@@ -80,3 +81,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8719269610528331546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3156208750787833280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6afb0b2f1c3cb3440b8aea98bd98ec8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -70,21 +70,5 @@ public class testSaving : MonoBehaviour
             saving.savePosOfBuilding(this);
             
         }
-        //test content just to see if it worked
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            saving.savePosOfCam(this);
-        }
-        else if (Input.GetKeyDown(KeyCode.K))
-        {
-            posSave data = saving.loadPosOfCam();
-
-            Vector3 position;
-            position.x = data.posOfCam[0];
-            position.y = data.posOfCam[1];
-            position.z = data.posOfCam[2];
-
-            transform.position = position;
-        }
     }
 }

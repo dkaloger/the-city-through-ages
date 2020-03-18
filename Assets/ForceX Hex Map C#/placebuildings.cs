@@ -123,7 +123,7 @@ Sprite choptree;
                 tpos[curentcell] = pos;
                 GameObject MyBuilding =  Instantiate(testbuilding, pos, idk);
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, -0.9500039f);
-                MyBuilding.transform.parent = parrentForOrders.transform;
+                MyBuilding.transform.parent = parrentForBuildings.transform;
                 curentcell++;
                 if (forest != myTileMap.GetSprite(grid.WorldToCell(MyBuilding.transform.position))) Destroy(MyBuilding); Debug.Log("destroyed the order");
             }
@@ -139,7 +139,7 @@ Sprite choptree;
                 tpos[curentcell] = pos;
                 GameObject MyBuilding =  Instantiate(testbuilding, pos, idk);
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
-                MyBuilding.transform.parent = parrentForOrders.transform;
+                MyBuilding.transform.parent = parrentForBuildings.transform;
                 curentcell++;
                 if (rockeyterrain != myTileMap.GetSprite(grid.WorldToCell(MyBuilding.transform.position))) Destroy(MyBuilding);Debug.Log("destroyed the order");
             }
@@ -279,6 +279,30 @@ Sprite choptree;
         else if (name == "anvil(Clone)")
         {
             GameObject MyBuilding = Instantiate(buildings[0], new Vector3(posX, posY , -0.9500039f), idk);
+            MyBuilding.transform.parent = parrentForBuildings.transform;
+            MyBuilding.transform.localScale = new Vector3(2, 2, 1);
+            curentcell++;
+            tpos[childTrans.Length - 1] = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y, -0.9500039f);
+        }
+        else if (name == "farm(Clone)")
+        {
+            GameObject MyBuilding = Instantiate(buildings[3], new Vector3(posX, posY, -0.9500039f), idk);
+            MyBuilding.transform.parent = parrentForBuildings.transform;
+            MyBuilding.transform.localScale = new Vector3(2, 2, 1);
+            curentcell++;
+            tpos[childTrans.Length - 1] = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y, -0.9500039f);
+        }
+        else if (name == "dig(Clone)")
+        {
+            GameObject MyBuilding = Instantiate(buildings[25], new Vector3(posX, posY, -0.9500039f), idk);
+            MyBuilding.transform.parent = parrentForBuildings.transform;
+            MyBuilding.transform.localScale = new Vector3(2, 2, 1);
+            curentcell++;
+            tpos[childTrans.Length - 1] = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y, -0.9500039f);
+        }
+        else if (name == "tree_that_is_getting_chopped(Clone)")
+        {
+            GameObject MyBuilding = Instantiate(buildings[26], new Vector3(posX, posY, -0.9500039f), idk);
             MyBuilding.transform.parent = parrentForBuildings.transform;
             MyBuilding.transform.localScale = new Vector3(2, 2, 1);
             curentcell++;
