@@ -18,6 +18,7 @@ public class irondisplay : MonoBehaviour
         textMesH = GetComponent<TextMeshProUGUI>();
 
         iron = PlayerPrefs.GetInt("iron");
+        unrefinediron = PlayerPrefs.GetInt("uniron");
     }
 
     // Update is called once per frame
