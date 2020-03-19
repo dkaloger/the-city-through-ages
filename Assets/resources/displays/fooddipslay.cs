@@ -15,14 +15,19 @@ public class fooddipslay : MonoBehaviour
     void Start()
     {
         textMesH = GetComponent<TextMeshProUGUI>();
-        food = 500;
+  
        
-        PlayerPrefs.SetInt("food", food);
+     food =   PlayerPrefs.GetInt("food");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            food = 500;
+            unfood = 0;
+        }
         textMesH.text = food.ToString();
         textMesH1.text = unfood.ToString();
         PlayerPrefs.SetInt("food",food);

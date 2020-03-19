@@ -18,6 +18,10 @@ public class wooddisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            wood = 0;
+        }
         textMesH.text = wood.ToString();
         t++;
         if (t > 1000)

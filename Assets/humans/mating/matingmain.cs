@@ -28,14 +28,22 @@ public class matingmain : MonoBehaviour
     void FixedUpdate()
     {
         Debug.Log("l21m");
-        popdelay += PlayerPrefs.GetInt("matingspeed") * pod.pop / 10;
+   
+        if (popdelay < 4)
+        {
+            popdelay += PlayerPrefs.GetInt("matingspeed") * 2 * pod.pop / 10;
+        }
+        if (popdelay > 4)
+        {
+            popdelay += PlayerPrefs.GetInt("matingspeed") * pod.pop / 10;
+        }
     }
     // Update is called once per frame
     void Update()
     {
 
         Debug.Log("l28m");
-       
+      
         if (popdelay>standartgrowthspeed && pod.maxpop > pod.pop )
         {
             popdelay = 0;
