@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 public class popdisp : MonoBehaviour
 {
+    int t;
     public int pop;
    public int maxpop = 10;
     public TextMeshProUGUI textMesH;
@@ -12,9 +13,9 @@ public class popdisp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
-        pop = 2;
-     
+
+        pop = PlayerPrefs.GetInt("pop");
+
 
     }
 
@@ -23,6 +24,12 @@ public class popdisp : MonoBehaviour
     {
         textMesH.text = pop.ToString();
         textMesH1.text = maxpop.ToString();
+        t++;
+        if (t > 1000)
+        {
+            PlayerPrefs.SetInt("pop", pop);
+            t = 0;
+        }
     }
     void OnMouseOver()
     {

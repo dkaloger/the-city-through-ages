@@ -4,7 +4,8 @@ using UnityEngine;
 using TMPro;
 public class irondisplay : MonoBehaviour
 
-{ 
+{
+    int t;
     public int iron;
     public int unrefinediron;
     private TextMeshProUGUI textMesH;
@@ -15,8 +16,8 @@ public class irondisplay : MonoBehaviour
     void Start()
     {
         textMesH = GetComponent<TextMeshProUGUI>();
-      
 
+        iron = PlayerPrefs.GetInt("iron");
     }
 
     // Update is called once per frame
@@ -24,7 +25,14 @@ public class irondisplay : MonoBehaviour
     {
         textMesH.text = iron.ToString();
         textMesH1.text = unrefinediron.ToString();
+          t++;
+        if (t > 1000)
+        {
+            PlayerPrefs.SetInt("iron", iron);
+            t = 0;
+        }
     }
+    
     void OnMouseOver()
     {
         siron.SetActive(true);
@@ -33,4 +41,5 @@ public class irondisplay : MonoBehaviour
     {
         siron.SetActive(false);
     }
+
 }

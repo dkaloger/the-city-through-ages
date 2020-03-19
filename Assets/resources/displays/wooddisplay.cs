@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 public class wooddisplay : MonoBehaviour
 {
+    int t;
     public int wood;
     private TextMeshProUGUI textMesH;
 
@@ -11,12 +12,18 @@ public class wooddisplay : MonoBehaviour
     void Start()
     {
         textMesH = GetComponent<TextMeshProUGUI>();
-       
+        wood = PlayerPrefs.GetInt("wood"); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        textMesH.text = wood.ToString();      
+        textMesH.text = wood.ToString();
+        t++;
+        if (t > 1000)
+        {
+            PlayerPrefs.SetInt("wood", wood);
+            t = 0;
+        }
     }
 }

@@ -36,7 +36,7 @@ public class jobsystem : MonoBehaviour
         wedg2.fillAmount = mines.value / 100f;
 
 
-        d.text = Input.mousePosition.y.ToString();
+       // d.text = Input.mousePosition.y.ToString();
          if ( Input.mousePosition.y <935 )
             {
 
