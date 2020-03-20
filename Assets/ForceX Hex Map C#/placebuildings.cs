@@ -154,6 +154,7 @@ Sprite choptree;
                     return;
                 }
                 GameObject MyBuilding = Instantiate(testbuilding, pos, idk);
+                Debug.Log("L157");
                 //this creates the building and set it to an object so it is a child
                 MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, MyBuilding.transform.position.z);
                 MyBuilding.transform.parent = parrentForBuildings.transform;
@@ -181,13 +182,16 @@ Sprite choptree;
             takeOutThePos();
 
             destroyBuilding();
+            Debug.Log("L184");
         }
    
     }
     void checkForBuilding()
     {
         takeOutThePos();
-        GameObject destroy = Instantiate(destroyBuildingPos, pos, idk);
+        GameObject destroy = Instantiate(testbuilding, pos, idk);
+        justplaced = true;
+        Debug.Log("L191");
         destroy.transform.position = new Vector3(destroy.transform.position.x, destroy.transform.position.y - 0.10567f, destroy.transform.position.z);
         destroy.transform.parent = parrentForBuildings.transform;
         for (int i = 0; i < childScripts.Length; i++)
@@ -217,9 +221,11 @@ Sprite choptree;
 
     }
 
+
     void destroyBuilding()
     {
-        GameObject destroy = Instantiate(destroyBuildingPos, pos, idk);
+        GameObject destroy = Instantiate(testbuilding, pos, idk);
+        Debug.Log("L225");
         destroy.transform.position = new Vector3(destroy.transform.position.x, destroy.transform.position.y - 0.10567f, destroy.transform.position.z);
         destroy.transform.parent = parrentForBuildings.transform;
         for (int i = 0; i < childScripts.Length; i++)
