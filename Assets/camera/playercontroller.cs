@@ -31,7 +31,7 @@ public class playercontroller : MonoBehaviour
                 GetComponent<Camera>().orthographicSize += scrollSpeed * Time.deltaTime;
             }
         }
-        if (GetComponent<Camera>().orthographicSize >= 1)
+        if (GetComponent<Camera>().orthographicSize >= 3)
         {
             if (Input.GetAxis("Mouse ScrollWheel") > 0 && canScroll == true)
             {

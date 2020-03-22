@@ -9,7 +9,7 @@ public class fooddipslay : MonoBehaviour
     private TextMeshProUGUI textMesH;
 
     public TextMeshProUGUI textMesH1;
-   
+    int t;
     public GameObject sfood;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,7 @@ public class fooddipslay : MonoBehaviour
   
        
      food =   PlayerPrefs.GetInt("food");
+        unfood = PlayerPrefs.GetInt("unfood");
     }
 
     // Update is called once per frame
@@ -30,7 +31,13 @@ public class fooddipslay : MonoBehaviour
         }
         textMesH.text = food.ToString();
         textMesH1.text = unfood.ToString();
-        PlayerPrefs.SetInt("food",food);
+        t++;
+            if (t > 100)
+        {
+            PlayerPrefs.SetInt("food", food);
+            PlayerPrefs.SetInt("unfood", unfood);
+        }
+    
     }
     void OnMouseOver()
     {

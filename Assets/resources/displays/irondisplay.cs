@@ -32,7 +32,7 @@ public class irondisplay : MonoBehaviour
         textMesH.text = iron.ToString();
         textMesH1.text = unrefinediron.ToString();
           t++;
-        if (t > 1000)
+        if (t > 100)
         {
             PlayerPrefs.SetInt("iron", iron);
             PlayerPrefs.SetInt("uniron", unrefinediron);

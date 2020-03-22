@@ -24,7 +24,7 @@ public class wooddisplay : MonoBehaviour
         }
         textMesH.text = wood.ToString();
         t++;
-        if (t > 1000)
+        if (t > 100)
         {
             PlayerPrefs.SetInt("wood", wood);
             t = 0;

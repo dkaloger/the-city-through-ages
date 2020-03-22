@@ -16,9 +16,10 @@ public class popdisp : MonoBehaviour
         if(PlayerPrefs.GetInt("pop") == 0)
         {
             PlayerPrefs.SetInt("pop", 2);
+     
         }
         pop = PlayerPrefs.GetInt("pop");
-
+        maxpop = PlayerPrefs.GetInt("maxpop");
 
     }
 
@@ -38,9 +39,10 @@ public class popdisp : MonoBehaviour
         textMesH.text = pop.ToString();
         textMesH1.text = maxpop.ToString();
         t++;
-        if (t > 1000)
+        if (t > 100)
         {
             PlayerPrefs.SetInt("pop", pop);
+            PlayerPrefs.SetInt("maxpop", maxpop);
             t = 0;
         }
     }
