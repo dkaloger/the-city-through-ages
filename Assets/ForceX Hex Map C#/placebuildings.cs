@@ -224,7 +224,7 @@ Sprite choptree;
 
     void destroyBuilding()
     {
-        GameObject destroy = Instantiate(testbuilding, pos, idk);
+        GameObject destroy = Instantiate(destroyBuildingPos, pos, idk);
         Debug.Log("L225");
         destroy.transform.position = new Vector3(destroy.transform.position.x, destroy.transform.position.y - 0.10567f, destroy.transform.position.z);
         destroy.transform.parent = parrentForBuildings.transform;
