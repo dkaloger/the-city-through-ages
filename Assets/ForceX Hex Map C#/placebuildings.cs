@@ -284,7 +284,7 @@ Sprite choptree;
         }
         else if (name == "anvil(Clone)")
         {
-            GameObject MyBuilding = Instantiate(buildings[0], new Vector3(posX, posY , -0.9500039f), idk);
+            GameObject MyBuilding = Instantiate(buildings[4], new Vector3(posX, posY , -0.9500039f), idk);
             MyBuilding.transform.parent = parrentForBuildings.transform;
             MyBuilding.transform.localScale = new Vector3(2, 2, 1);
             curentcell++;
