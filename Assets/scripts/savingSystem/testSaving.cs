@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class testSaving : MonoBehaviour
 {
-    public float timer = 60f;
+    public float timer = 600f;
     public placebuildings placeBuildings;
     public List<float> buildingsPosX = new List<float>();
     public List<float> buildingsPosY = new List<float>();
