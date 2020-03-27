@@ -165,6 +165,31 @@ public class cost : MonoBehaviour
             }
 
         }
+        if (placeb.testbuilding.name == "bucket")
+        {
+
+            slot1im.sprite = wood.sprite;
+            slot2im.sprite = stone.sprite;
+            slot1int = 10;
+
+            slot2int = 5;
+            slot1t.text = slot1int.ToString();
+            slot2t.text = slot2int.ToString();
+            if (stony.stone > slot1int && woody.wood > slot2int)
+            {
+                canafford = true;
+            }
+            if (stony.stone < slot2int || woody.wood < slot1int)
+            {
+                canafford = false;
+            }
+            if (placeb.justplaced == true)
+            {
+                stony.stone -= slot2int;
+                woody.wood -= slot1int;
+            }
+
+        }
 
     }
 }
