@@ -62,6 +62,7 @@ Sprite choptree;
     buildWheelOptions ti;
    
     public Sprite forest;
+    public Sprite beach;
     public Sprite rockeyterrain;
     [SerializeField]
     cost placecost;
@@ -108,9 +109,32 @@ Sprite choptree;
 
         //Display the sprite value of the tile in log *SUCCESS*
         if (Input.GetKeyDown(KeyCode.Mouse0) && tpos.Contains(pos) == false && water != myTileMap.GetSprite(coordinate) && placecost.canafford == true && pauseMenuOn == false)
-        {
-            Debug.Log(16 + ri.selectedring);
-           //placechoptree
+        {   //place bucket
+            Debug.Log(myTileMap.GetSprite(coordinate));
+            Debug.Log("test");
+       if (
+   
+              ri.selectedring == 5 
+               && ti.orderWheelOn == false
+             )
+         {
+                Instantiate(testbuilding, pos, idk);
+                //     Debug.Log(myTileMap.GetSprite(coordinate));
+                //      checkForBuilding();
+                //     if (canPlace == false)
+                //     {
+                //         canPlace = true;
+                //         return;
+                //     }
+                //     tpos[curentcell] = pos;
+                //    GameObject MyBuilding = Instantiate(testbuilding, pos, idk);
+                //  MyBuilding.transform.position = new Vector3(MyBuilding.transform.position.x, MyBuilding.transform.position.y - 0.10567f, -0.9500039f);
+                //   MyBuilding.transform.parent = parrentForBuildings.transform;
+                //    curentcell++;
+               //  if (forest != myTileMap.GetSprite(grid.WorldToCell(MyBuilding.transform.position))) Destroy(MyBuilding); Debug.Log("destroyed the order");
+            }
+      //      Debug.Log(16 + ri.selectedring);
+           //placeorder
             if ( forest == myTileMap.GetSprite(coordinate) && 16 + ri.selectedring == 18 && ti.orderWheelOn == true)
             {
                 Debug.Log(myTileMap.GetSprite(coordinate));
@@ -143,8 +167,9 @@ Sprite choptree;
                 curentcell++;
                 if (rockeyterrain != myTileMap.GetSprite(grid.WorldToCell(MyBuilding.transform.position))) Destroy(MyBuilding);Debug.Log("destroyed the order");
             }
-//general
-            else if (  ti.orderWheelOn == false)
+         
+            // place general
+            else if (ti.orderWheelOn == false && ri.selectedring != 5)
             {
                 // this checks if we can place and don't remove it because it it checking¨for loaded buildings
                 checkForBuilding();

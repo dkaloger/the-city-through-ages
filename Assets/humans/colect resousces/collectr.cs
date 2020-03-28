@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class collectr : MonoBehaviour
 {
 [SerializeField]
@@ -79,16 +80,18 @@ public class collectr : MonoBehaviour
         if (myjob == 1)
         {
             target = GameObject.FindGameObjectWithTag("chop");
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);
-
-
+            Vector3 dir = target.transform.position - transform.position;
+            Vector3 movement = dir.normalized * speed * Time.deltaTime;
+            if (movement.magnitude > dir.magnitude) movement = dir;
+            GetComponent<CharacterController>().Move(movement);
         }
         if (myjob == 2)
         {
             target = GameObject.FindGameObjectWithTag("diggy");
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);
-
-
+            Vector3 dir = target.transform.position - transform.position;
+            Vector3 movement = dir.normalized * speed * Time.deltaTime;
+            if (movement.magnitude > dir.magnitude) movement = dir;
+            GetComponent<CharacterController>().Move(movement);
         }
 
     }
